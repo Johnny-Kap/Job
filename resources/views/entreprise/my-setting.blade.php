@@ -1,0 +1,259 @@
+@extends('layouts.admins-employer')
+
+@section('content')
+    <!--=================================
+                                                                        inner banner -->
+    <div class="header-inner bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="candidates-user-info">
+                        <div class="jobber-user-info">
+                            <div class="profile-avatar">
+                                @if (Auth::user()->image == null)
+                                    <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
+                                @else
+                                    <img class="img-fluid" src="{{ Storage::url(Auth::user()->image) }}" alt="">
+                                @endif
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <div class="profile-avatar-info ms-4">
+                                <h3>{{ Auth::user()->name }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================================
+                                                                          inner banner -->
+
+    <!--=================================
+                                                                          Dashboard Nav -->
+    <section class="space-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="browse-job justify-content-center d-flex border-0 pb-3">
+                        <div class="mb-4 mb-md-0">
+                            <ul class="nav nav-tabs justify-content-center d-flex" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home"
+                                        role="tab" aria-controls="home" aria-selected="true">Gérer mon profil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab"
+                                        aria-controls="profile" aria-selected="false">Modifier mot de passe</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#email" role="tab"
+                                        aria-controls="profile" aria-selected="false">Modifier mon email</a>
+                                </li>
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#resume" role="tab"
+                                        aria-controls="profile" aria-selected="false">Gérer mon CV</a>
+                                </li> --}}
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#manage" role="tab"
+                                        aria-controls="profile" aria-selected="false">Gérer mes offres d'emploi</a>
+                                </li> --}}
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#saved" role="tab"
+                                        aria-controls="profile" aria-selected="false">Gérer mes favoris</a>
+                                </li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Profile -->
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="user-dashboard-info-box">
+                                        <div class="section-title-02 mb-2 d-grid">
+                                            <h4>Basic Information</h4>
+                                        </div>
+                                        <div class="cover-photo-contact">
+                                            <div class="upload-file">
+                                                <label for="formFile" class="form-label">Upload Cover Photo</label>
+                                                <input class="form-control" type="file" id="formFile">
+                                            </div>
+                                        </div>
+                                        <form method="post" action="{{ route('entreprise.profil.edited') }}">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="form-group mb-3 col-md-6">
+                                                    <label class="form-label">Your Name</label>
+                                                    <input type="text" class="form-control" name="name"
+                                                        value="{{ Auth::user()->name }}">
+                                                </div>
+                                                <div class="form-group mb-3 col-md-6 datetimepickers">
+                                                    <label class="form-label">Date of birth</label>
+                                                    <div class="input-group date" id="datetimepicker-01"
+                                                        data-target-input="nearest">
+                                                        <input type="text" name="date_creation"
+                                                            class="form-control datetimepicker-input"
+                                                            value="{{ Auth::user()->date_naiss }}"
+                                                            data-target="#datetimepicker-01">
+                                                        <div class="input-group-append d-flex"
+                                                            data-target="#datetimepicker-01" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i
+                                                                    class="far fa-calendar-alt"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3 col-md-6">
+                                                    <label class="form-label">Phone</label>
+                                                    <input type="text" name="tel" class="form-control"
+                                                        value="{{ Auth::user()->tel }}">
+                                                </div>
+                                                {{-- <div class="form-group mb-3 col-md-6">
+                                                    <label class="d-block mb-3">Gender</label>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="genre"
+                                                            id="customRadio1" value="1"
+                                                            checked="{{ Auth::user()->genres->etat == '0' ? 'checked' : '' }}">
+                                                        <label class="form-check-label" for="customRadio1">Male</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="genre"
+                                                            id="customRadio2" value="2"
+                                                            checked="{{ Auth::user()->genres->etat == '1' ? 'checked' : '' }}">
+                                                        <label class="form-check-label" for="customRadio2">Female</label>
+                                                    </div>
+                                                </div> --}}
+                                                <div class="form-group mb-3 col-md-6 select-border">
+                                                    <label class="form-label">Secteur</label>
+                                                    <select name="secteur" class="form-control basic-select">
+                                                        @foreach ($secteurs as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->intitule }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3 col-md-6 select-border">
+                                                    <label class="form-label">Sous secteur</label>
+                                                    <select name="sous_secteur" class="form-control basic-select">
+                                                        @foreach ($sous_secteurs as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->intitule }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+
+                                                {{-- <div class="form-group mb-3 col-md-6">
+                                                    <label class="form-label">Salary</label>
+                                                    <input type="text" class="form-control" value="$33,000">
+                                                </div> --}}
+                                                <div class="form-group mb-0 col-md-12">
+                                                    <label class="form-label">Description</label>
+                                                    <textarea class="form-control" rows="5" name="description">{{ Auth::user()->description }}</textarea>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="user-dashboard-info-box">
+                                        <div class="section-title-02 mb-3">
+                                            <h4>Social Links</h4>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group mb-3 col-md-6">
+                                                <label class="form-label">Facebook</label>
+                                                <input type="text" name="facebook" class="form-control"
+                                                    value="{{ Auth::user()->facebook }}">
+                                            </div>
+                                            <div class="form-group mb-3 col-md-6">
+                                                <label class="form-label">Twitter</label>
+                                                <input type="email" name="twitter" class="form-control"
+                                                    value="{{ Auth::user()->twitter }}">
+                                            </div>
+                                            <div class="form-group mb-0 col-md-6">
+                                                <label class="form-label">Linkedin</label>
+                                                <input type="text" name="linkedin" class="form-control"
+                                                    value="{{ Auth::user()->linkedin }}">
+                                            </div>
+                                            <div class="form-group mb-3 col-md-6">
+                                                <label class="form-label">Site internet</label>
+                                                <input type="text" name="site_internet" class="form-control"
+                                                    value="{{ Auth::user()->site_internet }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="user-dashboard-info-box">
+                                        <div class="form-group mb-0">
+                                            <h4 class="mb-3">Address</h4>
+                                            <div class="form-group mb-3">
+                                                <label class="form-label">Enter Your Location</label>
+                                                <input type="text" name="adresse" class="form-control"
+                                                    value="{{ Auth::user()->Adresse }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-md btn-primary">Sauvegarder</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Change password -->
+                        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <div class="user-dashboard-info-box">
+                                        <div class="section-title-02 mb-4">
+                                            <h4>Change Password</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <form class="row" method="POST" action="{{route('entreprise.password.change')}}">
+                                                    @csrf
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label class="form-label">Current Password</label>
+                                                        <input type="password" name="old_password" class="form-control" value="">
+                                                    </div>
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label class="form-label">New Password</label>
+                                                        <input type="password" name="new_password" class="form-control" value="">
+                                                    </div>
+                                                    <div class="form-group col-md-12 mb-0">
+                                                        <label class="form-label">Confirm Password</label>
+                                                        <input type="password" name="confirm_password" class="form-control" value="">
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-lg btn-primary" type="submit">Changer mot de passe</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div><!-- Change email -->
+                        <div class="tab-pane fade show" id="email" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <div class="user-dashboard-info-box">
+                                        <div class="section-title-02 mb-4">
+                                            <h4>Changer email</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <form class="row">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label class="form-label">Mon Email</label>
+                                                        <input type="email" class="form-control" value="">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-lg btn-primary" href="#">Change Password</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=================================
+                                                                                      Jobs-listing -->
+@endsection
