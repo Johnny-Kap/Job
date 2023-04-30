@@ -36,17 +36,20 @@ class EntrepriseController extends Controller
         return view('entreprise.home');
     }
 
-    public function about(){
+    public function about()
+    {
 
         return view('entreprise.about');
     }
 
-    public function contact(){
+    public function contact()
+    {
 
         return view('entreprise.contact');
     }
 
-    public function showMyProfil(){
+    public function showMyProfil()
+    {
 
         $my_id = Auth::user()->id;
 
@@ -55,16 +58,18 @@ class EntrepriseController extends Controller
         return view('entreprise.my-profile', compact('my_job'));
     }
 
-    public function showSetting(){
+    public function showSetting()
+    {
 
         $secteurs = Secteur::all();
 
         $sous_secteurs = SousSecteur::all();
 
-        return view('entreprise.my-setting', compact('secteurs','sous_secteurs'));
+        return view('entreprise.my-setting', compact('secteurs', 'sous_secteurs'));
     }
 
-    public function showMyJobs(){
+    public function showMyJobs()
+    {
 
         $my_id = Auth::user()->id;
 
@@ -73,7 +78,8 @@ class EntrepriseController extends Controller
         return view('entreprise.gestion-emplois', compact('job'));
     }
 
-    public function showMyCandidat(){
+    public function showMyCandidat()
+    {
 
         $my_id = Auth::user()->id;
 
@@ -84,7 +90,8 @@ class EntrepriseController extends Controller
         return view('entreprise.gestion-candidature', compact('my_candidat'));
     }
 
-    public function changePassword(Request $request){
+    public function changePassword(Request $request)
+    {
 
         $request->validate([
             'old_password' => 'required|min:8|max:100',
@@ -107,14 +114,16 @@ class EntrepriseController extends Controller
         }
     }
 
-    public function showProfil(){
+    public function showProfil()
+    {
 
         $profil = User::where('is_enterprise', 0)->simplePaginate(15);
 
         return view('entreprise.profil-consulter', compact('profil'));
     }
 
-    public function showProfilDetail($id){
+    public function showProfilDetail($id)
+    {
 
         $profil_detail = User::find($id);
 
@@ -128,7 +137,30 @@ class EntrepriseController extends Controller
 
         $langues = Langue::where('user_id', $id)->get();
 
-        return view('entreprise.profil-detail', compact('profil_detail','informations','experiences','educations','competences','langues'));
+        return view('entreprise.profil-detail', compact('profil_detail', 'informations', 'experiences', 'educations', 'competences', 'langues'));
+    }
+
+    public function searchProfil(Request $request)
+    {
+
+        if ($request->name !== null && $request->adresse !== null) {
+
+            $resultat = User::where('name', 'like', '%' . $request->name . '%')->where('Adresse', 'like', '%' . $request->adresse . '%')->where('is_enterprise', 0)->simplePaginate(15);
+        } elseif ($request->name !== null && $request->adresse == null) {
+
+            $resultat = User::where('name', 'like', '%' . $request->name . '%')->where('is_enterprise', 0)->simplePaginate(15);
+        } elseif ($request->name == null && $request->adresse !== null) {
+
+            $resultat = User::where('Adresse', 'like', '%' . $request->adresse . '%')->where('is_enterprise', 0)->simplePaginate(15);
+        } elseif ($request->name == null && $request->adresse == null) {
+
+            return back();
+        }
+
+
+       
+
+        return view('entreprise.resultat-search-profil', compact('resultat'));
     }
 
 

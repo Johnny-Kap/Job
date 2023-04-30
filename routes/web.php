@@ -42,6 +42,7 @@ Route::get('entreprise/gestion-des-candidature', [App\Http\Controllers\Entrepris
 //Consulte profil by enterprise
 Route::get('entreprise/consulter-profil', [App\Http\Controllers\EntrepriseController::class, 'showProfil'])->name('entreprise.consulte.profil')->middleware('is_enterprise');
 Route::get('/entreprise/profil-detail/{id}', [App\Http\Controllers\EntrepriseController::class, 'showProfilDetail'])->name('entreprise.profil.detail')->middleware('is_enterprise');
+Route::get('entreprise/resultat-recherche', [App\Http\Controllers\EntrepriseController::class, 'searchProfil'])->name('entreprise.profil.search')->middleware('is_enterprise');
 
 //Candidat
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');

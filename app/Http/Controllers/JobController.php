@@ -32,10 +32,11 @@ class JobController extends Controller
 
         $job_similar = Job::take(4)->get();
 
-        return view('candidat.job-detail', compact('show_detail','job_similar'));
+        return view('candidat.job-detail', compact('show_detail', 'job_similar'));
     }
 
-    public function showPostJob(){
+    public function showPostJob()
+    {
 
         $secteurs = Secteur::all();
 
@@ -43,10 +44,11 @@ class JobController extends Controller
 
         $type_job = TypeJob::all();
 
-        return view('entreprise.poster-job', compact('secteurs','sous_secteurs','type_job'));
+        return view('entreprise.poster-job', compact('secteurs', 'sous_secteurs', 'type_job'));
     }
 
-    public function showSubmit(){
+    public function showSubmit()
+    {
 
         return view('entreprise.submited-job');
     }
@@ -104,23 +106,21 @@ class JobController extends Controller
         return redirect()->route('entreprise.post.job.submit');
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
 
-        if($request->job_title !== null && $request->job_adresse !== null){
+        if ($request->job_title !== '' && $request->job_adresse !== '') {
 
-            $resultat = Job::where('titre', 'like', '%'. $request->job_title .'%')->where('adresse', 'like', '%'.$request->adresse.'%')->simplePaginate(15);
+            $resultat = Job::where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
+        } elseif ($request->job_title !== '' && $request->job_adresse == '') {
 
-        }elseif($request->job_title !== null && $request->job_adresse == null){
+            $resultat = Job::where('titre', 'like', '%' . $request->job_title . '%')->simplePaginate(15);
+        } elseif ($request->job_title == '' && $request->job_adresse !== '') {
 
-            $resultat = Job::where('titre', 'like', '%'. $request->job_title .'%')->simplePaginate(15);
-
-        }elseif($request->job_title == null && $request->job_adresse !== null){
-
-            $resultat = Job::where('adresse', 'like', '%'. $request->job_title .'%')->simplePaginate(15);
-
+            $resultat = Job::where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
         }
 
-        return view('candidat.resultat-search', compact('resultat'));
+        return view('candidat.resultat-search-job', compact('resultat'));
     }
 
     /**

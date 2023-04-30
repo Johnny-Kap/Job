@@ -12,16 +12,16 @@
                     <p class="lead mb-4 mb-lg-5 fw-normal">Find Jobs, Employment & Career Opportunities</p>
                     <div class="job-search-field">
                         <div class="job-search-item">
-                            <form class="form row">
+                            <form class="form row" method="get" action="{{route('entreprise.profil.search')}}">
                                 <div class="col-lg-5">
                                     <div class="form-group mb-3">
                                         <div class="d-flex">
-                                            <label class="form-label">What</label>
+                                            <label class="form-label">Qui ?</label>
                                             <span class="ms-auto">e.g. job, company, title</span>
                                         </div>
                                         <div class="position-relative left-icon">
-                                            <input type="text" class="form-control" name="job_title"
-                                                placeholder="Job title, skill or company">
+                                            <input type="text" class="form-control" name="name"
+                                                placeholder="Nom du profil recherché">
                                             <i class="fas fa-search"></i>
                                         </div>
                                     </div>
@@ -29,12 +29,12 @@
                                 <div class="col-lg-5">
                                     <div class="form-group mb-3">
                                         <div class="d-flex">
-                                            <label class="form-label">Where</label>
+                                            <label class="form-label">Où ?</label>
                                             <span class="ms-auto">e.g. city, county or postcode</span>
                                         </div>
                                         <div class="position-relative left-icon">
-                                            <input type="text" class="form-control location-input" name="job_title"
-                                                placeholder="Town, city or postcode">
+                                            <input type="text" class="form-control location-input" name="adresse"
+                                                placeholder="Ville du profil recherché">
                                             <i class="far fa-compass"></i>
                                             <a href="#">
                                                 <div class="detect">
@@ -48,7 +48,7 @@
                                 <div class="col-lg-2 col-sm-12">
                                     <div class="form-group mb-3 form-action">
                                         <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-search"></i>
-                                            Find Jobs</button>
+                                            Find profil</button>
                                     </div>
                                 </div>
                             </form>
