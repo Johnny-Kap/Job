@@ -119,6 +119,11 @@
                                                         value="{{ Auth::user()->tel }}">
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6">
+                                                    <label class="form-label">Profession</label>
+                                                    <input type="text" name="profession" class="form-control"
+                                                        value="{{ Auth::user()->profession }}">
+                                                </div>
+                                                <div class="form-group mb-3 col-md-6">
                                                     <label class="d-block mb-3">Gender</label>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="genre"

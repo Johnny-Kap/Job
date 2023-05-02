@@ -30,6 +30,15 @@
                                                 {{ Auth::user()->Adresse }}
                                             @endif
                                         </li>
+                                        @if (Auth::user()->email_verified_at == null)
+                                        <li class="candidates-feature-info bg-danger" style="border-radius: 5px; padding:2px;">
+                                            <span class="candidates-info-title text-white">Email non vérifié</span>
+                                        </li>
+                                        @else
+                                        <li class="candidates-feature-info bg-success" style="border-radius: 5px; padding:2px;">
+                                            <span class="candidates-info-title text-white">Email vérifié</span>
+                                        </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>

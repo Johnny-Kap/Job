@@ -179,6 +179,7 @@ class CandidatController extends Controller
                 'genre_id' => $request->genre,
                 'secteur_id' => $request->secteur,
                 'sous_secteur_id' => $request->sous_secteur,
+                'profession' => $request->profession,
                 'description' => $request->description,
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,

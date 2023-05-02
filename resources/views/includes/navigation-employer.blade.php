@@ -10,7 +10,7 @@ Header -->
                 <span></span>
             </button>
             <a class="navbar-brand" href="{{route('entreprise.home')}}">
-                <img class="img-fluid" src="../libraries/images/logo.svg" alt="logo">
+                <img class="img-fluid" src="../libraries/images/logo-pms.png" alt="logo">
             </a>
             <div class="navbar-collapse collapse justify-content-start">
                 <ul class="nav navbar-nav">

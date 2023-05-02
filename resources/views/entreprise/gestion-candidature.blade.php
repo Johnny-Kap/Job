@@ -18,7 +18,7 @@
                                 <i class="fas fa-pencil-alt"></i>
                             </div>
                             <div class="profile-avatar-info ms-4">
-                                <h3>{{Auth::user()->prenom}} {{Auth::user()->name}}</h3>
+                                <h3>{{Auth::user()->name}}</h3>
                             </div>
                         </div>
                     </div>
@@ -55,6 +55,8 @@
                                         <th scope="col">Job Title</th>
                                         <th scope="col">Nom du candidat</th>
                                         <th scope="col">Prénom du candidat</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Téléphone</th>
                                         <th scope="col">Date de candidature</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -65,10 +67,12 @@
                                         <th scope="row">{{$item->jobs->titre}}</th>
                                         <td>{{$item->users->name}}</td>
                                         <td>{{$item->users->prenom}}</td>
+                                        <td>{{$item->users->email}}</td>
+                                        <td>{{$item->users->tel}}</td>
                                         <td>{{$item->created_at->format('d-m-y')}}</td>
                                         <td>
                                             <ul class="list-unstyled mb-0 d-flex">
-                                                <li><a href="#" class="text-primary" data-bs-toggle="tooltip" title="Voir le profil"><i class="far fa-eye"></i></a></li>
+                                                <li><a href="{{route('entreprise.profil.detail', ['id' => $item->user_id])}}" class="text-primary" data-bs-toggle="tooltip" title="Voir le profil"><i class="far fa-eye"></i></a></li>
                                                 {{-- <li><a href="#" class="tPext-info" data-bs-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
                                                 <li><a href="#" class="text-danger" data-bs-toggle="tooltip" title="Delete"><i class="far fa-trash-alt"></i></a></li> --}}
                                             </ul>

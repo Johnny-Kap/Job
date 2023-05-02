@@ -30,6 +30,15 @@
                                                 {{ Auth::user()->Adresse }}
                                             @endif
                                         </li>
+                                        @if (Auth::user()->email_verified_at == null)
+                                        <li class="candidates-feature-info bg-danger" style="border-radius: 5px; padding:2px;">
+                                            <span class="candidates-info-title text-white">Email non vérifié</span>
+                                        </li>
+                                        @else
+                                        <li class="candidates-feature-info bg-success" style="border-radius: 5px; padding:2px;">
+                                            <span class="candidates-info-title text-white">Email vérifié</span>
+                                        </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -130,7 +139,7 @@
                         </div> --}}
                         <div class="user-dashboard-info-box mb-0 pb-4">
                             <div class="section-title">
-                                <h4>Recent Applied Jobs</h4>
+                                <h4>Recent Jobs</h4>
                             </div>
                             <div class="row">
                                 <div class="col-12">
@@ -248,7 +257,7 @@
                                 </div>
                             </div>
                             <div class="mt-4 mt-sm-5">
-                                <b>Description du profil :</b>
+                                <b>Description de l'entreprise :</b>
                                 @if (Auth::user()->description == null)
                                     Aucune description
                                 @else

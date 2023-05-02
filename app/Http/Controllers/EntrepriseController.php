@@ -33,7 +33,14 @@ class EntrepriseController extends Controller
 
     public function index()
     {
-        return view('entreprise.home');
+
+        $profil_count = User::where('is_enterprise', 0)->count();
+
+        $enterprise_count = User::where('is_enterprise', 1)->count();
+
+        $profil_show = User::take(2)->where('is_enterprise', 0)->get();
+
+        return view('entreprise.home', compact('profil_count','profil_show','enterprise_count'));
     }
 
     public function about()
@@ -53,7 +60,7 @@ class EntrepriseController extends Controller
 
         $my_id = Auth::user()->id;
 
-        $my_job = Job::take(3)->get();
+        $my_job = Job::take(3)->where('user_id', $my_id)->get();
 
         return view('entreprise.my-profile', compact('my_job'));
     }
@@ -158,7 +165,7 @@ class EntrepriseController extends Controller
         }
 
 
-       
+
 
         return view('entreprise.resultat-search-profil', compact('resultat'));
     }

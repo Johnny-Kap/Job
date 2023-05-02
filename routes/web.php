@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Job;
+use App\Models\User;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,10 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $jobs_count = Job::count();
+    $companies_count = User::where('is_enterprise', 1)->count();
+    $jobs = Job::take(2)->get();
+    $companies = User::take(2)->where('is_enterprise', 1)->get();
+    return view('welcome', compact('jobs', 'companies', 'jobs_count', 'companies_count'));
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 //Entreprise
 Route::get('/entreprise/home', [App\Http\Controllers\EntrepriseController::class, 'index'])->name('entreprise.home')->middleware('is_enterprise');

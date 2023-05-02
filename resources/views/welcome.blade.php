@@ -2,7 +2,7 @@
 
 @section('content')
     <!--=================================
-                            Banner -->
+                                    Banner -->
     <section class="banner bg-holder bg-overlay-black-30 text-white"
         style="background-image: url(libraries/images/bg/banner-01.jpg);">
         <div class="container">
@@ -12,7 +12,7 @@
                     <p class="lead mb-4 mb-lg-5 fw-normal">Find Jobs, Employment & Career Opportunities</p>
                     <div class="job-search-field">
                         <div class="job-search-item">
-                            <form class="form row" method="GET" action="{{route('candidat.search.job')}}">
+                            <form class="form row" method="GET" action="{{ route('candidat.search.job') }}">
                                 <div class="col-lg-5">
                                     <div class="form-group mb-3">
                                         <div class="d-flex">
@@ -67,10 +67,10 @@
         </div>
     </section>
     <!--=================================
-                                            Banner -->
+                                                    Banner -->
 
     <!--=================================
-                                            Category-style -->
+                                                    Category-style -->
     <section class="space-ptb">
         <div class="container">
             <div class="row align-items-center">
@@ -80,7 +80,6 @@
                         <p class="mb-0">I truly believe Augustine’s words are true and if you look at history you know it
                             is true.</p>
                     </div>
-                    <a class="btn btn-outline btn-lg" href="#">View More Jobs</a>
                 </div>
                 <div class="col-lg-9 mt-0 mt-md-3 mt-lg-0">
                     <div class="category-style text-center">
@@ -89,56 +88,48 @@
                                 <i class="flaticon-account"></i>
                             </div>
                             <h6>Accountancy</h6>
-                            <span class="mb-0">301 Open Position </span>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-conversation"></i>
                             </div>
                             <h6>Apprenticeships</h6>
-                            <span class="mb-0">287 Open Position </span>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-money"></i>
                             </div>
                             <h6>Banking</h6>
-                            <span class="mb-0">542 Open Position </span>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-mortarboard"></i>
                             </div>
                             <h6>Education</h6>
-                            <span class="mb-0">785 Open Position </span>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-worker"></i>
                             </div>
                             <h6>Engineering</h6>
-                            <span class="mb-0">862 Open Position </span>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-businessman"></i>
                             </div>
                             <h6>Estate Agency</h6>
-                            <span class="mb-0">423 Open Position </span>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-coding"></i>
                             </div>
                             <h6>IT & Telecoms</h6>
-                            <span class="mb-0">253 Open Position </span>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-balance"></i>
                             </div>
                             <h6>Legal</h6>
-                            <span class="mb-0">689 Open Position </span>
                         </a>
                     </div>
                 </div>
@@ -146,10 +137,10 @@
         </div>
     </section>
     <!--=================================
-                                            Category-style -->
+                                                    Category-style -->
 
     <!--=================================
-                                        Divider -->
+                                                Divider -->
     <div class="container ">
         <div class="row">
             <div class="col-12">
@@ -158,10 +149,10 @@
         </div>
     </div>
     <!--=================================
-                                          Divider -->
+                                                  Divider -->
 
     <!--=================================
-                                    Jobs-listing -->
+                                            Jobs-listing -->
     <section class="space-ptb">
         <div class="container">
             <div class="row">
@@ -172,7 +163,7 @@
                 </div>
                 <div class="col-12">
                     <div class="browse-job d-flex border-0 pb-3">
-                        <div class="mb-4 mb-md-0">
+                        {{-- <div class="mb-4 mb-md-0">
                             <ul class="nav nav-tabs justify-content-center d-flex" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home"
@@ -183,9 +174,9 @@
                                         role="tab" aria-controls="profile" aria-selected="false">Recent Jobs</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <div class="job-found ms-auto mb-0">
-                            <span class="badge badge-lg bg-primary">24123</span>
+                            <span class="badge badge-lg bg-primary">{{$jobs_count}}</span>
                             <h6 class="ms-3 mb-0">Job Found</h6>
                         </div>
                     </div>
@@ -194,171 +185,74 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel"
                             aria-labelledby="home-tab">
                             <div class="row mt-3">
-                                <div class="col-lg-6 mb-4 mb-sm-0">
-                                    <!-- Freelance -->
-                                    <div class="job-list">
-                                        <div class="job-list-logo">
-                                            <img class="img-fluid" src="images/svg/18.svg" alt="">
-                                        </div>
-                                        <div class="job-list-details">
-                                            <div class="job-list-info">
-                                                <div class="job-list-title">
-                                                    <h5 class="mb-0"><a href="job-detail.html">Stockroom Assistant</a>
-                                                    </h5>
-                                                </div>
-                                                <div class="job-list-option">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <span>via</span>
-                                                            <a href="employer-detail.html">Bright Sparks PLC</a>
-                                                        </li>
-                                                        <li><i class="fas fa-map-marker-alt pe-1"></i>Canyon Village, Ramon
-                                                        </li>
-                                                        <li><i class="fas fa-filter pe-1"></i>Financial Services</li>
-                                                        <li><a class="freelance" href="#"><i
-                                                                    class="fas fa-suitcase pe-1"></i>Freelance</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="job-list-favourite-time">
-                                            <a class="job-list-favourite order-2" href="#"><i
-                                                    class="far fa-heart"></i></a>
-                                            <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>6M
-                                                ago</span>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-lg-6">
                                     <!-- Part-Time -->
-                                    <div class="job-list">
-                                        <div class="job-list-logo">
-                                            <img class="img-fluid" src="images/svg/19.svg" alt="">
-                                        </div>
-                                        <div class="job-list-details">
-                                            <div class="job-list-info">
-                                                <div class="job-list-title">
-                                                    <h5 class="mb-0"><a href="job-detail.html">Land Development
-                                                            Marketer</a></h5>
-                                                </div>
-                                                <div class="job-list-option">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <span>via</span>
-                                                            <a href="employer-detail.html">Carphone Warehouse</a>
-                                                        </li>
-                                                        <li><i class="fas fa-map-marker-alt pe-1"></i>Canyon Village, Ramon
-                                                        </li>
-                                                        <li><i class="fas fa-filter pe-1"></i>IT & Telecoms</li>
-                                                        <li><a class="part-time" href="#"><i
-                                                                    class="fas fa-suitcase pe-1"></i>Part-Time</a></li>
-                                                    </ul>
+                                    @foreach ($jobs as $item)
+                                        <div class="job-list">
+                                            <div class="job-list-logo">
+                                                @if ($item->image == null)
+                                                    <img class="img-fluid"
+                                                        src="\..\libraries\images\no-profile-pic-icon-0.jpg"
+                                                        alt="">
+                                                @else
+                                                    <img class="img-fluid" src="{{ Storage::url($item->image) }}"
+                                                        alt="">
+                                                @endif
+                                            </div>
+                                            <div class="job-list-details">
+                                                <div class="job-list-info">
+                                                    <div class="job-list-title">
+                                                        <h5 class="mb-0"><a
+                                                                href="{{ route('candidat.job.detail', [ 'id' => $item->id ]) }}">{{ $item->titre }}</a></h5>
+                                                    </div>
+                                                    <div class="job-list-option">
+                                                        <ul class="list-unstyled">
+                                                            <li>
+                                                                <span>via</span>
+                                                                <a href="employer-detail.html">{{ $item->users->name }}</a>
+                                                            </li>
+                                                            <li><i
+                                                                    class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}
+                                                            </li>
+                                                            <li><i
+                                                                    class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
+                                                            </li>
+                                                            <li><a class="part-time" href="#"><i
+                                                                        class="fas fa-suitcase pe-1"></i>{{ $item->type_jobs->titre }}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="job-list-favourite-time">
-                                            <a class="job-list-favourite order-2" href="#"><i
-                                                    class="far fa-heart"></i></a>
-                                            <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>1M
-                                                ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Recent jobs -->
-                        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row mt-4">
-                                <div class="col-lg-6 mb-4 mb-sm-0">
-                                    <!-- Freelance -->
-                                    <div class="job-list">
-                                        <div class="job-list-logo">
-                                            <img class="img-fluid" src="images/svg/15.svg" alt="">
-                                        </div>
-                                        <div class="job-list-details">
-                                            <div class="job-list-info">
-                                                <div class="job-list-title">
-                                                    <h5 class="mb-0"><a href="job-detail.html">Part-Time Sales
-                                                            Assistant</a></h5>
-                                                </div>
-                                                <div class="job-list-option">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <span>via</span>
-                                                            <a href="employer-detail.html"> Bright Sparks PLC</a>
-                                                        </li>
-                                                        <li><i class="fas fa-map-marker-alt pe-1"></i>Canyon Village, Ramon
-                                                        </li>
-                                                        <li><i class="fas fa-filter pe-1"></i>Financial Services</li>
-                                                        <li><a class="freelance" href="#"><i
-                                                                    class="fas fa-suitcase pe-1"></i>Freelance</a></li>
-                                                    </ul>
-                                                </div>
+                                            <div class="job-list-favourite-time">
+                                                <a class="job-list-favourite order-2" href="#"><i
+                                                        class="far fa-heart"></i></a>
+                                                <span class="job-list-time order-1"><i
+                                                        class="far fa-clock pe-1"></i>{{ $item->created_at->diffForHumans() }}</span>
                                             </div>
                                         </div>
-                                        <div class="job-list-favourite-time">
-                                            <a class="job-list-favourite order-2" href="#"><i
-                                                    class="far fa-heart"></i></a>
-                                            <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>6M
-                                                ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <!-- Part-Time -->
-                                    <div class="job-list">
-                                        <div class="job-list-logo">
-                                            <img class="img-fluid" src="images/svg/16.svg" alt="">
-                                        </div>
-                                        <div class="job-list-details">
-                                            <div class="job-list-info">
-                                                <div class="job-list-title">
-                                                    <h5 class="mb-0"><a href="job-detail.html">Customer Service
-                                                            Assistant</a></h5>
-                                                </div>
-                                                <div class="job-list-option">
-                                                    <ul class="list-unstyled">
-                                                        <li>
-                                                            <span>via</span>
-                                                            <a href="employer-detail.html">Carphone Warehouse</a>
-                                                        </li>
-                                                        <li><i class="fas fa-map-marker-alt pe-1"></i>Canyon Village, Ramon
-                                                        </li>
-                                                        <li><i class="fas fa-filter pe-1"></i>IT & Telecoms</li>
-                                                        <li><a class="part-time" href="#"><i
-                                                                    class="fas fa-suitcase pe-1"></i>Part-Time</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="job-list-favourite-time">
-                                            <a class="job-list-favourite order-2" href="#"><i
-                                                    class="far fa-heart"></i></a>
-                                            <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>1M
-                                                ago</span>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 justify-content-center d-flex mt-md-5 mt-4">
-                    <a class="btn btn-outline btn-lg" href="#">View More Jobs</a>
+                    <a class="{{route('candidat.job.consulter')}}" href="#">View More Jobs</a>
                 </div>
             </div>
         </div>
     </section>
     <!--=================================
-                                      Jobs-listing -->
+                                              Jobs-listing -->
 
     <!--=================================
-                                Candidates & Companies -->
+                                        Candidates & Companies -->
     <section class="space-pb">
         <div class="container">
             <div class="row">
                 <!-- Featured Candidates -->
-                <div class="col-lg-7 mb-4 mb-lg-0">
+                {{-- <div class="col-lg-7 mb-4 mb-lg-0">
                     <div class="section-title">
                         <h2 class="title">Featured Candidates</h2>
                         <p>We know this in our gut, but what can we do about it? How can we motivate ourselves?</p>
@@ -385,10 +279,10 @@
                             <span class="candidate-list-time order-1"><i class="far fa-clock pe-1"></i>2D ago</span>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-1"></div>
+                </div> --}}
+                <div class="col-lg-2"></div>
                 <!-- Top Companies -->
-                <div class="col-lg-4">
+                <div class="col-lg-8">
                     <div class="section-title">
                         <h2 class="title">Top Companies</h2>
                         <p>Here are some tips and methods for motivating yourself:</p>
@@ -396,62 +290,43 @@
                     <div class="owl-carousel owl-nav-bottom-center" data-nav-arrow="false" data-nav-dots="true"
                         data-items="1" data-md-items="1" data-sm-items="2" data-xs-items="1" data-xx-items="1"
                         data-space="15" data-autoheight="true">
-                        <div class="item">
-                            <div class="employers-grid">
-                                <div class="employers-list-logo">
-                                    <img class="img-fluid" src="images/svg/19.svg" alt="">
-                                </div>
-                                <div class="employers-list-details">
-                                    <div class="employers-list-info">
-                                        <div class="employers-list-title">
-                                            <h5 class="mb-0"><a href="employer-detail.html">Co-operative Funeralcare</a>
-                                            </h5>
-                                        </div>
-                                        <div class="employers-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-map-marker-alt pe-1"></i>Lynch Lane, Weymouth</li>
-                                            </ul>
+                        @foreach ($companies as $item)
+                            <div class="item">
+                                <div class="employers-grid">
+                                    <div class="employers-list-logo">
+                                        @if ($item->image == null)
+                                            <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
+                                                alt="">
+                                        @else
+                                            <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
+                                        @endif
+                                    </div>
+                                    <div class="employers-list-details">
+                                        <div class="employers-list-info">
+                                            <div class="employers-list-title">
+                                                <h5 class="mb-0"><a href="employer-detail.html">{{$item->name}}</a>
+                                                </h5>
+                                            </div>
+                                            <div class="employers-list-option">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fas fa-map-marker-alt pe-1"></i>{{$item->Adresse}}</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="employers-list-position">
-                                    <a class="btn btn-sm btn-dark" href="#">30 Open position</a>
-                                </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="employers-grid">
-                                <div class="employers-list-logo">
-                                    <img class="img-fluid" src="images/svg/06.svg" alt="">
-                                </div>
-                                <div class="employers-list-details">
-                                    <div class="employers-list-info">
-                                        <div class="employers-list-title">
-                                            <h5 class="mb-0"><a href="employer-detail.html">Altenwerth and Hamill</a>
-                                            </h5>
-                                        </div>
-                                        <div class="employers-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-map-marker-alt pe-1"></i>Taunton, London</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="employers-list-position">
-                                    <a class="btn btn-sm btn-dark" href="#">35 Open position</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--=================================
-                                  Candidates & Companies -->
+                                          Candidates & Companies -->
 
     <!--=================================
-                            Easiest Way to Use -->
+                                    Easiest Way to Use -->
     <section class="space-pb">
         <div class="container">
             <div class="row justify-content-center">
@@ -502,10 +377,10 @@
         </div>
     </section>
     <!--=================================
-                              Easiest Way to Use -->
+                                      Easiest Way to Use -->
 
     <!--=================================
-                        Action box & Counter -->
+                                Action box & Counter -->
     <section class="bg-light py-5">
         <div class="container">
             <div class="row align-items-center">
@@ -525,7 +400,7 @@
                                     <i class="flaticon-team"></i>
                                 </div>
                                 <div class="counter-content">
-                                    <span class="timer mb-1 text-dark" data-to="1562" data-speed="10000">1,562</span>
+                                    <span class="timer mb-1 text-dark" data-to="{{$jobs_count}}" data-speed="5">{{$jobs_count}}</span>
                                     <label class="mb-0">Jobs Posted</label>
                                 </div>
                             </div>
@@ -536,7 +411,7 @@
                                     <i class="flaticon-job-3"></i>
                                 </div>
                                 <div class="counter-content">
-                                    <span class="timer mb-1 text-dark" data-to="240" data-speed="10000">240</span>
+                                    <span class="timer mb-1 text-dark" data-to="{{$companies_count}}" data-speed="10000">{{$companies_count}}</span>
                                     <label class="mb-0">Companies</label>
                                 </div>
                             </div>
@@ -547,5 +422,5 @@
         </div>
     </section>
     <!--=================================
-                          Action box & Counter -->
+                                  Action box & Counter -->
 @endsection
