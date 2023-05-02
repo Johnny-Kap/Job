@@ -10,14 +10,14 @@ Header -->
                 <span></span>
             </button>
             <a class="navbar-brand" href="{{route('entreprise.home')}}">
-                <img class="img-fluid" src="../libraries/images/logo-pms.png" alt="logo">
+                <img class="img-fluid" src="/../libraries/images/logo-pms.png" alt="logo">
             </a>
             <div class="navbar-collapse collapse justify-content-start">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown {{ Request::route()->named('entreprise.home') ? 'active' : '' }}">
                         <a class="nav-link" href="{{route('entreprise.home')}}" id="navbarDropdown">Accueil</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ Request::route()->named('entreprise.post.job') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Emplois <i class="fas fa-chevron-down fa-xs"></i>
@@ -27,7 +27,7 @@ Header -->
                             {{-- <li><a class="dropdown-item" href="{{route('candidat.job.consulter')}}">Consulter les emplois</a></li> --}}
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ Request::route()->named('entreprise.consulte.profil') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Profils <i class="fas fa-chevron-down fa-xs"></i>
@@ -36,10 +36,10 @@ Header -->
                             <li><a class="dropdown-item" href="{{route('entreprise.consulte.profil')}}">Consulter les profils</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown nav-item mega-menu">
+                    <li class="dropdown nav-item mega-menu {{ Request::route()->named('entreprise.about') ? 'active' : '' }}">
                         <a href="{{route('entreprise.about')}}" class="nav-link">A propos</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ Request::route()->named('entreprise.contact') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="{{route('entreprise.contact')}}"
                             aria-haspopup="true" aria-expanded="false">
                             Nous contacter</a>

@@ -12,13 +12,13 @@
                             @if (Auth::user()->image == null)
                                 <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
                             @else
-                                <img class="img-fluid" src="{{ Storage::url(Auth::user()->image) }}" alt="">
+                                <img class="img-fluid" style="width: 110px; height:90px;" src="{{ Storage::url(Auth::user()->image) }}" alt="">
                             @endif
                         </div>
                         <div class="candidate-list-details">
                             <div class="candidate-list-info">
                                 <div class="candidate-list-title">
-                                    <h5 class="mb-0">{{ Auth::user()->prenom }} {{ Auth::user()->name }}</h5>
+                                    <h5 class="mb-0">{{ Auth::user()->name }}</h5>
                                 </div>
                                 <div class="candidate-list-option">
                                     <ul class="list-unstyled">
@@ -226,10 +226,10 @@
                                             <div class="feature-info-content ps-3">
                                                 <label class="mb-0">Address :</label>
                                                 <span class="d-block fw-bold text-dark">
-                                                    @if (Auth::user()->adresse == null)
+                                                    @if (Auth::user()->Adresse == null)
                                                         Aucune adresse
                                                     @else
-                                                        {{ Auth::user()->adresse }}
+                                                        {{ Auth::user()->Adresse }}
                                                     @endif
                                                 </span>
                                             </div>

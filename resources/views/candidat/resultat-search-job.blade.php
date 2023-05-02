@@ -4,7 +4,7 @@
     <!--=================================
         banner -->
     <section class="header-inner header-inner-big bg-holder text-white"
-        style="background-image: url(libraries/images/bg/banner-01.jpg);">
+        style="background-image: url(/../libraries/images/bg/banner-01.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -30,7 +30,7 @@
                                     </div>
                                 </div>
                             </form> --}}
-                            <h1>Resultat de la recherche</h1>
+                            <h1 style="color:white;">Resultat de la recherche</h1>
                         </div>
                     </div>
                 </div>
@@ -297,7 +297,13 @@
                             @foreach ($resultat as $item)
                                 <div class="job-list ">
                                     <div class="job-list-logo">
-                                        <img class="img-fluid" src="/../images/svg/01.svg" alt="">
+                                        @if ($item->image == null)
+                                            <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
+                                                alt="">
+                                        @else
+                                            <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
+                                                alt="">
+                                        @endif
                                     </div>
                                     <div class="job-list-details">
                                         <div class="job-list-info">
@@ -309,7 +315,7 @@
                                             <div class="job-list-option">
                                                 <ul class="list-unstyled">
                                                     <li> <span>via</span> <a
-                                                            href="employer-detail.html">{{ $item->users->name }}</a> </li>
+                                                            href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a> </li>
                                                     <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}</li>
                                                     <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
                                                     </li>

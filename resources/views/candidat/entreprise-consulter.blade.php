@@ -1,8 +1,8 @@
-@extends('layouts.admins-employer')
+@extends('layouts.admins')
 
 @section('content')
     <!--=================================
-                                    banner -->
+        banner -->
     <section class="header-inner header-inner-big bg-holder text-white"
         style="background-image: url(/../libraries/images/bg/banner-01.jpg);">
         <div class="container">
@@ -10,27 +10,7 @@
                 <div class="col-12">
                     <div class="job-search-field">
                         <div class="job-search-item">
-                            {{-- <form class="form row">
-                                <div class="col-lg-5">
-                                    <div class="form-group left-icon mb-3">
-                                        <input type="text" class="form-control" name="job_title" placeholder="What?">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5">
-                                    <div class="form-group left-icon mb-3">
-                                        <input type="text" class="form-control" name="job_title" placeholder="Where?">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-sm-12">
-                                    <div class="form-group form-action">
-                                        <button type="submit" class="btn btn-primary mt-0"><i
-                                                class="fas fa-search-location"></i> Find Job</button>
-                                    </div>
-                                </div>
-                            </form> --}}
-                            <h1 style="color:white;">Resultat de la recherche</h1>
+                            <h1 style="color: white;">Consulter les entreprises</h1>
                         </div>
                     </div>
                 </div>
@@ -38,16 +18,14 @@
         </div>
     </section>
     <!--=================================
-                                      banner -->
+          banner -->
 
-    <!--=================================
-                                      job-list -->
     <section class="space-ptb">
         <div class="container">
             <div class="row">
+                <!--=================================
+                sidebar -->
                 <div class="col-lg-3">
-                    <!--=================================
-                                            left-sidebar -->
                     <div class="sidebar">
                         <div class="widget">
                             <div class="widget-title widget-collapse">
@@ -59,23 +37,23 @@
                             <div class="collapse show" id="dateposted">
                                 <div class="widget-content">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dateposted1">
+                                        <input class="form-check-input" type="checkbox" value="" id="dateposted1">
                                         <label class="form-check-label" for="dateposted1">Last hour</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dateposted2">
+                                        <input class="form-check-input" type="checkbox" value="" id="dateposted2">
                                         <label class="form-check-label" for="dateposted2">Last 24 hour</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dateposted3">
+                                        <input class="form-check-input" type="checkbox" value="" id="dateposted3">
                                         <label class="form-check-label" for="dateposted3">Last 7 days</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dateposted4">
+                                        <input class="form-check-input" type="checkbox" value="" id="dateposted4">
                                         <label class="form-check-label" for="dateposted4">Last 14 days</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dateposted5">
+                                        <input class="form-check-input" type="checkbox" value="" id="dateposted5">
                                         <label class="form-check-label" for="dateposted5">Last 30 days</label>
                                     </div>
                                 </div>
@@ -254,34 +232,21 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="widget">
+                            <div class="widget-add">
+                                <img class="img-fluid" src="images/add-banner.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!--=================================
+                sidebar -->
                 <div class="col-lg-9">
-                    <!--=================================
-                                                          right-sidebar -->
-                    {{-- <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="section-title mb-3 mb-lg-4">
-                                <h6 class="mb-0">Showing 1-5 of <span class="text-primary">28 Jobs</span></h6>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="job-filter-tag">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Freelance <i class="fas fa-times-circle"></i> </a></li>
-                                    <li><a class="filter-clear" href="#">Reset Search <i
-                                                class="fas fa-redo-alt"></i> </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="job-filter mb-4 d-sm-flex align-items-center">
-                        {{-- <div class="job-alert-bt"> <a class="btn btn-md btn-dark" href="#"><i
-                                    class="fa fa-envelope"></i>Get job alert </a> </div> --}}
                         <div class="job-shortby ms-sm-auto d-flex align-items-center">
                             <form class="form-inline">
-                                <div class="d-sm-flex align-items-center mb-0">
-                                    <label class="justify-content-start me-2 mb-2 mb-sm-0">sort by :</label>
+                                <div class="input-group mb-0 align-items-center">
+                                    <label class="justify-content-start me-2">Sort by :</label>
                                     <div class="short-by">
                                         <select class="form-control basic-select">
                                             <option>Newest</option>
@@ -292,57 +257,45 @@
                             </form>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            @foreach ($resultat as $item)
-                                <div class="job-list ">
-                                    <div class="job-list-logo">
-                                        @if ($item->image == null)
-                                            <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
-                                                alt="">
-                                        @else
-                                            <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
-                                        @endif
+                    @foreach ($entreprises as $item)
+                        <div class="employers-list">
+                            <div class="employers-list-logo">
+                                @if ($item->image == null)
+                                    <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
+                                        alt="">
+                                @else
+                                    <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
+                                @endif
+                            </div>
+                            <div class="employers-list-details">
+                                <div class="employers-list-info">
+                                    <div class="employers-list-title">
+                                        <h5 class="mb-0"><a
+                                                href="{{ route('candidat.entreprise.detail', ['id' => $item->id]) }}">{{ $item->name }}</a>
+                                        </h5>
                                     </div>
-                                    <div class="job-list-details">
-                                        <div class="job-list-info">
-                                            <div class="job-list-title">
-                                                <h5 class="mb-0"><a href="{{route('entreprise.profil.detail', ['id' => $item->id])}}">{{ $item->prenom }} {{ $item->name }}</a>
-                                                </h5>
-                                            </div>
-                                            <div class="job-list-option">
-                                                <ul class="list-unstyled">
-                                                    <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
-                                                    <li><i class="fas fa-map-marker-alt pe-1"></i>
-                                                        @if ($item->Adresse == null)
-                                                            Aucune adresse
-                                                        @else
-                                                            {{ $item->Adresse }}
-                                                        @endif
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="job-list-favourite-time"> <a class="job-list-favourite order-2"
-                                            href="#"><i class="far fa-heart"></i></a> <span
-                                            class="job-list-time order-1"><i
-                                                class="far fa-clock pe-1"></i>a rejoint le {{ $item->created_at->format('d-m-y') }}</span>
+                                    <div class="employers-list-option">
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}</li>
+                                            <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->Adresse }}</li>
+                                        </ul>
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+                            <div class="employers-list-position">
+                            {{-- <a class="btn btn-sm btn-dark" href="#">17 Open position</a> --}}
+                            <span class="candidate-list-time order-1"><i class="far fa-clock pe-1"></i>a rejoint le
+                                            {{ $item->created_at->format('d-m-y') }}</span>
                         </div>
-                    </div>
+                        </div>
+                    @endforeach
                     <div class="row">
-                        <div class="col-12 text-center mt-4 mt-md-5">
-                            {{ $resultat->links() }}
+                        <div class="col-12 text-center mt-4 mt-sm-5">
+                            {{ $entreprises->links() }}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--=================================
-                                      job-list -->
 @endsection

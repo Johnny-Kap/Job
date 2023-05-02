@@ -13,7 +13,7 @@
                                 @if (Auth::user()->image == null)
                                     <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
                                 @else
-                                    <img class="img-fluid" src="{{ Storage::url(Auth::user()->image) }}" alt="">
+                                    <img class="img-fluid" style="width: 110px; height:120px;" src="{{ Storage::url(Auth::user()->image) }}" alt="">
                                 @endif
                                 <i class="fas fa-pencil-alt"></i>
                             </div>
@@ -74,10 +74,29 @@
                                         <div class="section-title-02 mb-2 d-grid">
                                             <h4>Basic Information</h4>
                                         </div>
-                                        <div class="cover-photo-contact">
-                                            <div class="upload-file">
-                                                <label for="formFile" class="form-label">Upload Cover Photo</label>
-                                                <input class="form-control" type="file" id="formFile">
+                                        <div class="">
+                                            <div class="">
+                                                <form action="{{route('entreprise.photo.change')}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="row">
+                                                        <label for="formFile" class="form-label">Upload Cover Photo</label>
+                                                        <div class="form-group mb-3 col-md-4">
+                                                            <input class="form-control" name="file" type="file"
+                                                                id="formFile">
+                                                        </div>
+                                                        <div class="form-group mb-3 col-md-6">
+                                                            <button type="submit" class=""
+                                                                style="border-color: transparent; background-color:transparent;">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor"
+                                                                    class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                         <form method="post" action="{{ route('entreprise.profil.edited') }}">

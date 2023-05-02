@@ -8,6 +8,7 @@ use App\Models\Competence;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Information;
+use App\Models\Job;
 use App\Models\Langue;
 use App\Models\Secteur;
 use App\Models\SousSecteur;
@@ -112,6 +113,47 @@ class CandidatController extends Controller
         } else {
 
             return back()->with('error', 'Ancien mot de passe incorrecte.');
+        }
+    }
+
+    public function showEnterprises(){
+
+        $entreprises = User::where('is_enterprise', 1)->simplePaginate(15);
+
+        // $job_open = Job::where('user_id', $entreprises->id)->where('etat', null)->orWhere('etat', 0)->count();
+
+        return view('candidat.entreprise-consulter', compact('entreprises'));
+    }
+
+    public function showEnterprisesDetail($id){
+
+        $entreprise_detail = User::find($id);
+
+        $my_job = Job::where('user_id', $id)->simplePaginate(5);
+
+        return view('candidat.entreprise-detail', compact('entreprise_detail','my_job'));
+    }
+
+    public function photoEdited(Request $request)
+    {
+
+        if ($request->hasFile('file')) {
+
+            $filename = time() . '.' . $request->file->extension();
+
+            $path = $request->file('file')->storeAs('avatars', $filename, 'public');
+
+            $ids = Auth::user()->id;
+
+            $affected = User::where('id', $ids)
+                ->update([
+                    'image' => $path,
+                ]);
+
+            return back()->with('success', 'Photo de profil ajouté avec succès!');
+        } else {
+
+            return back()->with('error', 'Veuillez selectionner une photo de profil!');
         }
     }
 

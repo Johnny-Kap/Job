@@ -10,23 +10,23 @@
                 <div class="col-12">
                     <div class="job-search-field">
                         <div class="job-search-item">
-                            <form class="form row">
+                            <form class="form row" method="GET" action="{{ route('entreprise.profil.search') }}">
                                 <div class="col-lg-5 col-md-4">
                                     <div class="form-group left-icon mb-md-0">
-                                        <input type="text" class="form-control" name="job_title" placeholder="What?">
+                                        <input type="text" class="form-control" name="name" placeholder="Qui ?">
                                         <i class="fas fa-search"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4">
                                     <div class="form-group left-icon mb-md-0">
-                                        <input type="text" class="form-control" name="job_title" placeholder="Where?">
+                                        <input type="text" class="form-control" name="adresse" placeholder="Où ?">
                                         <i class="fas fa-search"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-4 col-sm-12">
                                     <div class="form-group form-action mb-0">
                                         <button type="submit" class="btn btn-primary mt-0"><i
-                                                class="fas fa-search-location"></i> Find Candidate</button>
+                                                class="fas fa-search-location"></i> Find Profil</button>
                                     </div>
                                 </div>
                             </form>
@@ -302,7 +302,7 @@
                                             <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
                                                 alt="">
                                         @else
-                                            <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
+                                            <img class="img-fluid" style="width: 110px; height:90px;" src="{{ Storage::url($item->image) }}" alt="">
                                         @endif
                                     </div>
                                     <div class="candidate-list-details">

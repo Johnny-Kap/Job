@@ -2,15 +2,15 @@
 
 @section('content')
     <!--=================================
-    banner -->
+        banner -->
     <section class="header-inner header-inner-big bg-holder text-white"
-        style="background-image: url(libraries/images/bg/banner-01.jpg);">
+        style="background-image: url(/../libraries/images/bg/banner-01.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="job-search-field">
                         <div class="job-search-item">
-                            <form class="form row">
+                            <form class="form row" method="GET" action="{{route('candidat.search.job')}}">
                                 <div class="col-lg-5">
                                     <div class="form-group left-icon mb-3">
                                         <input type="text" class="form-control" name="job_title" placeholder="What?">
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="form-group left-icon mb-3">
-                                        <input type="text" class="form-control" name="job_title" placeholder="Where?">
+                                        <input type="text" class="form-control" name="job_adresse" placeholder="Where?">
                                         <i class="fas fa-search"></i>
                                     </div>
                                 </div>
@@ -37,16 +37,16 @@
         </div>
     </section>
     <!--=================================
-      banner -->
+          banner -->
 
     <!--=================================
-      job-list -->
+          job-list -->
     <section class="space-ptb">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <!--=================================
-            left-sidebar -->
+                left-sidebar -->
                     <div class="sidebar">
                         <div class="widget">
                             <div class="widget-title widget-collapse">
@@ -257,7 +257,7 @@
                 </div>
                 <div class="col-lg-9">
                     <!--=================================
-                          right-sidebar -->
+                              right-sidebar -->
                     {{-- <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="section-title mb-3 mb-lg-4">
@@ -294,38 +294,49 @@
                     <div class="row">
                         <div class="col-12">
                             @foreach ($showJob as $item)
-                            <div class="job-list ">
-                                <div class="job-list-logo">
-                                    <img class="img-fluid" src="images/svg/01.svg" alt="">
-                                </div>
-                                <div class="job-list-details">
-                                    <div class="job-list-info">
-                                        <div class="job-list-title">
-                                            <h5 class="mb-0"><a href="{{ route('candidat.job.detail', [ 'id' => $item->id ]) }}">{{$item->titre}}</a>
-                                            </h5>
-                                        </div>
-                                        <div class="job-list-option">
-                                            <ul class="list-unstyled">
-                                                <li> <span>via</span> <a href="employer-detail.html">{{$item->users->name}}</a> </li>
-                                                <li><i class="fas fa-map-marker-alt pe-1"></i>{{$item->adresse}}</li>
-                                                <li><i class="fas fa-filter pe-1"></i>{{$item->secteurs->intitule}}</li>
-                                                <li><a class="freelance" href="#"><i
-                                                            class="fas fa-suitcase pe-1"></i>{{$item->type_jobs->titre}}</a></li>
-                                            </ul>
+                                <div class="job-list ">
+                                    <div class="job-list-logo">
+                                        @if ($item->users->image == null)
+                                            <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
+                                                alt="">
+                                        @else
+                                            <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
+                                                alt="">
+                                        @endif
+                                    </div>
+                                    <div class="job-list-details">
+                                        <div class="job-list-info">
+                                            <div class="job-list-title">
+                                                <h5 class="mb-0"><a
+                                                        href="{{ route('candidat.job.detail', ['id' => $item->id]) }}">{{ $item->titre }}</a>
+                                                </h5>
+                                            </div>
+                                            <div class="job-list-option">
+                                                <ul class="list-unstyled">
+                                                    <li> <span>via</span> <a
+                                                            href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a> </li>
+                                                    <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}</li>
+                                                    <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
+                                                    </li>
+                                                    <li><a class="freelance" href="#"><i
+                                                                class="fas fa-suitcase pe-1"></i>{{ $item->type_jobs->titre }}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="job-list-favourite-time"> <a class="job-list-favourite order-2"
+                                            href="#"><i class="far fa-heart"></i></a> <span
+                                            class="job-list-time order-1"><i
+                                                class="far fa-clock pe-1"></i>{{ $item->created_at->diffForHumans() }}</span>
+                                    </div>
                                 </div>
-                                <div class="job-list-favourite-time"> <a class="job-list-favourite order-2"
-                                        href="#"><i class="far fa-heart"></i></a> <span
-                                        class="job-list-time order-1"><i class="far fa-clock pe-1"></i>{{$item->created_at->diffForHumans()}}</span>
-                                </div>
-                            </div>
                             @endforeach
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 text-center mt-4 mt-md-5">
-                            {{$showJob->links()}}
+                            {{ $showJob->links() }}
                         </div>
                     </div>
                 </div>
@@ -333,5 +344,5 @@
         </div>
     </section>
     <!--=================================
-      job-list -->
+          job-list -->
 @endsection

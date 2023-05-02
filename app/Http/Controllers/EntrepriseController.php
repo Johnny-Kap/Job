@@ -164,10 +164,30 @@ class EntrepriseController extends Controller
             return back();
         }
 
-
-
-
         return view('entreprise.resultat-search-profil', compact('resultat'));
+    }
+
+    public function photoEdited(Request $request)
+    {
+
+        if ($request->hasFile('file')) {
+
+            $filename = time() . '.' . $request->file->extension();
+
+            $path = $request->file('file')->storeAs('avatars', $filename, 'public');
+
+            $ids = Auth::user()->id;
+
+            $affected = User::where('id', $ids)
+                ->update([
+                    'image' => $path,
+                ]);
+
+            return back()->with('success', 'Photo de profil ajouté avec succès!');
+        } else {
+
+            return back()->with('error', 'Veuillez selectionner une photo de profil!');
+        }
     }
 
 

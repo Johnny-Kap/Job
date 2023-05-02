@@ -186,9 +186,10 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel"
                             aria-labelledby="home-tab">
                             <div class="row mt-3">
+                                @foreach ($profil_show as $item)
                                 <div class="col-lg-6 mb-4 mb-sm-0">
                                     <!-- Freelance -->
-                                    @foreach ($profil_show as $item)
+
                                         <div class="job-list">
                                             <div class="job-list-logo">
                                                 @if ($item->image == null)
@@ -227,8 +228,8 @@
                                                 <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>a rejoint le {{$item->created_at->format('d-m-y')}}</span>
                                             </div>
                                         </div>
-                                    @endforeach
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

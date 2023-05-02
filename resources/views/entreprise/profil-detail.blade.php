@@ -12,7 +12,7 @@
                             @if ($profil_detail->image == null)
                                 <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
                             @else
-                                <img class="img-fluid" src="{{ Storage::url($profil_detail->image) }}" alt="">
+                                <img class="img-fluid" style="width: 110px; height:90px;" src="{{ Storage::url($profil_detail->image) }}" alt="">
                             @endif
                         </div>
                         <div class="candidate-list-details">

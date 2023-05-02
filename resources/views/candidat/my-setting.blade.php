@@ -2,7 +2,7 @@
 
 @section('content')
     <!--=================================
-                                                                    inner banner -->
+                                                                                    inner banner -->
     <div class="header-inner bg-light">
         <div class="container">
             <div class="row">
@@ -11,11 +11,11 @@
                         <div class="jobber-user-info">
                             <div class="profile-avatar">
                                 @if (Auth::user()->image == null)
-                                    <img class="img-fluid" src="libraries\images\no-profile-pic-icon-0.jpg" alt="">
+                                    <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
                                 @else
-                                    <img class="img-fluid" src="{{ Storage::url(Auth::user()->image) }}" alt="">
+                                    <img class="img-fluid" style="width: 110px; height:120px;" src="{{ Storage::url(Auth::user()->image) }}" alt="">
                                 @endif
-                                <i class="fas fa-pencil-alt"></i>
+                                {{-- <i class="fas fa-pencil-alt"></i> --}}
                             </div>
                             <div class="profile-avatar-info ms-4">
                                 <h3>{{ Auth::user()->prenom }} {{ Auth::user()->name }}</h3>
@@ -27,10 +27,10 @@
         </div>
     </div>
     <!--=================================
-                                                                      inner banner -->
+                                                                                      inner banner -->
 
     <!--=================================
-                                                                      Dashboard Nav -->
+                                                                                      Dashboard Nav -->
     <section class="space-ptb">
         <div class="container">
             <div class="row">
@@ -74,10 +74,29 @@
                                         <div class="section-title-02 mb-2 d-grid">
                                             <h4>Basic Information</h4>
                                         </div>
-                                        <div class="cover-photo-contact">
-                                            <div class="upload-file">
-                                                <label for="formFile" class="form-label">Upload Cover Photo</label>
-                                                <input class="form-control" type="file" id="formFile">
+                                        <div class="">
+                                            <div class="">
+                                                <form action="{{route('candidat.photo.change')}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="row">
+                                                        <label for="formFile" class="form-label">Upload Cover Photo</label>
+                                                        <div class="form-group mb-3 col-md-4">
+                                                            <input class="form-control" name="file" type="file"
+                                                                id="formFile">
+                                                        </div>
+                                                        <div class="form-group mb-3 col-md-6">
+                                                            <button type="submit" class=""
+                                                                style="border-color: transparent; background-color:transparent;">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor"
+                                                                    class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                         <form method="post" action="{{ route('candidat.edited.profile') }}">
@@ -220,26 +239,30 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <form class="row" method="POST" action="{{route('candidat.password.change')}}">
+                                                <form class="row" method="POST"
+                                                    action="{{ route('candidat.password.change') }}">
                                                     @csrf
                                                     <div class="form-group col-md-12 mb-3">
                                                         <label class="form-label">Current Password</label>
-                                                        <input type="password" name="old_password" class="form-control" value="">
+                                                        <input type="password" name="old_password" class="form-control"
+                                                            value="">
                                                     </div>
                                                     <div class="form-group col-md-12 mb-3">
                                                         <label class="form-label">New Password</label>
-                                                        <input type="password" name="new_password" class="form-control" value="">
+                                                        <input type="password" name="new_password" class="form-control"
+                                                            value="">
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
                                                         <label class="form-label">Confirm Password</label>
-                                                        <input type="password" name="confirm_password" class="form-control" value="">
+                                                        <input type="password" name="confirm_password"
+                                                            class="form-control" value="">
                                                     </div>
                                             </div>
                                         </div>
                                     </div>
                                     <button class="btn btn-lg btn-primary" type="submit">Changer mot de passe</button>
                                 </div>
-                            </form>
+                                </form>
                             </div>
                         </div><!-- Change email -->
                         <div class="tab-pane fade show" id="email" role="tabpanel" aria-labelledby="profile-tab">
@@ -273,7 +296,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 text-lg-end">
-                                    <a class="btn btn-primary btn-md mb-4 mb-lg-0" href="{{route('candidat.resume.show')}}">Preview My
+                                    <a class="btn btn-primary btn-md mb-4 mb-lg-0"
+                                        href="{{ route('candidat.resume.show') }}">Preview My
                                         Resume</a>
                                 </div>
                                 <div class="col-12">
@@ -526,7 +550,7 @@
                                         </div>
                                     </div>
                                     <!--=================================
-                                                                          Work & Experience -->
+                                                                                          Work & Experience -->
                                     <div class="user-dashboard-info-box">
                                         <div class="dashboard-resume-title d-flex align-items-center">
                                             <div class="section-title-02 mb-sm-0">
@@ -706,9 +730,9 @@
                                         @endforeach
                                     </div>
                                     <!--=================================
-                                                                          Work & Experience -->
+                                                                                          Work & Experience -->
                                     <!--=================================
-                                                                          Professional Skill -->
+                                                                                          Professional Skill -->
                                     <div class="user-dashboard-info-box">
                                         <div class="dashboard-resume-title d-flex align-items-center">
                                             <div class="section-title-02 mb-sm-0">
@@ -808,9 +832,9 @@
                                         </div>
                                     </div>
                                     <!--=================================
-                                                                          Professional Skill -->
+                                                                                          Professional Skill -->
                                     <!--=================================
-                                                                          Langue -->
+                                                                                          Langue -->
                                     <div class="user-dashboard-info-box">
                                         <div class="dashboard-resume-title d-flex align-items-center">
                                             <div class="section-title-02 mb-sm-0">
@@ -910,7 +934,7 @@
                                         </div>
                                     </div>
                                     <!--=================================
-                                                                          Langue -->
+                                                                                          Langue -->
                                     {{-- <a class="btn btn-md btn-primary" href="#">Save Settings</a> --}}
                                 </div>
                             </div>
@@ -1248,8 +1272,8 @@
                                                     </li>
                                                     <li class="page-item"><a class="page-link" href="#">25</a>
                                                     </li>
-                                                    <li class="page-item"> <a class="page-link"
-                                                            href="#">Next</a> </li>
+                                                    <li class="page-item"> <a class="page-link" href="#">Next</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -1263,5 +1287,5 @@
         </div>
     </section>
     <!--=================================
-                                                                                  Jobs-listing -->
+                                                                                                  Jobs-listing -->
 @endsection

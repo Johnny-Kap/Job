@@ -23,7 +23,7 @@ Route::get('/', function () {
     $jobs = Job::take(2)->get();
     $companies = User::take(2)->where('is_enterprise', 1)->get();
     return view('welcome', compact('jobs', 'companies', 'jobs_count', 'companies_count'));
-});
+})->name('welcome');
 
 Auth::routes(['verify' => true]);
 
@@ -44,6 +44,7 @@ Route::post('entreprise/password/changed', [App\Http\Controllers\EntrepriseContr
 Route::get('entreprise/gestion-des-emplois', [App\Http\Controllers\EntrepriseController::class, 'showMyJobs'])->name('entreprise.jobs.manage')->middleware('is_enterprise');
 Route::post('entreprise/my-profil/edited', [App\Http\Controllers\EntrepriseController::class, 'store'])->name('entreprise.profil.edited');
 Route::get('entreprise/gestion-des-candidature', [App\Http\Controllers\EntrepriseController::class, 'showMyCandidat'])->name('entreprise.candidature.manage')->middleware('is_enterprise');
+Route::post('entreprise/photo-changed', [App\Http\Controllers\EntrepriseController::class, 'photoEdited'])->name('entreprise.photo.change');
 
 //Consulte profil by enterprise
 Route::get('entreprise/consulter-profil', [App\Http\Controllers\EntrepriseController::class, 'showProfil'])->name('entreprise.consulte.profil')->middleware('is_enterprise');
@@ -62,11 +63,16 @@ Route::post('edited', [App\Http\Controllers\CandidatController::class, 'update']
 Route::post('my-setting/change-password', [App\Http\Controllers\CandidatController::class, 'changePassword'])->name('candidat.password.change');
 Route::get('gestion-des-emplois', [App\Http\Controllers\CandidatController::class, 'showJobApplication'])->name('candidat.gestion-emplois')->middleware('auth');
 Route::post('my-setting/change-password', [App\Http\Controllers\CandidatController::class, 'changePassword'])->name('candidat.password.change');
+Route::post('my-setting/change-photo', [App\Http\Controllers\CandidatController::class, 'photoEdited'])->name('candidat.photo.change');
 
 //All routes of Job
 Route::get('job', [App\Http\Controllers\JobController::class, 'index'])->name('candidat.job.consulter');
 Route::get('job/detail/{id}', [App\Http\Controllers\JobController::class, 'show'])->name('candidat.job.detail');
 Route::get('search/resultat', [App\Http\Controllers\JobController::class, 'search'])->name('candidat.search.job');
+
+//All routes of enterprises consultation
+Route::get('entreprises-consulter', [App\Http\Controllers\CandidatController::class, 'showEnterprises'])->name('candidat.entreprise.consulter');
+Route::get('entreprises/detail/{id}', [App\Http\Controllers\CandidatController::class, 'showEnterprisesDetail'])->name('candidat.entreprise.detail');
 
 //Route of  apply job
 Route::post('job/detail/apply/{id}', [App\Http\Controllers\ApplyJobController::class, 'create'])->name('candidat.job.apply')->middleware('auth');
