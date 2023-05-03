@@ -2,7 +2,7 @@
 
 @section('content')
     <!--=================================
-                                    Banner -->
+                                        Banner -->
     <section class="banner bg-holder bg-overlay-black-30 text-white"
         style="background-image: url(/../libraries/images/bg/banner-01.jpg);">
         <div class="container">
@@ -67,10 +67,10 @@
         </div>
     </section>
     <!--=================================
-                                                    Banner -->
+                                                        Banner -->
 
     <!--=================================
-                                                    Category-style -->
+                                                        Category-style -->
     <section class="space-ptb">
         <div class="container">
             <div class="row align-items-center">
@@ -138,10 +138,10 @@
         </div>
     </section>
     <!--=================================
-                                                    Category-style -->
+                                                        Category-style -->
 
     <!--=================================
-                                                Divider -->
+                                                    Divider -->
     <div class="container ">
         <div class="row">
             <div class="col-12">
@@ -150,10 +150,10 @@
         </div>
     </div>
     <!--=================================
-                                                  Divider -->
+                                                      Divider -->
 
     <!--=================================
-                                            Jobs-listing -->
+                                                Jobs-listing -->
     <section class="space-ptb">
         <div class="container">
             <div class="row">
@@ -187,8 +187,8 @@
                             aria-labelledby="home-tab">
                             <div class="row mt-3">
                                 @foreach ($profil_show as $item)
-                                <div class="col-lg-6 mb-4 mb-sm-0">
-                                    <!-- Freelance -->
+                                    <div class="col-lg-6 mb-4 mb-sm-0">
+                                        <!-- Freelance -->
 
                                         <div class="job-list">
                                             <div class="job-list-logo">
@@ -204,7 +204,8 @@
                                             <div class="job-list-details">
                                                 <div class="job-list-info">
                                                     <div class="job-list-title">
-                                                        <h5 class="mb-0"><a href="{{route('entreprise.profil.detail', ['id' => $item->id])}}">{{ $item->prenom }}
+                                                        <h5 class="mb-0"><a
+                                                                href="{{ route('entreprise.profil.detail', ['id' => $item->id]) }}">{{ $item->prenom }}
                                                                 {{ $item->name }}</a>
                                                         </h5>
                                                     </div>
@@ -217,7 +218,9 @@
                                                                     {{ $item->Adresse }}
                                                                 @endif
                                                             </li>
-                                                            <li><i class="fas fa-filter pe-1"></i>{{$item->secteurs->intitule}}</li>
+                                                            <li><i
+                                                                    class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -225,26 +228,27 @@
                                             <div class="job-list-favourite-time">
                                                 <a class="job-list-favourite order-2" href="#"><i
                                                         class="far fa-heart"></i></a>
-                                                <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>a rejoint le {{$item->created_at->format('d-m-y')}}</span>
+                                                <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>a
+                                                    rejoint le {{ $item->created_at->format('d-m-y') }}</span>
                                             </div>
                                         </div>
-                                </div>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 justify-content-center d-flex mt-md-5 mt-4">
-                    <a class="btn btn-outline btn-lg" href="{{route('entreprise.consulte.profil')}}">View More Profil</a>
+                    <a class="btn btn-outline btn-lg" href="{{ route('entreprise.consulte.profil') }}">View More
+                        Profil</a>
                 </div>
             </div>
         </div>
     </section>
-    <!--=================================
-                                              Jobs-listing -->
+
 
     <!--=================================
-                                        Candidates & Companies -->
+                                            Candidates & Companies -->
     {{-- <section class="space-pb">
         <div class="container">
             <div class="row">
@@ -339,10 +343,10 @@
         </div>
     </section> --}}
     <!--=================================
-                                          Candidates & Companies -->
+                                              Candidates & Companies -->
 
     <!--=================================
-                                    Easiest Way to Use -->
+                                        Easiest Way to Use -->
     <section class="space-pb">
         <div class="container">
             <div class="row justify-content-center">
@@ -393,10 +397,10 @@
         </div>
     </section>
     <!--=================================
-                                      Easiest Way to Use -->
+                                          Easiest Way to Use -->
 
     <!--=================================
-                                Action box & Counter -->
+                                    Action box & Counter -->
     <section class="bg-light py-5">
         <div class="container">
             <div class="row align-items-center">
@@ -416,7 +420,8 @@
                                     <i class="flaticon-team"></i>
                                 </div>
                                 <div class="counter-content">
-                                    <span class="timer mb-1 text-dark" data-to="{{$profil_count}}" data-speed="5">{{$profil_count}}</span>
+                                    <span class="timer mb-1 text-dark" data-to="{{ $profil_count }}"
+                                        data-speed="5">{{ $profil_count }}</span>
                                     <label class="mb-0">Profils exists</label>
                                 </div>
                             </div>
@@ -427,7 +432,8 @@
                                     <i class="flaticon-job-3"></i>
                                 </div>
                                 <div class="counter-content">
-                                    <span class="timer mb-1 text-dark" data-to="{{$enterprise_count}}" data-speed="5">{{$enterprise_count}}</span>
+                                    <span class="timer mb-1 text-dark" data-to="{{ $enterprise_count }}"
+                                        data-speed="5">{{ $enterprise_count }}</span>
                                     <label class="mb-0">Companies</label>
                                 </div>
                             </div>
@@ -438,5 +444,5 @@
         </div>
     </section>
     <!--=================================
-                                  Action box & Counter -->
+                                      Action box & Counter -->
 @endsection
