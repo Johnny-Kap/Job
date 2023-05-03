@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,14 +25,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $jobs_count = Job::count();
+        $companies_count = User::where('is_enterprise', 1)->count();
+        $jobs = Job::take(2)->get();
+        $companies = User::take(2)->where('is_enterprise', 1)->get();
+
+        return view('home', compact('jobs_count', 'companies_count', 'jobs', 'companies'));
     }
 
-    public function contact(){
+    public function contact()
+    {
         return view('contact');
     }
 
-    public function about(){
+    public function about()
+    {
         return view('about');
     }
 }

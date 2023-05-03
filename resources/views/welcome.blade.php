@@ -411,7 +411,7 @@
                                     <i class="flaticon-job-3"></i>
                                 </div>
                                 <div class="counter-content">
-                                    <span class="timer mb-1 text-dark" data-to="{{$companies_count}}" data-speed="10000">{{$companies_count}}</span>
+                                    <span class="timer mb-1 text-dark" data-to="{{$companies_count}}" data-speed="5">{{$companies_count}}</span>
                                     <label class="mb-0">Companies</label>
                                 </div>
                             </div>

@@ -13,9 +13,9 @@
                                 @if (Auth::user()->image == null)
                                     <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
                                 @else
-                                    <img class="img-fluid" src="{{ Storage::url(Auth::user()->image) }}" alt="">
+                                    <img class="img-fluid" style="width: 110px; height:120px;" src="{{ Storage::url(Auth::user()->image) }}" alt="">
                                 @endif
-                                <i class="fas fa-pencil-alt"></i>
+                                {{-- <i class="fas fa-pencil-alt"></i> --}}
                             </div>
                             <div class="profile-avatar-info ms-4">
                                 <h3>{{Auth::user()->name}}</h3>

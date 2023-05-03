@@ -97,7 +97,7 @@
                 <div class="col-lg-12 mb-4 mb-lg-0">
                     <div class="jobber-candidate-detail">
                         <div class="row mb-3 mb-lg-5 mt-3 mt-lg-0">
-                            <div class="col-lg-4 mb-4 mb-lg-0">
+                            {{-- <div class="col-lg-4 mb-4 mb-lg-0">
                                 <div class="candidates-feature-info bg-dark">
                                     <div class="candidates-info-icon text-white">
                                         <i class="fas fa-globe-asia"></i>
@@ -135,7 +135,7 @@
                                         <h3 class="mb-0 text-white">00</h3>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="user-dashboard-info-box mb-0 pb-4">
                             <div class="section-title">
