@@ -137,7 +137,7 @@
                                 </div>
                             </div> --}}
                         </div>
-                        <div class="user-dashboard-info-box mb-0 pb-4">
+                        {{-- <div class="user-dashboard-info-box mb-0 pb-4">
                             <div class="section-title">
                                 <h4>Recent Applied Jobs</h4>
                             </div>
@@ -172,7 +172,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <hr class="my-4 my-md-5">
                         <div id="about">
                             <h5 class="mb-3">About Me</h5>
