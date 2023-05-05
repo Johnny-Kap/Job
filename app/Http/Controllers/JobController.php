@@ -123,6 +123,20 @@ class JobController extends Controller
         return view('candidat.resultat-search-job', compact('resultat'));
     }
 
+    public function secteurActivite(){
+
+        $secteurs = Secteur::withCount('jobs')->get();
+
+        return view('candidat.secteur-activite', compact('secteurs'));
+    }
+
+    public function secteurActiviteShow($id){
+
+        $show_jobs = Job::where('secteur_id', $id)->simplePaginate(10);
+
+        return view('candidat.secteur-activite-jobs', compact('show_jobs'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

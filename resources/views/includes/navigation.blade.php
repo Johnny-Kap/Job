@@ -17,7 +17,8 @@ Header -->
                     <li class="nav-item dropdown {{ Request::route()->named('welcome') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('welcome') }}" id="navbarDropdown">Accueil</a>
                     </li>
-                    <li class="nav-item dropdown {{ Request::route()->named('candidat.job.consulter') ? 'active' : '' }}">
+                    <li
+                        class="nav-item dropdown {{ Request::route()->named('candidat.job.consulter') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Emplois <i class="fas fa-chevron-down fa-xs"></i>
@@ -27,7 +28,19 @@ Header -->
                                     emplois</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown {{ Request::route()->named('candidat.entreprise.consulter') ? 'active' : '' }}">
+                    <li
+                        class="nav-item dropdown {{ Request::route()->named('candidat.job.consulter') ? 'active' : '' }}">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Secteur activité <i class="fas fa-chevron-down fa-xs"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('candidat.job.secteur') }}">Consulter les
+                                    secteur d'activité</a></li>
+                        </ul>
+                    </li>
+                    <li
+                        class="nav-item dropdown {{ Request::route()->named('candidat.entreprise.consulter') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Entreprises <i class="fas fa-chevron-down fa-xs"></i>
@@ -82,8 +95,10 @@ Header -->
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('candidat.my-profil') }}">Voir profil</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="{{ route('candidat.gestion-emplois') }}">Mes
-                                            emplois</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('candidat.gestion-candidatures') }}">Mes
+                                            candidatures</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('candidat.gestion-favoris') }}">Mes favoris</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="{{ route('candidat.my-setting') }}">Paramètres</a>
                                     </li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}"

@@ -9,6 +9,7 @@ use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Information;
 use App\Models\Job;
+use App\Models\JobFavori;
 use App\Models\Langue;
 use App\Models\Secteur;
 use App\Models\SousSecteur;
@@ -73,7 +74,7 @@ class CandidatController extends Controller
 
         $apply_job = ApplyJob::where('user_id', $my_id)->paginate(10);
 
-        return view('candidat.gestion-emplois', compact('apply_job'));
+        return view('candidat.gestion-candidature', compact('apply_job'));
     }
 
     public function showMyResume(){
@@ -155,6 +156,15 @@ class CandidatController extends Controller
 
             return back()->with('error', 'Veuillez selectionner une photo de profil!');
         }
+    }
+
+    public function showFavoris(){
+
+        $my_id = Auth::user()->id;
+
+        $job_favoris = JobFavori::where('user_id', $my_id)->simplePaginate(10);
+
+        return view('candidat.gestion-favoris', compact('job_favoris'));
     }
 
     /**

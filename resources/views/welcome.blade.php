@@ -190,12 +190,12 @@
                                     @foreach ($jobs as $item)
                                         <div class="job-list">
                                             <div class="job-list-logo">
-                                                @if ($item->image == null)
+                                                @if ($item->users->image == null)
                                                     <img class="img-fluid"
                                                         src="\..\libraries\images\no-profile-pic-icon-0.jpg"
                                                         alt="">
                                                 @else
-                                                    <img class="img-fluid" src="{{ Storage::url($item->image) }}"
+                                                    <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
                                                         alt="">
                                                 @endif
                                             </div>

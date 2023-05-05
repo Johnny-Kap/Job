@@ -64,7 +64,7 @@ Footer-->
       <div class="container">
         <div class="row">
           <div class="col-md-8 text-center text-md-start">
-            <p class="mb-0"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> Jobber </a> All Rights Reserved </p>
+            <p class="mb-0"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> PMS </a> All Rights Reserved </p>
           </div>
           <div class="col-md-4 mt-4 mt-md-0">
             <div class="social d-flex justify-content-lg-end justify-content-center">
@@ -81,7 +81,7 @@ Footer-->
   </footer>
   <!--=================================
   Footer-->
-  
+
   <!--=================================
   Back To Top-->
      <div id="back-to-top" class="back-to-top">

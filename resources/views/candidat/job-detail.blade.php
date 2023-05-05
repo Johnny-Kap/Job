@@ -2,7 +2,7 @@
 
 @section('content')
     <!--=================================
-            banner -->
+                banner -->
     <section class="header-inner header-inner-big bg-holder text-white"
         style="background-image: url(/../libraries/images/bg/banner-01.jpg);">
         <div class="container">
@@ -18,10 +18,10 @@
         </div>
     </section>
     <!--=================================
-              banner -->
+                  banner -->
 
     <!--=================================
-              job list -->
+                  job list -->
     <section class="space-ptb">
         <div class="container">
             <div class="row">
@@ -34,7 +34,8 @@
                                         <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
                                             alt="">
                                     @else
-                                        <img class="img-fluid" src="{{ Storage::url($show_detail->users->image) }}" alt="">
+                                        <img class="img-fluid" src="{{ Storage::url($show_detail->users->image) }}"
+                                            alt="">
                                     @endif
                                 </div>
                                 <div class="job-list-details">
@@ -133,7 +134,7 @@
                     </div>
                 </div>
                 <!--=================================
-                    sidebar -->
+                        sidebar -->
                 <div class="col-lg-4">
                     <div class="sidebar mb-0">
                         <div class="widget d-grid">
@@ -186,7 +187,13 @@
                                 @foreach ($job_similar as $item)
                                     <div class="job-list">
                                         <div class="job-list-logo">
-                                            <img class="img-fluid" src="images/svg/19.svg" alt="">
+                                            @if ($item->users->image == null)
+                                                <img class="img-fluid"
+                                                    src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
+                                            @else
+                                                <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
+                                                    alt="">
+                                            @endif
                                         </div>
                                         <div class="job-list-details">
                                             <div class="job-list-info">
@@ -197,7 +204,7 @@
                                                     <ul class="list-unstyled">
                                                         <li>
                                                             <span>via</span>
-                                                            <a href="employer-detail.html">{{ $item->users->name }}</a>
+                                                            <a href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a>
                                                         </li>
                                                         <li><a class="temporary" href="#"><i
                                                                     class="fas fa-suitcase pe-1"></i>{{ $item->type_jobs->titre }}</a>
@@ -213,10 +220,10 @@
                     </div>
                 </div>
                 <!--=================================
-                    sidebar -->
+                        sidebar -->
             </div>
         </div>
     </section>
     <!--=================================
-              job list -->
+                  job list -->
 @endsection
