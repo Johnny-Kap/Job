@@ -297,7 +297,7 @@
                             @foreach ($resultat as $item)
                                 <div class="job-list ">
                                     <div class="job-list-logo">
-                                        @if ($item->image == null)
+                                        @if ($item->users->image == null)
                                             <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
                                                 alt="">
                                         @else
@@ -326,9 +326,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="job-list-favourite-time"> <a class="job-list-favourite order-2"
-                                            href="#"><i class="far fa-heart"></i></a> <span
-                                            class="job-list-time order-1"><i
+                                    <div class="job-list-favourite-time"> <form action="{{route('candidat.job.favori.create',['id' => $item->id])}}" method="post"> @csrf
+                                        <button type="submit" class="job-list-favourite order-2">
+                                           @if($fav_count == 0)
+                                            <i class="far fa-heart"></i>
+                                           @else
+                                            <i class="fas fa-heart text-danger"></i>
+                                           @endif
+                                            {{-- <i class="far fa-heart"></i> --}}
+
+                                        </button></form>
+                                        <span class="job-list-time order-1"><i
                                                 class="far fa-clock pe-1"></i>{{ $item->created_at->diffForHumans() }}</span>
                                     </div>
                                 </div>

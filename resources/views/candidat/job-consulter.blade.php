@@ -2,7 +2,7 @@
 
 @section('content')
     <!--=================================
-        banner -->
+            banner -->
     <section class="header-inner header-inner-big bg-holder text-white"
         style="background-image: url(/../libraries/images/bg/banner-01.jpg);">
         <div class="container">
@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="job-search-field">
                         <div class="job-search-item">
-                            <form class="form row" method="GET" action="{{route('candidat.search.job')}}">
+                            <form class="form row" method="GET" action="{{ route('candidat.search.job') }}">
                                 <div class="col-lg-5">
                                     <div class="form-group left-icon mb-3">
                                         <input type="text" class="form-control" name="job_title" placeholder="What?">
@@ -37,16 +37,16 @@
         </div>
     </section>
     <!--=================================
-          banner -->
+              banner -->
 
     <!--=================================
-          job-list -->
+              job-list -->
     <section class="space-ptb">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <!--=================================
-                left-sidebar -->
+                    left-sidebar -->
                     <div class="sidebar">
                         <div class="widget">
                             <div class="widget-title widget-collapse">
@@ -257,7 +257,7 @@
                 </div>
                 <div class="col-lg-9">
                     <!--=================================
-                              right-sidebar -->
+                                  right-sidebar -->
                     {{-- <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="section-title mb-3 mb-lg-4">
@@ -314,7 +314,8 @@
                                             <div class="job-list-option">
                                                 <ul class="list-unstyled">
                                                     <li> <span>via</span> <a
-                                                            href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a> </li>
+                                                            href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a>
+                                                    </li>
                                                     <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}</li>
                                                     <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
                                                     </li>
@@ -325,9 +326,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="job-list-favourite-time"> <a class="job-list-favourite order-2"
-                                            href="#"><i class="far fa-heart"></i></a> <span
-                                            class="job-list-time order-1"><i
+                                    <div class="job-list-favourite-time"> <form action="{{route('candidat.job.favori.create',['id' => $item->id])}}" method="post"> @csrf
+                                        <button type="submit" class="job-list-favourite order-2">
+                                           @if($fav_count == 0)
+                                            <i class="far fa-heart"></i>
+                                           @else
+                                            <i class="fas fa-heart text-danger"></i>
+                                           @endif
+                                            {{-- <i class="far fa-heart"></i> --}}
+
+                                        </button></form>
+                                        <span class="job-list-time order-1"><i
                                                 class="far fa-clock pe-1"></i>{{ $item->created_at->diffForHumans() }}</span>
                                     </div>
                                 </div>
@@ -344,5 +353,5 @@
         </div>
     </section>
     <!--=================================
-          job-list -->
+              job-list -->
 @endsection

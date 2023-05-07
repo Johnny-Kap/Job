@@ -58,8 +58,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="job-list-favourite-time">
-                                    <a class="job-list-favourite order-2" href="#"><i class="far fa-heart"></i></a>
+                                <div class="job-list-favourite-time"> <form action="{{route('candidat.job.favori.create',['id' => $show_detail->id])}}" method="post"> @csrf
+                                    <button type="submit" class="job-list-favourite order-2">
+                                       @if($fav_count == 0)
+                                        <i class="far fa-heart"></i>
+                                       @else
+                                        <i class="fas fa-heart text-danger"></i>
+                                       @endif
+                                        {{-- <i class="far fa-heart"></i> --}}
+
+                                    </button></form>
                                     <span class="job-list-time order-1"><i
                                             class="far fa-clock pe-1"></i>{{ $show_detail->created_at->diffForHumans() }}</span>
                                 </div>

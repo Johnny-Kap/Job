@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\JobFavori;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,12 +28,25 @@ class HomeController extends Controller
     public function index()
     {
 
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
+
         $jobs_count = Job::count();
+
         $companies_count = User::where('is_enterprise', 1)->count();
+
         $jobs = Job::take(2)->get();
+
+        $jobs_other = Job::take(2)->pluck('id');
+
+        $fav_count = JobFavori::whereIn('job_id', $jobs_other)->where('user_id', $my_id)->count();
+
         $companies = User::take(2)->where('is_enterprise', 1)->get();
 
-        return view('home', compact('jobs_count', 'companies_count', 'jobs', 'companies'));
+        return view('home', compact('jobs_count', 'companies_count', 'jobs', 'companies','fav_count'));
     }
 
     public function contact()

@@ -29,7 +29,7 @@ Header -->
                         </ul>
                     </li>
                     <li
-                        class="nav-item dropdown {{ Request::route()->named('candidat.job.consulter') ? 'active' : '' }}">
+                        class="nav-item dropdown {{ Request::route()->named('candidat.job.secteur') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Secteur activité <i class="fas fa-chevron-down fa-xs"></i>

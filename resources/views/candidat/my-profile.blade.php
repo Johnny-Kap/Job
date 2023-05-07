@@ -45,7 +45,7 @@
                         </div>
                         <div class="widget ms-auto mb-0">
                             <div class="company-detail-meta ms-auto">
-                                <a class="btn btn-primary" href="{{route('candidat.gestion-emplois')}}">Gérer mes emplois <i class="far fa-edit"></i></a>
+                                <a class="btn btn-primary" href="{{route('candidat.gestion-candidatures')}}">Gérer mes candidatures <i class="far fa-edit"></i></a>
                                 <a class="btn btn-primary" href="{{route('candidat.my-setting')}}">Mettre à jour <i class="fas fa-cog ms-1"></i></a>
                                 <ul class="list-unstyled mt-3 mb-0 ms-2 ms-sm-0">
                                     <li>

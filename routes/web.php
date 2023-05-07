@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Job;
+use App\Models\JobFavori;
 use App\Models\User;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
@@ -18,11 +19,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    if (Auth::user() == null) {
+        $my_id = '';
+    } else {
+        $my_id = Auth::user()->id;
+    }
+
     $jobs_count = Job::count();
+
     $companies_count = User::where('is_enterprise', 1)->count();
+
     $jobs = Job::take(2)->get();
+
+    $jobs_other = Job::take(2)->pluck('id');
+
+    $fav_count = JobFavori::whereIn('job_id', $jobs_other)->where('user_id', $my_id)->count();
+
     $companies = User::take(2)->where('is_enterprise', 1)->get();
-    return view('welcome', compact('jobs', 'companies', 'jobs_count', 'companies_count'));
+
+    return view('welcome', compact('jobs', 'companies', 'jobs_count', 'companies_count','fav_count'));
+
 })->name('welcome');
 
 Auth::routes(['verify' => true]);
@@ -74,7 +91,8 @@ Route::get('secteur-activite', [App\Http\Controllers\JobController::class, 'sect
 Route::get('secteur-activite/{id}', [App\Http\Controllers\JobController::class, 'secteurActiviteShow'])->name('candidat.job.list.secteur');
 
 //All routes of job favoris
-Route::post('job/detail/apply/{id}', [App\Http\Controllers\ApplyJobController::class, 'create'])->name('candidat.job.apply')->middleware('auth');
+Route::post('job-favori/create/{id}', [App\Http\Controllers\JobFavoriController::class, 'create'])->name('candidat.job.favori.create')->middleware('auth');
+Route::post('job-favori/profil/create/{id}', [App\Http\Controllers\JobFavoriController::class, 'createInProfil'])->name('candidat.job.favori.profil.create')->middleware('auth');
 
 //All routes of enterprises consultation
 Route::get('entreprises-consulter', [App\Http\Controllers\CandidatController::class, 'showEnterprises'])->name('candidat.entreprise.consulter');
@@ -83,6 +101,7 @@ Route::get('entreprises/detail/{id}', [App\Http\Controllers\CandidatController::
 //Route of  apply job
 Route::post('job/detail/apply/{id}', [App\Http\Controllers\ApplyJobController::class, 'create'])->name('candidat.job.apply')->middleware('auth');
 Route::get('job/apply', [App\Http\Controllers\ApplyJobController::class, 'apply'])->name('candidat.after.apply');
+Route::post('job/apply/supp/{id}', [App\Http\Controllers\ApplyJobController::class, 'destroy'])->name('candidat.job.apply.supp')->middleware('auth');
 
 //All routes for resume
 Route::get('resume', [App\Http\Controllers\CandidatController::class, 'showMyResume'])->name('candidat.resume.show');

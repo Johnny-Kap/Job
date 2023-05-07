@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use App\Models\Job;
+use App\Models\JobFavori;
 use App\Models\Secteur;
 use App\Models\SousSecteur;
 use App\Models\TypeJob;
@@ -20,19 +21,40 @@ class JobController extends Controller
     public function index()
     {
 
-        $showJob = Job::paginate(10);
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
 
-        return view('candidat.job-consulter', compact('showJob'));
+        $showJob = Job::withCount('job_favoris')->paginate(10);
+
+        $showJobOther = Job::pluck('id');
+
+        $fav_count = JobFavori::whereIn('job_id', $showJobOther)->where('user_id', $my_id)->count();
+
+
+        return view('candidat.job-consulter', compact('showJob', 'fav_count'));
     }
 
     public function show($id)
     {
 
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
+
         $show_detail = Job::find($id);
+
+        $show_detail_other = Job::where('id', $id)->pluck('id');
+
+        $fav_count = JobFavori::where('job_id', $show_detail_other)->where('user_id', $my_id)->count();
 
         $job_similar = Job::take(4)->get();
 
-        return view('candidat.job-detail', compact('show_detail', 'job_similar'));
+        return view('candidat.job-detail', compact('show_detail', 'job_similar','fav_count'));
     }
 
     public function showPostJob()
@@ -109,32 +131,65 @@ class JobController extends Controller
     public function search(Request $request)
     {
 
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
+
         if ($request->job_title !== '' && $request->job_adresse !== '') {
 
             $resultat = Job::where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
+
+            $resultatOther = Job::where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->pluck('id');
+
+            $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
+
         } elseif ($request->job_title !== '' && $request->job_adresse == '') {
 
             $resultat = Job::where('titre', 'like', '%' . $request->job_title . '%')->simplePaginate(15);
+
+            $resultatOther = Job::where('titre', 'like', '%' . $request->job_title . '%')->pluck('id');
+
+            $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
+
         } elseif ($request->job_title == '' && $request->job_adresse !== '') {
 
             $resultat = Job::where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
+
+            $resultatOther = Job::where('adresse', 'like', '%' . $request->job_adresse . '%')->pluck('id');
+
+            $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
+
         }
 
-        return view('candidat.resultat-search-job', compact('resultat'));
+        return view('candidat.resultat-search-job', compact('resultat','fav_count'));
     }
 
-    public function secteurActivite(){
+    public function secteurActivite()
+    {
 
         $secteurs = Secteur::withCount('jobs')->get();
 
         return view('candidat.secteur-activite', compact('secteurs'));
     }
 
-    public function secteurActiviteShow($id){
+    public function secteurActiviteShow($id)
+    {
+
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
 
         $show_jobs = Job::where('secteur_id', $id)->simplePaginate(10);
 
-        return view('candidat.secteur-activite-jobs', compact('show_jobs'));
+        $show_jobs_other = Job::where('secteur_id', $id)->pluck('id');
+
+        $fav_count = JobFavori::whereIn('job_id', $show_jobs_other)->where('user_id', $my_id)->count();
+
+        return view('candidat.secteur-activite-jobs', compact('show_jobs','fav_count'));
     }
 
     /**
