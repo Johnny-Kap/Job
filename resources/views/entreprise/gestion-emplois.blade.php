@@ -56,10 +56,22 @@
                                         <th scope="col">Expiration</th>
                                         <th scope="col">Adresse</th>
                                         <th scope="col">Secteur</th>
+                                        <th scope="col">Etat</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if ($job_count == 0)
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="row-fluid">
+                                                <div class="span12 text-center">
+                                                <b>Aucune offre d'emploi</b>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @else
                                     @foreach ($job as $item)
                                     <tr>
                                         <th scope="row">{{$item->titre}}</th>
@@ -67,14 +79,35 @@
                                         <td>{{$item->adresse}}</td>
                                         <td>{{$item->secteurs->intitule}}</td>
                                         <td>
+                                            @if($item->etat == 1 || $item->etat == null)
+                                            Actif
+                                            @else
+                                            Inactif
+                                            @endif
+                                        </td>
+                                        <td>
                                             <ul class="list-unstyled mb-0 d-flex">
-                                                <li><a href="#" class="text-primary" data-bs-toggle="tooltip" title="view"><i class="far fa-eye"></i></a></li>
+                                                {{-- <li><a href="#" class="text-primary" data-bs-toggle="tooltip" title="view"><i class="far fa-eye"></i></a></li>
                                                 <li><a href="#" class="text-info" data-bs-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                                                <li><a href="#" class="text-danger" data-bs-toggle="tooltip" title="Delete"><i class="far fa-trash-alt"></i></a></li>
+                                                <li><a href="#" class="text-danger" data-bs-toggle="tooltip" title="Delete"><i class="far fa-trash-alt"></i></a></li> --}}
+                                                <li>
+                                                    @if ($item->etat == 1 || $item->etat == null)
+                                                    <form action="{{route('entreprise.etat.job.change.off', ['id' => $item->id])}}" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger btn-sm">Désactiver</button>
+                                                    </form>
+                                                    @else
+                                                    <form action="{{route('entreprise.etat.job.change.on', ['id' => $item->id])}}" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success btn-sm">Activer</button>
+                                                    </form>
+                                                    @endif
+                                                </li>
                                             </ul>
                                         </td>
                                     </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

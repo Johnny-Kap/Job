@@ -20,7 +20,7 @@ inner banner -->
             <div class="col-12">
                 <h2 class="text-primary">Register</h2>
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="index.html"> Home </a></li>
+                    <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
                     <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Register </span></li>
                 </ol>
             </div>

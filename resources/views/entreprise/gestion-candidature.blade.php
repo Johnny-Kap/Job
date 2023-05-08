@@ -62,6 +62,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if ($my_candidat_count == 0)
+                                    <tr>
+                                        <th colspan="7">
+                                            <div class="row-fluid">
+                                                <div class="span12 text-center">
+                                                <b>Aucune candidature</b>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    @else
                                     @foreach ($my_candidat as $item)
                                     <tr>
                                         <th scope="row">{{$item->jobs->titre}}</th>
@@ -79,6 +90,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

@@ -196,6 +196,13 @@
                             <div class="row mt-3">
                                 <div class="col-lg-6">
                                     <!-- Part-Time -->
+                                    @if ($jobs_count == 0)
+                                    <div class="row-fluid">
+                                        <div class="span12 text-center">
+                                        <b>Aucune offre d'emploi</b>
+                                        </div>
+                                    </div>
+                                    @else
                                     @foreach ($jobs as $item)
                                         <div class="job-list">
                                             <div class="job-list-logo">
@@ -248,6 +255,7 @@
                                             </div>
                                         </div>
                                     @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -307,6 +315,13 @@
                     <div class="owl-carousel owl-nav-bottom-center" data-nav-arrow="false" data-nav-dots="true"
                         data-items="1" data-md-items="1" data-sm-items="2" data-xs-items="1" data-xx-items="1"
                         data-space="15" data-autoheight="true">
+                        @if ($companies_count == 0)
+                        <div class="row-fluid">
+                            <div class="span12 text-center">
+                            <b>Aucune entreprise</b>
+                            </div>
+                        </div>
+                        @else
                         @foreach ($companies as $item)
                         <div class="item">
                             <div class="employers-grid">
@@ -334,6 +349,7 @@
                             </div>
                         </div>
                     @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

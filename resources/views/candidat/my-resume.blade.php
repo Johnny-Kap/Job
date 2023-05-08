@@ -30,6 +30,10 @@
                                         <p>{{Auth::user()->name}}</p>
                                     </div>
                                     <div class="candidate-info">
+                                        <h6>Prénom:</h6>
+                                        <p>{{Auth::user()->prenom}}</p>
+                                    </div>
+                                    <div class="candidate-info">
                                         <h6>Email:</h6>
                                         <p>{{Auth::user()->email}}</p>
                                     </div>
@@ -52,6 +56,10 @@
                                     <div class="candidate-info">
                                         <h6>Description:</h6>
                                         <p>{{Auth::user()->description}}</p>
+                                    </div>
+                                    <div class="candidate-info">
+                                        <h6>Profession:</h6>
+                                        <p>{{Auth::user()->profession}}</p>
                                     </div>
                                     <div class="candidate-info">
                                         <h6>Secteur activité:</h6>

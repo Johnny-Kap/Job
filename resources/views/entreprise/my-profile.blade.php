@@ -143,6 +143,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
+                                    @if ($my_job_count == 0)
+                                    <div class="row-fluid">
+                                        <div class="span12 text-center">
+                                        <b>Aucune offre d'emploi</b>
+                                        </div>
+                                    </div>
+                                    @else
                                     @foreach ($my_job as $item)
                                     <div class="job-list">
                                         <div class="job-list-logo">
@@ -169,6 +176,7 @@
                                         </div>
                                     </div>
                                     @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>

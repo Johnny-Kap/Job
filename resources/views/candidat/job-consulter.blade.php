@@ -293,54 +293,62 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
+                            @if ($showJob_count == 0)
+                            <div class="row-fluid">
+                                <div class="span12 text-center">
+                                <b>Aucune offre d'emploi</b>
+                                </div>
+                            </div>
+                            @else
                             @foreach ($showJob as $item)
-                                <div class="job-list ">
-                                    <div class="job-list-logo">
-                                        @if ($item->users->image == null)
-                                            <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
-                                                alt="">
-                                        @else
-                                            <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
-                                                alt="">
-                                        @endif
-                                    </div>
-                                    <div class="job-list-details">
-                                        <div class="job-list-info">
-                                            <div class="job-list-title">
-                                                <h5 class="mb-0"><a
-                                                        href="{{ route('candidat.job.detail', ['id' => $item->id]) }}">{{ $item->titre }}</a>
-                                                </h5>
-                                            </div>
-                                            <div class="job-list-option">
-                                                <ul class="list-unstyled">
-                                                    <li> <span>via</span> <a
-                                                            href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a>
-                                                    </li>
-                                                    <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}</li>
-                                                    <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
-                                                    </li>
-                                                    <li><a class="freelance" href="#"><i
-                                                                class="fas fa-suitcase pe-1"></i>{{ $item->type_jobs->titre }}</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                            <div class="job-list ">
+                                <div class="job-list-logo">
+                                    @if ($item->users->image == null)
+                                        <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
+                                            alt="">
+                                    @else
+                                        <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
+                                            alt="">
+                                    @endif
+                                </div>
+                                <div class="job-list-details">
+                                    <div class="job-list-info">
+                                        <div class="job-list-title">
+                                            <h5 class="mb-0"><a
+                                                    href="{{ route('candidat.job.detail', ['id' => $item->id]) }}">{{ $item->titre }}</a>
+                                            </h5>
+                                        </div>
+                                        <div class="job-list-option">
+                                            <ul class="list-unstyled">
+                                                <li> <span>via</span> <a
+                                                        href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a>
+                                                </li>
+                                                <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}</li>
+                                                <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
+                                                </li>
+                                                <li><a class="freelance" href="#"><i
+                                                            class="fas fa-suitcase pe-1"></i>{{ $item->type_jobs->titre }}</a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="job-list-favourite-time"> <form action="{{route('candidat.job.favori.create',['id' => $item->id])}}" method="post"> @csrf
-                                        <button type="submit" class="job-list-favourite order-2">
-                                           @if($fav_count == 0)
-                                            <i class="far fa-heart"></i>
-                                           @else
-                                            <i class="fas fa-heart text-danger"></i>
-                                           @endif
-                                            {{-- <i class="far fa-heart"></i> --}}
-
-                                        </button></form>
-                                        <span class="job-list-time order-1"><i
-                                                class="far fa-clock pe-1"></i>{{ $item->created_at->diffForHumans() }}</span>
-                                    </div>
                                 </div>
-                            @endforeach
+                                <div class="job-list-favourite-time"> <form action="{{route('candidat.job.favori.create',['id' => $item->id])}}" method="post"> @csrf
+                                    <button type="submit" class="job-list-favourite order-2">
+                                       @if($fav_count == 0)
+                                        <i class="far fa-heart"></i>
+                                       @else
+                                        <i class="fas fa-heart text-danger"></i>
+                                       @endif
+                                        {{-- <i class="far fa-heart"></i> --}}
+
+                                    </button></form>
+                                    <span class="job-list-time order-1"><i
+                                            class="far fa-clock pe-1"></i>{{ $item->created_at->diffForHumans() }}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                            @endif
                         </div>
                     </div>
                     <div class="row">

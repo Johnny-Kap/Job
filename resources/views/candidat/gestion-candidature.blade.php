@@ -61,6 +61,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if ($apply_job_count == 0)
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="row-fluid">
+                                                <div class="span12 text-center">
+                                                <b>Aucune offre d'emploi</b>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @else
                                     @foreach ($apply_job as $item)
                                         <tr>
                                             <th scope="row">{{ $item->jobs->titre }}
@@ -83,6 +94,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>

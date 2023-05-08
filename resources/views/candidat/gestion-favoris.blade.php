@@ -40,6 +40,13 @@
                             <h4>Saved Jobs</h4>
                         </div>
                         <div class="row">
+                            @if ($job_favoris_count == 0)
+                            <div class="row-fluid">
+                                <div class="span12 text-center">
+                                <b>Aucune offre d'emploi</b>
+                                </div>
+                            </div>
+                            @else
                             @foreach ($job_favoris as $item)
                             <div class="col-12">
                                 <div class="job-list ">
@@ -80,6 +87,7 @@
                                 </div>
                             </div>
                             @endforeach
+                            @endif
                         </div>
                         <div class="row">
                             <div class="col-12 text-center mt-4 mt-sm-5">

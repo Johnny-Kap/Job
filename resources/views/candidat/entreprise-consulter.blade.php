@@ -257,38 +257,46 @@
                             </form>
                         </div>
                     </div>
+                    @if ($entreprises_count == 0)
+                    <div class="row-fluid">
+                        <div class="span12 text-center">
+                        <b>Aucune entreprise</b>
+                        </div>
+                    </div>
+                    @else
                     @foreach ($entreprises as $item)
-                        <div class="employers-list">
-                            <div class="employers-list-logo">
-                                @if ($item->image == null)
-                                    <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
-                                        alt="">
-                                @else
-                                    <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
-                                @endif
-                            </div>
-                            <div class="employers-list-details">
-                                <div class="employers-list-info">
-                                    <div class="employers-list-title">
-                                        <h5 class="mb-0"><a
-                                                href="{{ route('candidat.entreprise.detail', ['id' => $item->id]) }}">{{ $item->name }}</a>
-                                        </h5>
-                                    </div>
-                                    <div class="employers-list-option">
-                                        <ul class="list-unstyled">
-                                            <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}</li>
-                                            <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->Adresse }}</li>
-                                        </ul>
-                                    </div>
+                    <div class="employers-list">
+                        <div class="employers-list-logo">
+                            @if ($item->image == null)
+                                <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
+                                    alt="">
+                            @else
+                                <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
+                            @endif
+                        </div>
+                        <div class="employers-list-details">
+                            <div class="employers-list-info">
+                                <div class="employers-list-title">
+                                    <h5 class="mb-0"><a
+                                            href="{{ route('candidat.entreprise.detail', ['id' => $item->id]) }}">{{ $item->name }}</a>
+                                    </h5>
+                                </div>
+                                <div class="employers-list-option">
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}</li>
+                                        <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->Adresse }}</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="employers-list-position">
-                            {{-- <a class="btn btn-sm btn-dark" href="#">17 Open position</a> --}}
-                            <span class="candidate-list-time order-1"><i class="far fa-clock pe-1"></i>a rejoint le
-                                            {{ $item->created_at->format('d-m-y') }}</span>
                         </div>
-                        </div>
-                    @endforeach
+                        <div class="employers-list-position">
+                        {{-- <a class="btn btn-sm btn-dark" href="#">17 Open position</a> --}}
+                        <span class="candidate-list-time order-1"><i class="far fa-clock pe-1"></i>a rejoint le
+                                        {{ $item->created_at->format('d-m-y') }}</span>
+                    </div>
+                    </div>
+                @endforeach
+                    @endif
                     <div class="row">
                         <div class="col-12 text-center mt-4 mt-sm-5">
                             {{ $entreprises->links() }}

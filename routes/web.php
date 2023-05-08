@@ -26,13 +26,13 @@ Route::get('/', function () {
         $my_id = Auth::user()->id;
     }
 
-    $jobs_count = Job::count();
+    $jobs_count = Job::where('etat', 1)->count();
 
     $companies_count = User::where('is_enterprise', 1)->count();
 
-    $jobs = Job::take(2)->get();
+    $jobs = Job::where('etat', 1)->take(2)->get();
 
-    $jobs_other = Job::take(2)->pluck('id');
+    $jobs_other = Job::where('etat', 1)->take(2)->pluck('id');
 
     $fav_count = JobFavori::whereIn('job_id', $jobs_other)->where('user_id', $my_id)->count();
 
@@ -59,6 +59,8 @@ Route::get('entreprise/my-profil', [App\Http\Controllers\EntrepriseController::c
 Route::get('entreprise/my-setting', [App\Http\Controllers\EntrepriseController::class, 'showSetting'])->name('entreprise.setting')->middleware('is_enterprise');
 Route::post('entreprise/password/changed', [App\Http\Controllers\EntrepriseController::class, 'changePassword'])->name('entreprise.password.change');
 Route::get('entreprise/gestion-des-emplois', [App\Http\Controllers\EntrepriseController::class, 'showMyJobs'])->name('entreprise.jobs.manage')->middleware('is_enterprise');
+Route::post('entreprise/job/changed-on/etat/{id}', [App\Http\Controllers\EntrepriseController::class, 'changeEtatJobOn'])->name('entreprise.etat.job.change.on');
+Route::post('entreprise/job/changed-off/etat/{id}', [App\Http\Controllers\EntrepriseController::class, 'changeEtatJobOff'])->name('entreprise.etat.job.change.off');
 Route::post('entreprise/my-profil/edited', [App\Http\Controllers\EntrepriseController::class, 'store'])->name('entreprise.profil.edited');
 Route::get('entreprise/gestion-des-candidature', [App\Http\Controllers\EntrepriseController::class, 'showMyCandidat'])->name('entreprise.candidature.manage')->middleware('is_enterprise');
 Route::post('entreprise/photo-changed', [App\Http\Controllers\EntrepriseController::class, 'photoEdited'])->name('entreprise.photo.change');
@@ -77,6 +79,7 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->nam
 Route::get('my-profil', [App\Http\Controllers\CandidatController::class, 'index'])->name('candidat.my-profil')->middleware('auth');
 Route::get('my-setting', [App\Http\Controllers\CandidatController::class, 'showSetting'])->name('candidat.my-setting')->middleware('auth');
 Route::post('edited', [App\Http\Controllers\CandidatController::class, 'update'])->name('candidat.edited.profile');
+Route::post('edited/email', [App\Http\Controllers\CandidatController::class, 'resetEmail'])->name('candidat.edited.email');
 Route::post('my-setting/change-password', [App\Http\Controllers\CandidatController::class, 'changePassword'])->name('candidat.password.change');
 Route::get('gestion-des-candidatures', [App\Http\Controllers\CandidatController::class, 'showJobApplication'])->name('candidat.gestion-candidatures')->middleware('auth');
 Route::get('gestion-des-favoris', [App\Http\Controllers\CandidatController::class, 'showFavoris'])->name('candidat.gestion-favoris')->middleware('auth');

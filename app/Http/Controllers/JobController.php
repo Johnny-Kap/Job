@@ -27,14 +27,16 @@ class JobController extends Controller
             $my_id = Auth::user()->id;
         }
 
-        $showJob = Job::withCount('job_favoris')->paginate(10);
+        $showJob = Job::where('etat', 1)->paginate(10);
 
-        $showJobOther = Job::pluck('id');
+        $showJob_count = Job::where('etat', 1)->count();
+
+        $showJobOther = Job::where('etat', 1)->pluck('id');
 
         $fav_count = JobFavori::whereIn('job_id', $showJobOther)->where('user_id', $my_id)->count();
 
 
-        return view('candidat.job-consulter', compact('showJob', 'fav_count'));
+        return view('candidat.job-consulter', compact('showJob', 'fav_count','showJob_count'));
     }
 
     public function show($id)
@@ -123,6 +125,8 @@ class JobController extends Controller
 
         $post_job->adresse = $request->adresse;
 
+        $post_job->etat = 1;
+
         $post_job->save();
 
         return redirect()->route('entreprise.post.job.submit');
@@ -139,31 +143,40 @@ class JobController extends Controller
 
         if ($request->job_title !== '' && $request->job_adresse !== '') {
 
-            $resultat = Job::where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
+            $resultat = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
 
-            $resultatOther = Job::where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->pluck('id');
+            $resultat_count = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->count();
+
+            $resultatOther = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->pluck('id');
 
             $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
 
         } elseif ($request->job_title !== '' && $request->job_adresse == '') {
 
-            $resultat = Job::where('titre', 'like', '%' . $request->job_title . '%')->simplePaginate(15);
+            $resultat = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->simplePaginate(15);
 
-            $resultatOther = Job::where('titre', 'like', '%' . $request->job_title . '%')->pluck('id');
+            $resultat_count = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->count();
+
+            $resultatOther = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->pluck('id');
 
             $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
 
         } elseif ($request->job_title == '' && $request->job_adresse !== '') {
 
-            $resultat = Job::where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
+            $resultat = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
 
-            $resultatOther = Job::where('adresse', 'like', '%' . $request->job_adresse . '%')->pluck('id');
+            $resultat_count = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->count();
+
+            $resultatOther = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->pluck('id');
 
             $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
 
+        }else{
+
+            return back()->with('warning','Veuillez renseigner un des champs');
         }
 
-        return view('candidat.resultat-search-job', compact('resultat','fav_count'));
+        return view('candidat.resultat-search-job', compact('resultat','fav_count','resultat_count'));
     }
 
     public function secteurActivite()
@@ -183,13 +196,15 @@ class JobController extends Controller
             $my_id = Auth::user()->id;
         }
 
-        $show_jobs = Job::where('secteur_id', $id)->simplePaginate(10);
+        $show_jobs = Job::where('etat', 1)->where('secteur_id', $id)->simplePaginate(10);
 
-        $show_jobs_other = Job::where('secteur_id', $id)->pluck('id');
+        $show_jobs_count = Job::where('etat', 1)->where('secteur_id', $id)->count();
+
+        $show_jobs_other = Job::where('etat', 1)->where('secteur_id', $id)->pluck('id');
 
         $fav_count = JobFavori::whereIn('job_id', $show_jobs_other)->where('user_id', $my_id)->count();
 
-        return view('candidat.secteur-activite-jobs', compact('show_jobs','fav_count'));
+        return view('candidat.secteur-activite-jobs', compact('show_jobs','fav_count','show_jobs_count'));
     }
 
     /**

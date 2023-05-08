@@ -295,6 +295,13 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
+                            @if ($profil_count == 0)
+                            <div class="row-fluid">
+                                <div class="span12 text-center">
+                                <b>Aucun profil </b>
+                                </div>
+                            </div>
+                            @else
                             @foreach ($profil as $item)
                                 <div class="candidate-list">
                                     <div class="candidate-list-image">
@@ -334,6 +341,7 @@
                                     </div>
                                 </div>
                             @endforeach
+                            @endif
                         </div>
                         <div class="row">
                             <div class="col-12 text-center mt-4 mt-sm-5">

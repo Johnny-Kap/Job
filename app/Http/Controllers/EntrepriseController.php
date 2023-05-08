@@ -62,7 +62,9 @@ class EntrepriseController extends Controller
 
         $my_job = Job::take(3)->where('user_id', $my_id)->get();
 
-        return view('entreprise.my-profile', compact('my_job'));
+        $my_job_count = Job::take(3)->where('user_id', $my_id)->count();
+
+        return view('entreprise.my-profile', compact('my_job','my_job_count'));
     }
 
     public function showSetting()
@@ -82,7 +84,9 @@ class EntrepriseController extends Controller
 
         $job = Job::where('user_id', $my_id)->paginate(10);
 
-        return view('entreprise.gestion-emplois', compact('job'));
+        $job_count = Job::where('user_id', $my_id)->count();
+
+        return view('entreprise.gestion-emplois', compact('job','job_count'));
     }
 
     public function showMyCandidat()
@@ -94,7 +98,9 @@ class EntrepriseController extends Controller
 
         $my_candidat = ApplyJob::whereIn('job_id', $my_job)->where('validated', 1)->paginate(15);
 
-        return view('entreprise.gestion-candidature', compact('my_candidat'));
+        $my_candidat_count = ApplyJob::whereIn('job_id', $my_job)->where('validated', 1)->count();
+
+        return view('entreprise.gestion-candidature', compact('my_candidat','my_candidat_count'));
     }
 
     public function changePassword(Request $request)
@@ -126,7 +132,9 @@ class EntrepriseController extends Controller
 
         $profil = User::where('is_enterprise', 0)->simplePaginate(15);
 
-        return view('entreprise.profil-consulter', compact('profil'));
+        $profil_count = User::where('is_enterprise', 0)->count();
+
+        return view('entreprise.profil-consulter', compact('profil','profil_count'));
     }
 
     public function showProfilDetail($id)
@@ -152,19 +160,40 @@ class EntrepriseController extends Controller
 
         if ($request->name !== null && $request->adresse !== null) {
 
-            $resultat = User::where('name', 'like', '%' . $request->name . '%')->where('Adresse', 'like', '%' . $request->adresse . '%')->where('is_enterprise', 0)->simplePaginate(15);
+            $resultat = User::where('name', 'like', '%' . $request->name . '%')
+            ->orWhere('prenom','like','%' .$request->name. '%')
+            ->where('Adresse', 'like', '%' . $request->adresse . '%')
+            ->where('is_enterprise', 0)->simplePaginate(15);
+
+            $resultat_count = User::where('name', 'like', '%' . $request->name . '%')
+            ->orWhere('prenom','like','%' .$request->name. '%')
+            ->where('Adresse', 'like', '%' . $request->adresse . '%')
+            ->where('is_enterprise', 0)->count();
+
         } elseif ($request->name !== null && $request->adresse == null) {
 
-            $resultat = User::where('name', 'like', '%' . $request->name . '%')->where('is_enterprise', 0)->simplePaginate(15);
+            $resultat = User::where('name', 'like', '%' . $request->name . '%')
+            ->orWhere('prenom','like','%' .$request->name. '%')
+            ->where('is_enterprise', 0)->simplePaginate(15);
+
+            $resultat_count = User::where('name', 'like', '%' . $request->name . '%')
+            ->orWhere('prenom','like','%' .$request->name. '%')
+            ->where('is_enterprise', 0)->count();
+
         } elseif ($request->name == null && $request->adresse !== null) {
 
-            $resultat = User::where('Adresse', 'like', '%' . $request->adresse . '%')->where('is_enterprise', 0)->simplePaginate(15);
+            $resultat = User::where('Adresse', 'like', '%' . $request->adresse . '%')
+            ->where('is_enterprise', 0)->simplePaginate(15);
+
+            $resultat_count = User::where('Adresse', 'like', '%' . $request->adresse . '%')
+            ->where('is_enterprise', 0)->count();
+
         } elseif ($request->name == null && $request->adresse == null) {
 
-            return back();
+            return back()->with('warning','Veuillez renseigner un des champs');
         }
 
-        return view('entreprise.resultat-search-profil', compact('resultat'));
+        return view('entreprise.resultat-search-profil', compact('resultat','resultat_count'));
     }
 
     public function photoEdited(Request $request)
@@ -188,6 +217,26 @@ class EntrepriseController extends Controller
 
             return back()->with('error', 'Veuillez selectionner une photo de profil!');
         }
+    }
+
+    public function changeEtatJobOn($id){
+
+        $affected = Job::where('id', $id)
+                ->update([
+                    'etat' => 1,
+                ]);
+
+        return back()->with('success', 'Offre emploi activée avec succès!');
+    }
+
+    public function changeEtatJobOff($id){
+
+        $affected = Job::where('id', $id)
+                ->update([
+                    'etat' => 0,
+                ]);
+
+        return back()->with('success', 'Offre emploi désactivée avec succès!');
     }
 
 

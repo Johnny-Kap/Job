@@ -34,13 +34,13 @@ class HomeController extends Controller
             $my_id = Auth::user()->id;
         }
 
-        $jobs_count = Job::count();
+        $jobs_count = Job::where('etat', 1)->count();
 
         $companies_count = User::where('is_enterprise', 1)->count();
 
-        $jobs = Job::take(2)->get();
+        $jobs = Job::where('etat', 1)->take(2)->get();
 
-        $jobs_other = Job::take(2)->pluck('id');
+        $jobs_other = Job::where('etat', 1)->take(2)->pluck('id');
 
         $fav_count = JobFavori::whereIn('job_id', $jobs_other)->where('user_id', $my_id)->count();
 

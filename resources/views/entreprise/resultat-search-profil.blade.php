@@ -294,44 +294,54 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
+                            @if ($resultat_count == 0)
+                            <div class="row-fluid">
+                                <div class="span12 text-center">
+                                <b>Aucun profil</b>
+                                </div>
+                            </div>
+                            @else
                             @foreach ($resultat as $item)
-                                <div class="job-list ">
-                                    <div class="job-list-logo">
-                                        @if ($item->image == null)
-                                            <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
-                                                alt="">
-                                        @else
-                                            <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="job-list-details">
-                                        <div class="job-list-info">
-                                            <div class="job-list-title">
-                                                <h5 class="mb-0"><a href="{{route('entreprise.profil.detail', ['id' => $item->id])}}">{{ $item->prenom }} {{ $item->name }}</a>
-                                                </h5>
-                                            </div>
-                                            <div class="job-list-option">
-                                                <ul class="list-unstyled">
-                                                    <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
-                                                    <li><i class="fas fa-map-marker-alt pe-1"></i>
-                                                        @if ($item->Adresse == null)
-                                                            Aucune adresse
-                                                        @else
-                                                            {{ $item->Adresse }}
-                                                        @endif
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                            <div class="job-list ">
+                                <div class="job-list-logo">
+                                    @if ($item->image == null)
+                                        <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
+                                            alt="">
+                                    @else
+                                        <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
+                                    @endif
+                                </div>
+                                <div class="job-list-details">
+                                    <div class="job-list-info">
+                                        <div class="job-list-title">
+                                            <h5 class="mb-0"><a href="{{route('entreprise.profil.detail', ['id' => $item->id])}}">{{ $item->prenom }} {{ $item->name }}</a>
+                                            </h5>
+                                        </div>
+                                        <div class="job-list-option">
+                                            <ul class="list-unstyled">
+                                                <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
+                                                <li><i class="fas fa-map-marker-alt pe-1"></i>
+                                                    @if ($item->Adresse == null)
+                                                        Aucune adresse
+                                                    @else
+                                                        {{ $item->Adresse }}
+                                                    @endif
+                                                </li>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="job-list-favourite-time"> <a class="job-list-favourite order-2"
-                                            href="#"><i class="far fa-heart"></i></a> <span
-                                            class="job-list-time order-1"><i
-                                                class="far fa-clock pe-1"></i>a rejoint le {{ $item->created_at->format('d-m-y') }}</span>
-                                    </div>
                                 </div>
-                            @endforeach
+                                <div class="job-list-favourite-time">
+                                    {{-- <a class="job-list-favourite order-2"
+                                        href="#"><i class="far fa-heart"></i></a> --}}
+                                        <span
+                                        class="job-list-time order-1"><i
+                                            class="far fa-clock pe-1"></i>a rejoint le {{ $item->created_at->format('d-m-y') }}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                            @endif
                         </div>
                     </div>
                     <div class="row">

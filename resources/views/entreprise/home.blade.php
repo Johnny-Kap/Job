@@ -21,7 +21,7 @@
                                         </div>
                                         <div class="position-relative left-icon">
                                             <input type="text" class="form-control" name="name"
-                                                placeholder="Nom du profil recherché">
+                                                placeholder="Nom ou prenom du profil recherché">
                                             <i class="fas fa-search"></i>
                                         </div>
                                     </div>
@@ -186,6 +186,13 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel"
                             aria-labelledby="home-tab">
                             <div class="row mt-3">
+                                @if ($profil_count == 0)
+                                <div class="row-fluid">
+                                    <div class="span12 text-center">
+                                    <b>Aucun profil</b>
+                                    </div>
+                                </div>
+                                @else
                                 @foreach ($profil_show as $item)
                                     <div class="col-lg-6 mb-4 mb-sm-0">
                                         <!-- Freelance -->
@@ -226,14 +233,15 @@
                                                 </div>
                                             </div>
                                             <div class="job-list-favourite-time">
-                                                <a class="job-list-favourite order-2" href="#"><i
-                                                        class="far fa-heart"></i></a>
+                                                {{-- <a class="job-list-favourite order-2" href="#"><i
+                                                        class="far fa-heart"></i></a> --}}
                                                 <span class="job-list-time order-1"><i class="far fa-clock pe-1"></i>a
                                                     rejoint le {{ $item->created_at->format('d-m-y') }}</span>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
