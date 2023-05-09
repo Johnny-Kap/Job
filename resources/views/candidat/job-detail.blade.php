@@ -80,7 +80,7 @@
                                 <div class="d-flex">
                                     <i class="font-xll text-primary align-self-center flaticon-debit-card"></i>
                                     <div class="feature-info-content ps-3">
-                                        <label class="mb-1">Offered Salary</label>
+                                        <label class="mb-1">Salaire offert</label>
                                         <span class="mb-0 fw-bold d-block text-dark">${{ $show_detail->salaire_min }} -
                                             ${{ $show_detail->salaire_max }}</span>
                                     </div>
@@ -90,7 +90,7 @@
                                 <div class="d-flex">
                                     <i class="font-xll text-primary align-self-center flaticon-love"></i>
                                     <div class="feature-info-content ps-3">
-                                        <label class="mb-1">Gender</label>
+                                        <label class="mb-1">Genre</label>
                                         <span class="mb-0 fw-bold d-block text-dark">{{ $show_detail->genre_id }}</span>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                 <div class="d-flex">
                                     <i class="font-xll text-primary align-self-center flaticon-apartment"></i>
                                     <div class="feature-info-content ps-3">
-                                        <label class="mb-1">Sous secteurs activité</label>
+                                        <label class="mb-1">Sous-secteurs activité</label>
                                         <span
                                             class="mb-0 fw-bold d-block text-dark">{{ $show_detail->sous_secteurs->intitule }}</span>
                                     </div>
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                     <div class="my-4 my-lg-5">
-                        <h5 class="mb-3 mb-md-4">Job Description</h5>
+                        <h5 class="mb-3 mb-md-4">Description de l'emploi</h5>
                         {{ $show_detail->description }}
                     </div>
                 </div>
@@ -148,8 +148,8 @@
                         <div class="widget d-grid">
                             <form action="{{ route('candidat.job.apply', ['id' => $show_detail->id]) }}" method="post">
                                 @csrf
-                                <button class="btn btn-primary" type="submit"><i class="far fa-paper-plane"></i>Apply
-                                    for job</button>
+                                <button class="btn btn-primary" type="submit"><i class="far fa-paper-plane"></i>Postuler
+                                    pour l'emploi</button>
                             </form>
                         </div>
                         <div class="widget">
@@ -176,20 +176,20 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <div class="widget-box">
                                             <div class="d-flex">
                                                 <i class="flaticon-personal-profile fa-2x fa-fw text-primary"></i>
                                                 <span class="ps-3">300-500 Application</span>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
                         <div class="widget">
                             <div class="widget-title">
-                                <h5>Similar Jobs</h5>
+                                <h5>Emplois similaires</h5>
                             </div>
                             <div class="similar-jobs-item widget-box">
                                 @foreach ($job_similar as $item)

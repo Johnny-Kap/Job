@@ -37,7 +37,7 @@
                 <div class="col-md-12">
                     <div class="user-dashboard-info-box mb-0 pb-4">
                         <div class="section-title-02 mb-4">
-                            <h4>Saved Jobs</h4>
+                            <h4>Mes favoris</h4>
                         </div>
                         <div class="row">
                             @if ($job_favoris_count == 0)

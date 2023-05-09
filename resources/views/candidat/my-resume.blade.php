@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="about-candidate border-top">
                                     <div class="candidate-info">
-                                        <h6>Name:</h6>
+                                        <h6>Nom:</h6>
                                         <p>{{Auth::user()->name}}</p>
                                     </div>
                                     <div class="candidate-info">
@@ -34,23 +34,23 @@
                                         <p>{{Auth::user()->prenom}}</p>
                                     </div>
                                     <div class="candidate-info">
-                                        <h6>Email:</h6>
+                                        <h6>E-mail:</h6>
                                         <p>{{Auth::user()->email}}</p>
                                     </div>
                                     <div class="candidate-info">
-                                        <h6>Phone:</h6>
+                                        <h6>Téléphone:</h6>
                                         <p>{{Auth::user()->tel}}</p>
                                     </div>
                                     <div class="candidate-info">
-                                        <h6>Date Of Birth:</h6>
+                                        <h6>Date de naissance:</h6>
                                         <p>{{Auth::user()->date_naiss}}</p>
                                     </div>
                                     <div class="candidate-info">
-                                        <h6>Address:</h6>
+                                        <h6>Adresse:</h6>
                                         <p>{{Auth::user()->adresse}}</p>
                                     </div>
                                     <div class="candidate-info">
-                                        <h6>Gender:</h6>
+                                        <h6>Genre:</h6>
                                         <p>{{Auth::user()->genres->titre}}</p>
                                     </div>
                                     <div class="candidate-info">
@@ -62,7 +62,7 @@
                                         <p>{{Auth::user()->profession}}</p>
                                     </div>
                                     <div class="candidate-info">
-                                        <h6>Secteur activité:</h6>
+                                        <h6>Secteur d'activité:</h6>
                                         <p>{{Auth::user()->secteurs->intitule}}</p>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                         <div class="col-lg-7">
                             <div class="resume-experience ps-0">
                                 <div class="timeline-box mt-4">
-                                    <h5 class="resume-experience-title">Work & Experience:</h5>
+                                    <h5 class="resume-experience-title">Expériences professionnelles:</h5>
                                     @foreach ($experiences as $item)
                                     <div class="jobber-candidate-timeline">
                                         <div class="jobber-timeline-item mb-0">
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="jobber-timeline-info">
                                                 <div class="dashboard-timeline-info">
-                                                    <span class="jobber-timeline-time">{{$item->date_debut}} to {{$item->date_fin}}</span>
+                                                    <span class="jobber-timeline-time">{{$item->date_debut}} à {{$item->date_fin}}</span>
                                                     <h6 class="mb-2">{{$item->poste}}</h6>
                                                     <span>- {{$item->nom_entreprise}}</span>
                                                     <p class="mt-2">{{$item->description}}</p>
@@ -91,7 +91,7 @@
                                     @endforeach
                                 </div>
                                 <div class="timeline-box">
-                                    <h5 class="resume-experience-title">Education:</h5>
+                                    <h5 class="resume-experience-title">Formation:</h5>
                                     @foreach ($educations as $item)
                                     <div class="jobber-candidate-timeline">
                                         <div class="jobber-timeline-item">

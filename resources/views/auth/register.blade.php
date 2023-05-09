@@ -18,10 +18,10 @@ inner banner -->
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-primary">Register</h2>
+                <h2 class="text-primary">S'enregistrer</h2>
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="{{url('/')}}"> Home </a></li>
-                    <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Register </span></li>
+                    <li class="breadcrumb-item"><a href="{{url('/')}}"> Accueil </a></li>
+                    <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> S'enregistrer </span></li>
                 </ol>
             </div>
         </div>
@@ -38,10 +38,10 @@ inner banner -->
             <div class="col-xl-8 col-lg-10 col-md-12">
                 <div class="login-register">
                     <div class="section-title">
-                        <h4 class="text-center">Create Your Account</h4>
+                        <h4 class="text-center">Créez votre compte</h4>
                     </div>
                     <fieldset>
-                        <legend class="px-2">Choose your Account Type</legend>
+                        <legend class="px-2">Choisissez votre type de compte</legend>
                         <ul class="nav nav-tabs nav-tabs-border d-flex" role="tablist">
                             <li class="nav-item me-4">
                                 <a class="nav-link active" data-bs-toggle="tab" href="#candidate" role="tab">
@@ -50,8 +50,8 @@ inner banner -->
                                             <i class="flaticon-users"></i>
                                         </div>
                                         <div class="ms-3">
-                                            <h6 class="mb-0">Candidate</h6>
-                                            <p class="mb-0">I want to discover companies.</p>
+                                            <h6 class="mb-0">Candidat</h6>
+                                            <p class="mb-0">Je veux découvrir des entreprises.</p>
                                         </div>
                                     </div>
                                 </a>
@@ -63,8 +63,8 @@ inner banner -->
                                             <i class="flaticon-suitcase"></i>
                                         </div>
                                         <div class="ms-3">
-                                            <h6 class="mb-0">Employer</h6>
-                                            <p class="mb-0">I want to attract the best talent.</p>
+                                            <h6 class="mb-0">Entreprise</h6>
+                                            <p class="mb-0">Je veux attirer les meilleurs talents.</p>
                                         </div>
                                     </div>
                                 </a>
@@ -107,7 +107,7 @@ inner banner -->
                                         @enderror
                                     </div>
                                     <div class="mb-3 col-md-12">
-                                        <label class="form-label">Email Address *</label>
+                                        <label class="form-label">Adresse E-mail *</label>
                                         <input type="text" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                         @error('email')
@@ -117,7 +117,7 @@ inner banner -->
                                         @enderror
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label">Password *</label>
+                                        <label class="form-label">Mot de passe *</label>
                                         <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                         @error('password')
@@ -127,11 +127,11 @@ inner banner -->
                                         @enderror
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label" for="password2">Confirm Password *</label>
+                                        <label class="form-label" for="password2">Confirmer le mot de passe *</label>
                                         <input type="password" id="password-confirm" name="password_confirmation" required autocomplete="new-password" class="form-control">
                                     </div>
                                     <div class="mb-3 col-6">
-                                        <label class="form-label" for="phone">Phone:</label>
+                                        <label class="form-label" for="phone">Téléphone :</label>
                                         <input type="text" id="tel" name="tel" class="form-control">
                                     </div>
                                     <div class="mb-3 col-md-6 datetimepickers">
@@ -151,7 +151,7 @@ inner banner -->
                                         </div>
                                     </div>
                                     <div class="mb-3 col-md-12 select-border">
-                                        <label class="form-label" for="genre">Select gender *:</label>
+                                        <label class="form-label" for="genre">Selectionner le genre *:</label>
                                         <select class="form-control basic-select" name="genre">
                                             @foreach ($genres as $item)
                                                 <option value="{{$item->id}}" selected="selected">{{$item->titre}}</option>
@@ -159,7 +159,7 @@ inner banner -->
                                         </select>
                                     </div>
                                     <div class="mb-3 col-md-12 select-border">
-                                        <label class="form-label" for="sector">Select Sector *:</label>
+                                        <label class="form-label" for="sector">Selectionner un secteur d'activité *:</label>
                                         <select class="form-control basic-select" name="secteur">
                                             @foreach ($secteurs as $item)
                                                 <option value="{{$item->id}}" selected="selected">{{$item->intitule}}</option>
@@ -171,7 +171,7 @@ inner banner -->
                                             <input class="form-check-input" type="checkbox" value=""
                                                 id="Remember-02">
                                             <label class="form-check-label" for="Remember-02">
-                                                you accept our Terms and Conditions and Privacy Policy
+                                                vous acceptez nos conditions générales et notre politique de confidentialité
                                             </label>
                                         </div>
                                     </div>
@@ -179,11 +179,11 @@ inner banner -->
                                 <div class="row">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary d-block">
-                                            Register
+                                            Enregistrer
                                         </button>
                                     </div>
                                     <div class="col-md-6 text-md-end mt-2 text-center">
-                                        <p>Already registered? <a href="{{ route('login') }}"> Sign in here</a></p>
+                                        <p>Déjà enregistré ? <a href="{{ route('login') }}"> Se connecter ici</a></p>
                                     </div>
                                 </div>
                             </form>
@@ -207,19 +207,19 @@ inner banner -->
                                         <input type="text" name="prenom" class="form-control" id="Username">
                                     </div> --}}
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label">Email Address *</label>
+                                        <label class="form-label">Adresse E-mail *</label>
                                         <input type="email" name="email" class="form-control" id="email">
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label">Password *</label>
+                                        <label class="form-label">Mot de passe *</label>
                                         <input type="password" name="password" class="form-control" id="Password">
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label" for="password2">Confirm Password *</label>
+                                        <label class="form-label" for="password2">Confirmer le mot de passe *</label>
                                         <input type="password" name="password_confirmation" class="form-control" id="password2">
                                     </div>
                                     <div class="mb-3 col-6">
-                                        <label class="form-label" for="phone">Phone</label>
+                                        <label class="form-label" for="phone">Téléphone</label>
                                         <input type="text" class="form-control" name="tel" id="phone">
                                     </div>
                                     <div class="mb-3 col-md-6 datetimepickers">
@@ -239,7 +239,7 @@ inner banner -->
                                         </div>
                                     </div>
                                     <div class="mb-3 col-md-12 select-border">
-                                        <label class="form-label" for="sector">Select Sector *:</label>
+                                        <label class="form-label" for="sector">Selectionner le secteur d'actvité *:</label>
                                         <select class="form-control basic-select" name="secteur">
                                             @foreach ($secteurs as $item)
                                                 <option value="{{$item->id}}" selected="selected">{{$item->intitule}}</option>
@@ -255,7 +255,7 @@ inner banner -->
                                             <input class="form-check-input" type="checkbox" value=""
                                                 id="accepts-02">
                                             <label class="form-check-label" for="accepts-02">
-                                                you accept our Terms and Conditions and Privacy Policy
+                                                vous acceptez nos conditions générales et notre politique de confidentialité
                                             </label>
                                         </div>
                                     </div>
@@ -265,7 +265,7 @@ inner banner -->
                                         <button type="submit" class="btn btn-primary d-block">Enregistrer</button>
                                     </div>
                                     <div class="col-md-6 text-md-end mt-2 text-center">
-                                        <a href="{{ route('login') }}">Already have an account?</a>
+                                        <a href="{{ route('login') }}">Vous avez déjà un compte?</a>
                                     </div>
                                 </div>
                             </form>

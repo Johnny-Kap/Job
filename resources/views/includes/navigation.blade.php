@@ -64,11 +64,11 @@ Header -->
                 <div class="add-listing">
                     <div class="login d-inline-block me-4">
                         @if (Route::has('login'))
-                            <a href="{{ route('login') }}"><i class="far fa-user pe-2"></i>Sign in</a>
+                            <a href="{{ route('login') }}"><i class="far fa-user pe-2"></i>Se connecter</a>
                         @endif
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}"><i class="far fa-user pe-2"></i>Sign up</a>
+                            <a href="{{ route('register') }}"><i class="far fa-user pe-2"></i>S'enregistrer</a>
                         @endif
                     </div>
                 </div>

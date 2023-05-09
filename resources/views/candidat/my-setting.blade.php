@@ -69,7 +69,7 @@
                                 <div class="col-md-12">
                                     <div class="user-dashboard-info-box">
                                         <div class="section-title-02 mb-2 d-grid">
-                                            <h4>Basic Information</h4>
+                                            <h4>Informations de base</h4>
                                         </div>
                                         <div class="">
                                             <div class="">
@@ -77,7 +77,7 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="row">
-                                                        <label for="formFile" class="form-label">Upload Cover Photo</label>
+                                                        <label for="formFile" class="form-label">Modifier la photo de profil</label>
                                                         <div class="form-group mb-3 col-md-4">
                                                             <input class="form-control" name="file" type="file"
                                                                 id="formFile">
@@ -101,22 +101,22 @@
                                             @csrf
                                             <div class="row">
                                                 <div class="form-group mb-3 col-md-6">
-                                                    <label class="form-label">Your Name</label>
+                                                    <label class="form-label">Nom</label>
                                                     <input type="text" class="form-control" name="name"
                                                         value="{{ Auth::user()->name }}">
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6">
-                                                    <label class="form-label">Your Prenom</label>
+                                                    <label class="form-label">Prénom</label>
                                                     <input type="text" class="form-control" name="prenom"
                                                         value="{{ Auth::user()->prenom }}">
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6">
-                                                    <label class="form-label">Your profession</label>
+                                                    <label class="form-label">Profession</label>
                                                     <input type="text" class="form-control" name="profession"
                                                         value="{{ Auth::user()->profession }}">
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6 datetimepickers">
-                                                    <label class="form-label">Date of birth</label>
+                                                    <label class="form-label">Date de naissance</label>
                                                     <div class="input-group date" id="datetimepicker-01"
                                                         data-target-input="nearest">
                                                         <input type="text" name="date_naiss"
@@ -131,17 +131,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6">
-                                                    <label class="form-label">Phone</label>
+                                                    <label class="form-label">Téléphone</label>
                                                     <input type="text" name="tel" class="form-control"
                                                         value="{{ Auth::user()->tel }}">
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6">
-                                                    <label class="form-label">Profession</label>
-                                                    <input type="text" name="profession" class="form-control"
-                                                        value="{{ Auth::user()->profession }}">
-                                                </div>
-                                                <div class="form-group mb-3 col-md-6">
-                                                    <label class="d-block mb-3">Gender</label>
+                                                    <label class="d-block mb-3">Genre</label>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="genre"
                                                             id="customRadio1" value="1"
@@ -156,7 +151,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6 select-border">
-                                                    <label class="form-label">Secteur</label>
+                                                    <label class="form-label">Secteur d'activité</label>
                                                     <select name="secteur" class="form-control basic-select">
                                                         @foreach ($secteurs as $item)
                                                             <option value="{{ $item->id }}">{{ $item->intitule }}
@@ -165,7 +160,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6 select-border">
-                                                    <label class="form-label">Sous secteur</label>
+                                                    <label class="form-label">Sous-secteur d'activité</label>
                                                     <select name="sous_secteur" class="form-control basic-select">
                                                         @foreach ($sous_secteurs as $item)
                                                             <option value="{{ $item->id }}">{{ $item->intitule }}
@@ -186,7 +181,7 @@
                                     </div>
                                     <div class="user-dashboard-info-box">
                                         <div class="section-title-02 mb-3">
-                                            <h4>Social Links</h4>
+                                            <h4>Liens sociaux</h4>
                                         </div>
 
                                         <div class="row">
@@ -214,9 +209,9 @@
                                     </div>
                                     <div class="user-dashboard-info-box">
                                         <div class="form-group mb-0">
-                                            <h4 class="mb-3">Address</h4>
+                                            <h4 class="mb-3">Adresse</h4>
                                             <div class="form-group mb-3">
-                                                <label class="form-label">Enter Your Location</label>
+                                                <label class="form-label">Entrez votre emplacement</label>
                                                 <input type="text" name="adresse" class="form-control"
                                                     value="{{ Auth::user()->Adresse }}">
                                             </div>
@@ -233,7 +228,7 @@
                                 <div class="col-md-12">
                                     <div class="user-dashboard-info-box">
                                         <div class="section-title-02 mb-4">
-                                            <h4>Change Password</h4>
+                                            <h4>Changer le mot de passe</h4>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
@@ -241,17 +236,17 @@
                                                     action="{{ route('candidat.password.change') }}">
                                                     @csrf
                                                     <div class="form-group col-md-12 mb-3">
-                                                        <label class="form-label">Current Password</label>
+                                                        <label class="form-label">Mot de passe actuel</label>
                                                         <input type="password" name="old_password" class="form-control"
                                                             value="">
                                                     </div>
                                                     <div class="form-group col-md-12 mb-3">
-                                                        <label class="form-label">New Password</label>
+                                                        <label class="form-label">Nouveau mot de passe</label>
                                                         <input type="password" name="new_password" class="form-control"
                                                             value="">
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
-                                                        <label class="form-label">Confirm Password</label>
+                                                        <label class="form-label">Confirmez le mot de passe</label>
                                                         <input type="password" name="confirm_password"
                                                             class="form-control" value="">
                                                     </div>
@@ -294,13 +289,12 @@
                             <div class="row mt-4">
                                 <div class="col-lg-8">
                                     <div class="section-title-02">
-                                        <h3>My Resume</h3>
+                                        <h3>Mon CV</h3>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 text-lg-end">
                                     <a class="btn btn-primary btn-md mb-4 mb-lg-0"
-                                        href="{{ route('candidat.resume.show') }}">Preview My
-                                        Resume</a>
+                                        href="{{ route('candidat.resume.show') }}">Visualiser mon CV</a>
                                 </div>
                                 <div class="col-12">
                                     <div class="user-dashboard-info-box">
@@ -310,7 +304,7 @@
                                             </div>
                                             <a class="btn btn-md ms-sm-auto btn-primary" data-bs-toggle="collapse"
                                                 href="#dateposted-05" role="button" aria-expanded="false"
-                                                aria-controls="dateposted">Add informations</a>
+                                                aria-controls="dateposted">Ajouter information</a>
                                         </div>
                                         <div class="collapse show" id="dateposted-05">
                                             <div class="bg-light p-3 mt-4">
@@ -328,7 +322,7 @@
                                                             value="">
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
-                                                        <button type="submit" class="btn btn-md btn-primary">Add</button>
+                                                        <button type="submit" class="btn btn-md btn-primary">Ajouter</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -402,7 +396,7 @@
                                             </div>
                                             <a class="btn btn-md ms-sm-auto btn-primary" data-bs-toggle="collapse"
                                                 href="#dateposted" role="button" aria-expanded="false"
-                                                aria-controls="dateposted">Add Education</a>
+                                                aria-controls="dateposted">Ajouter Formation</a>
                                         </div>
                                         <div class="collapse show" id="dateposted">
                                             <div class="bg-light p-3 mt-4">
@@ -410,12 +404,12 @@
                                                     action="{{ route('candidat.resume.educ.add') }}">
                                                     @csrf
                                                     <div class="form-group mb-3 col-md-12">
-                                                        <label class="form-label">Title</label>
+                                                        <label class="form-label">Titre</label>
                                                         <input type="text" name="titre" class="form-control"
                                                             value="">
                                                     </div>
                                                     <div class="form-group mb-3 col-md-6 select-border">
-                                                        <label class="form-label">Year debut</label>
+                                                        <label class="form-label">Année debut</label>
                                                         <select name="date_debut" class="form-control basic-select">
                                                             <option value="2020" selected="selected">2020</option>
                                                             <option value="2008">2008</option>
@@ -427,7 +421,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group mb-3 col-md-6 select-border">
-                                                        <label class="form-label">Year fin</label>
+                                                        <label class="form-label">Année fin</label>
                                                         <select name="date_fin" class="form-control basic-select">
                                                             <option value="Aujourd'hui" selected="selected">Aujourd'hui
                                                             </option>
@@ -442,7 +436,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group mb-3 col-md-12">
-                                                        <label class="form-label">Institute</label>
+                                                        <label class="form-label">Institut</label>
                                                         <input type="text" name="ecole" class="form-control"
                                                             value="">
                                                     </div>
@@ -492,13 +486,13 @@
                                                                     action="{{ route('candidat.resume.educ.update', ['id' => $item->id]) }}">
                                                                     @csrf
                                                                     <div class="form-group mb-3 col-md-12">
-                                                                        <label class="form-label">Title</label>
+                                                                        <label class="form-label">Titre</label>
                                                                         <input type="text" name="titre"
                                                                             class="form-control"
                                                                             value="{{ $item->nom_diplome }}">
                                                                     </div>
                                                                     <div class="form-group mb-3 col-md-6 select-border">
-                                                                        <label class="form-label">Year debut</label>
+                                                                        <label class="form-label">Année debut</label>
                                                                         <select class="form-control basic-select"
                                                                             name="date_debut">
                                                                             <option value="value 01" selected="selected">
@@ -515,7 +509,7 @@
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group mb-3 col-md-6 select-border">
-                                                                        <label class="form-label">Year fin</label>
+                                                                        <label class="form-label">Année fin</label>
                                                                         <select class="form-control basic-select"
                                                                             name="date_fin">
                                                                             <option value="value 01" selected="selected">
@@ -531,7 +525,7 @@
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group mb-3 col-md-12">
-                                                                        <label class="form-label">Institute</label>
+                                                                        <label class="form-label">Institut</label>
                                                                         <input type="text" class="form-control"
                                                                             value="{{ $item->ecole }}" name="ecole">
                                                                     </div>
@@ -556,11 +550,11 @@
                                     <div class="user-dashboard-info-box">
                                         <div class="dashboard-resume-title d-flex align-items-center">
                                             <div class="section-title-02 mb-sm-0">
-                                                <h4 class="mb-0">Work & Experience</h4>
+                                                <h4 class="mb-0">Expériences professionnelles</h4>
                                             </div>
                                             <a class="btn btn-md ms-sm-auto btn-primary" data-bs-toggle="collapse"
                                                 href="#dateposted-05" role="button" aria-expanded="false"
-                                                aria-controls="dateposted">Add Experience</a>
+                                                aria-controls="dateposted">Ajouter Experience</a>
                                         </div>
                                         <div class="collapse show" id="dateposted-05">
                                             <div class="bg-light p-3 mt-4">
@@ -568,12 +562,12 @@
                                                     action="{{ route('candidat.resume.expe.add') }}">
                                                     @csrf
                                                     <div class="form-group mb-3 col-md-12">
-                                                        <label class="form-label">Title</label>
+                                                        <label class="form-label">Titre</label>
                                                         <input type="text" name="poste" class="form-control"
                                                             value="">
                                                     </div>
                                                     <div class="form-group mb-3 col-md-12">
-                                                        <label class="form-label">Company name</label>
+                                                        <label class="form-label">Nom de l'entreprise</label>
                                                         <input type="text" name="nom_entreprise" class="form-control"
                                                             value="">
                                                         <label class="form-label">Adresse</label>
@@ -581,7 +575,7 @@
                                                             value="">
                                                     </div>
                                                     <div class="mb-3 col-md-6 datetimepickers">
-                                                        <label class="form-label">From</label>
+                                                        <label class="form-label">De</label>
                                                         <div class="input-group date" id="datetimepicker-01"
                                                             data-target-input="nearest">
                                                             <input type="text"
@@ -597,7 +591,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group mb-3 col-md-6 select-border datetimepickers">
-                                                        <label class="form-label">Two</label>
+                                                        <label class="form-label">à</label>
                                                         <div class="input-group date" id="datetimepicker-02"
                                                             data-target-input="nearest">
                                                             <input type="text"
@@ -617,7 +611,7 @@
                                                         <textarea class="form-control" name="description" rows="4"></textarea>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
-                                                        <button type="submit" class="btn btn-md btn-primary">Add</button>
+                                                        <button type="submit" class="btn btn-md btn-primary">Ajouter</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -660,13 +654,13 @@
                                                                     action="{{ route('candidat.resume.expe.update', ['id' => $item->id]) }}">
                                                                     @csrf
                                                                     <div class="form-group mb-3 col-md-12">
-                                                                        <label class="form-label">Title</label>
+                                                                        <label class="form-label">Titre</label>
                                                                         <input type="text" name="poste"
                                                                             class="form-control"
                                                                             value="{{ $item->poste }}">
                                                                     </div>
                                                                     <div class="form-group mb-3 col-md-12">
-                                                                        <label class="form-label">Company name</label>
+                                                                        <label class="form-label">Nom del'entreprise</label>
                                                                         <input type="text" name="nom_entreprise"
                                                                             class="form-control"
                                                                             value="{{ $item->nom_entreprise }}">
@@ -677,7 +671,7 @@
                                                                     </div>
                                                                     <div
                                                                         class="form-group mb-3 col-md-6 select-border datetimepickers">
-                                                                        <label class="form-label">From</label>
+                                                                        <label class="form-label">De</label>
                                                                         <div class="input-group date"
                                                                             id="datetimepicker-05"
                                                                             data-target-input="nearest">
@@ -697,7 +691,7 @@
                                                                     </div>
                                                                     <div
                                                                         class="form-group mb-3 col-md-6 select-border datetimepickers">
-                                                                        <label class="form-label">Two</label>
+                                                                        <label class="form-label">à</label>
                                                                         <div class="input-group date"
                                                                             id="datetimepicker-06"
                                                                             data-target-input="nearest">
@@ -742,7 +736,7 @@
                                             </div>
                                             <a class="btn btn-md ms-sm-auto btn-primary" data-bs-toggle="collapse"
                                                 href="#dateposted-15" role="button" aria-expanded="false"
-                                                aria-controls="dateposted">Add compétences</a>
+                                                aria-controls="dateposted">Ajouter compétence</a>
                                         </div>
                                         <div class="collapse show" id="dateposted-15">
                                             <div class="bg-light p-3 mt-4">
@@ -764,7 +758,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
-                                                        <button type="submit" class="btn btn-md btn-primary">Add</button>
+                                                        <button type="submit" class="btn btn-md btn-primary">Ajouter</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -844,7 +838,7 @@
                                             </div>
                                             <a class="btn btn-md ms-sm-auto btn-primary" data-bs-toggle="collapse"
                                                 href="#dateposted-15" role="button" aria-expanded="false"
-                                                aria-controls="dateposted">Add langue</a>
+                                                aria-controls="dateposted">Ajouter langue</a>
                                         </div>
                                         <div class="collapse show" id="dateposted-15">
                                             <div class="bg-light p-3 mt-4">
@@ -866,7 +860,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
-                                                        <button type="submit" class="btn btn-md btn-primary">Add</button>
+                                                        <button type="submit" class="btn btn-md btn-primary">Ajouter</button>
                                                     </div>
                                                 </form>
                                             </div>

@@ -126,14 +126,14 @@
                         </div>
                         <hr class="my-4 my-md-5">
                         <div id="about">
-                            <h5 class="mb-3">About Enterprise</h5>
+                            <h5 class="mb-3">A propos de l'enterprise</h5>
                             <div class="border p-3">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6 mb-4">
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-account"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Name:</label>
+                                                <label class="mb-0">Nom:</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ $entreprise_detail->name }}</span>
                                             </div>
@@ -143,7 +143,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-approval"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Email:</label>
+                                                <label class="mb-0">E-mail:</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ $entreprise_detail->email }}</span>
                                             </div>
@@ -153,7 +153,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-curriculum"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Secteur:</label>
+                                                <label class="mb-0">Secteur d'activité:</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ $entreprise_detail->secteurs->intitule }}</span>
                                             </div>
@@ -163,7 +163,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-contact"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Phone :</label>
+                                                <label class="mb-0">Téléphone :</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ $entreprise_detail->tel }}</span>
                                             </div>
@@ -173,7 +173,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-appointment"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Date Of Birth :</label>
+                                                <label class="mb-0">Date de création :</label>
                                                 <span class="d-block fw-bold text-dark">
                                                     @if ($entreprise_detail->date_naiss == null)
                                                         Aucune date
@@ -188,7 +188,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-map"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Address :</label>
+                                                <label class="mb-0">Adresse :</label>
                                                 <span class="d-block fw-bold text-dark">
                                                     @if ($entreprise_detail->Adresse == null)
                                                         Aucune adresse

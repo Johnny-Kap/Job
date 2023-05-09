@@ -7,10 +7,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-primary">Contact Us</h2>
+                    <h2 class="text-primary">Contactez-nous</h2>
                     <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="index.html"> Home </a></li>
-                        <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Contact us </span>
+                        <li class="breadcrumb-item"><a href="index.html"> Accueil </a></li>
+                        <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Contactez-nous </span>
                         </li>
                     </ol>
                 </div>
@@ -31,9 +31,9 @@
                             <i class="flaticon-placeholder"></i>
                         </div>
                         <div class="feature-info-content">
-                            <h5 class="text-black">Address</h5>
-                            <span class="d-block">214 West Arnold St. </span>
-                            <span>New York, NY 10002</span>
+                            <h5 class="text-black">Adresse</h5>
+                            <span class="d-block"> </span>
+                            <span>Montréal, Québec</span>
                         </div>
                     </div>
                 </div>
@@ -43,9 +43,9 @@
                             <i class="flaticon-contact fa-flip-horizontal"></i>
                         </div>
                         <div class="feature-info-content">
-                            <h5 class="text-black">Phone Number</h5>
-                            <span class="d-block">(123) 345-6789</span>
-                            <span>(456) 478-2589</span>
+                            <h5 class="text-black">Numéro téléphone</h5>
+                            <span class="d-block">#</span>
+                            <span></span>
                         </div>
                     </div>
                 </div>
@@ -55,9 +55,8 @@
                             <i class="flaticon-approval"></i>
                         </div>
                         <div class="feature-info-content">
-                            <h5 class="text-black">Email</h5>
-                            <span class="d-block">support@jobber.demo</span>
-                            <span>gethelp@jobber.demo</span>
+                            <h5 class="text-black">E-mail</h5>
+                            <span class="d-block">contact@portneufms.com</span>
                         </div>
                     </div>
                 </div>
@@ -68,8 +67,8 @@
                         </div>
                         <div class="feature-info-content">
                             <h5 class="text-black">Fax</h5>
-                            <span class="d-block">(123) 345-6789</span>
-                            <span>(456) 478-2589</span>
+                            <span class="d-block">#</span>
+                            <span></span>
                         </div>
                     </div>
                 </div>
@@ -86,30 +85,30 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-02 text-center">
-                        <h2>Let’s Get In Touch!</h2>
-                        <p>We have completed over a 1000+ projects for five hundred clients. Give us your next project.</p>
+                        <h2>Prenons contact!</h2>
+                        {{-- <p>Nous avons réalisé plus de 1000 projets pour cinq cents clients. Confiez-nous votre prochain projet.</p> --}}
                     </div>
                 </div>
             </div>
             <form>
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
-                        <input type="text" class="form-control" id="Username" placeholder="Enter Your Name">
+                        <input type="text" class="form-control" id="Username" placeholder="Entrez votre nom">
                     </div>
                     <div class="form-group col-md-6 mb-3">
-                        <input type="text" class="form-control" id="email" placeholder="Subject">
+                        <input type="text" class="form-control" id="email" placeholder="Objet">
                     </div>
                     <div class="form-group col-md-6 mb-3">
-                        <input type="text" class="form-control" id="Password" placeholder="Enter Your Email Address">
+                        <input type="text" class="form-control" id="Password" placeholder="Entrez votre adresse email">
                     </div>
                     <div class="form-group col-md-6 mb-3">
-                        <input type="text" class="form-control" id="phone" placeholder="Enter Your Phone Number">
+                        <input type="text" class="form-control" id="phone" placeholder="Entrez votre numéro de téléphone">
                     </div>
                     <div class="form-group col-12 mb-0">
-                        <textarea rows="5" class="form-control" id="sector" placeholder="Subject"></textarea>
+                        <textarea rows="5" class="form-control" id="sector" placeholder="Message"></textarea>
                     </div>
                     <div class="col-12 text-center mt-4">
-                        <a class="btn btn-primary" href="#">Send your message</a>
+                        <a class="btn btn-primary" href="#">Envoyez votre message</a>
                     </div>
                 </div>
             </form>
@@ -119,36 +118,36 @@
     <section class="space-ptb pt-0">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="d-flex mb-md-0 mb-4">
                         <i class="font-xlll text-primary flaticon-hand-shake"></i>
                         <div class="feature-info-content ps-4">
-                            <h5>Chat To Us Online</h5>
-                            <p class="mb-0">Chat to us online if you have any question.</p>
-                            <a class="mt-2 mb-0 d-block" href="#">Click here to open chat</a>
+                            <h5>Discutez avec nous en ligne</h5>
+                            <p class="mb-0">Discutez avec nous en ligne si vous avez des questions.</p>
+                            <a class="mt-2 mb-0 d-block" href="#">Cliquez ici pour ouvrir le chat</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="d-flex mb-md-0 mb-4">
                         <i class="font-xlll text-primary flaticon-profiles"></i>
                         <div class="feature-info-content ps-4">
-                            <h5>Call Us</h5>
-                            <p class="mb-0">Our support agent will work with you to meet your lending needs.</p>
-                            <h5 class="mt-2 mb-0">(123) 345-6789</h5>
+                            <h5>Ecrivez nous</h5>
+                            <p class="mb-0">Notre agent de soutien travaillera avec vous pour répondre à vos besoins de prêt.</p>
+                            <h5 class="mt-2 mb-0">contact@portneufms.com</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="d-flex">
                         <i class="font-xlll text-primary flaticon-conversation-1"></i>
                         <div class="feature-info-content ps-4">
-                            <h5>Read our latest news</h5>
+                            <h5>Lisez nos dernières nouvelles</h5>
                             <p class="mb-0">Visit our Blog page and know more about news and career tips</p>
                             <a class="mt-2 mb-0 d-block" href="#">Read Blog post </a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

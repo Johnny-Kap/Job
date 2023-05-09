@@ -51,7 +51,7 @@
                                     <li>
                                         <div class="share-box share-dark-bg">
                                             <a href="#"> <i class="fas fa-share-alt"></i><span
-                                                    class="ps-2">Share</span></a>
+                                                    class="ps-2">Suivez moi</span></a>
                                             <ul class="list-unstyled share-box-social">
                                                 <li> <a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                                 <li> <a href="#"><i class="fab fa-twitter"></i></a> </li>
@@ -82,11 +82,11 @@
                     <div class="sticky-top secondary-menu-sticky-top">
                         <div class="secondary-menu">
                             <ul>
-                                <li><a href="#about"> About </a></li>
+                                <li><a href="#about"> A propos </a></li>
                                 <li><a href="#informations"> Informations personnelles </a></li>
-                                <li><a href="#education"> Education </a></li>
-                                <li><a href="#experience"> Work Experience </a></li>
-                                <li><a href="#skill"> professional Skill </a></li>
+                                <li><a href="#education"> Formation </a></li>
+                                <li><a href="#experience"> Expériences professionnelles </a></li>
+                                <li><a href="#skill"> Compétences </a></li>
                                 <li><a href="#langues"> Langues </a></li>
                             </ul>
                         </div>
@@ -175,14 +175,14 @@
                         </div> --}}
                         <hr class="my-4 my-md-5">
                         <div id="about">
-                            <h5 class="mb-3">About Me</h5>
+                            <h5 class="mb-3">A propos de moi</h5>
                             <div class="border p-3">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6 mb-4">
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-account"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Name:</label>
+                                                <label class="mb-0">Nom:</label>
                                                 <span class="d-block fw-bold text-dark">{{ Auth::user()->name }}</span>
                                             </div>
                                         </div>
@@ -200,7 +200,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-approval"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Email:</label>
+                                                <label class="mb-0">E-mail:</label>
                                                 <span class="d-block fw-bold text-dark">{{ Auth::user()->email }}</span>
                                             </div>
                                         </div>
@@ -209,7 +209,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-curriculum"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Secteur:</label>
+                                                <label class="mb-0">Secteur d'activité:</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ Auth::user()->secteurs->intitule }}</span>
                                             </div>
@@ -219,7 +219,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-contact"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Phone :</label>
+                                                <label class="mb-0">Téléphone :</label>
                                                 <span class="d-block fw-bold text-dark">{{ Auth::user()->tel }}</span>
                                             </div>
                                         </div>
@@ -228,7 +228,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-appointment"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Date Of Birth :</label>
+                                                <label class="mb-0">Date de naissance :</label>
                                                 <span class="d-block fw-bold text-dark">
                                                     @if (Auth::user()->date_naiss == null)
                                                         Aucune date
@@ -243,7 +243,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-map"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Address :</label>
+                                                <label class="mb-0">Adresse :</label>
                                                 <span class="d-block fw-bold text-dark">
                                                     @if (Auth::user()->adresse == null)
                                                         Aucune adresse
@@ -258,7 +258,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-man"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Sex :</label>
+                                                <label class="mb-0">Sexe :</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ Auth::user()->genres->titre }}</span>
                                             </div>
@@ -287,7 +287,7 @@
                                         <i class="far fa-circle"></i>
                                     </div>
                                     <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">High level education :
+                                        <span class="jobber-timeline-time">Plus haut niveau d'étude :
                                             @foreach ($informations as $item)
                                             {{$item->high_level_education}}
                                             @endforeach
@@ -310,7 +310,7 @@
                         </div>
                         <hr class="my-4 my-md-5">
                         <div id="experience">
-                            <h5 class="mb-3">Work & Experience</h5>
+                            <h5 class="mb-3">Expériences professionnelle</h5>
                             @foreach ($experiences as $item)
                             <div class="jobber-candidate-timeline">
                                 <div class="jobber-timeline-icon">
@@ -321,7 +321,7 @@
                                         <i class="far fa-circle"></i>
                                     </div>
                                     <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">{{$item->date_debut}} <b>to</b> {{$item->date_fin}}</span>
+                                        <span class="jobber-timeline-time">{{$item->date_debut}} <b>à</b> {{$item->date_fin}}</span>
                                         <h6 class="mb-2">{{$item->poste}}</h6>
                                         <span>- {{$item->nom_entreprise}}</span>
                                         <p class="mt-2">{{$item->description}}</p>
@@ -332,7 +332,7 @@
                         </div>
                         <hr class="my-4 my-md-5">
                         <div id="education">
-                            <h5 class="mb-3">Education</h5>
+                            <h5 class="mb-3">Formation</h5>
                             @foreach ($educations as $item)
                             <div class="jobber-candidate-timeline">
                                 <div class="jobber-timeline-icon">

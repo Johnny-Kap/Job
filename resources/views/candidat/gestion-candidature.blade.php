@@ -39,7 +39,7 @@
                         <div class="row mb-4">
                             <div class="col-md-7 col-sm-5 d-flex align-items-center">
                                 <div class="section-title-02 mb-0 ">
-                                    <h4 class="mb-0">Manage Jobs Application</h4>
+                                    <h4 class="mb-0">Gérer les emplois sousmis</h4>
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7 mt-3 mt-sm-0">
@@ -53,8 +53,8 @@
                             <table class="table table-bordered">
                                 <thead class="bg-light">
                                     <tr>
-                                        <th scope="col">Job Title</th>
-                                        <th scope="col">Applications</th>
+                                        <th scope="col">Titre d'emploi</th>
+                                        <th scope="col">Application</th>
                                         <th scope="col">Date de candidature</th>
                                         <th scope="col">Validation</th>
                                         <th scope="col">Action</th>
@@ -75,8 +75,8 @@
                                     @foreach ($apply_job as $item)
                                         <tr>
                                             <th scope="row">{{ $item->jobs->titre }}
-                                                <p class="mb-1 mt-2">Expiry: {{ $item->jobs->dateline }}</p>
-                                                <p class="mb-0">Address: {{ $item->jobs->adresse }}</p>
+                                                <p class="mb-1 mt-2">Expire: {{ $item->jobs->dateline }}</p>
+                                                <p class="mb-0">Adresse: {{ $item->jobs->adresse }}</p>
                                             </th>
                                             <td>Soumis</td>
                                             <td>{{ $item->created_at->format('d-m-y') }}</td>

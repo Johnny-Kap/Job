@@ -13,20 +13,20 @@
                             <form class="form row" method="GET" action="{{ route('candidat.search.job') }}">
                                 <div class="col-lg-5">
                                     <div class="form-group left-icon mb-3">
-                                        <input type="text" class="form-control" name="job_title" placeholder="What?">
+                                        <input type="text" class="form-control" name="job_title" placeholder="What? e.g Titre d'une offre d'emploi">
                                         <i class="fas fa-search"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="form-group left-icon mb-3">
-                                        <input type="text" class="form-control" name="job_adresse" placeholder="Where?">
+                                        <input type="text" class="form-control" name="job_adresse" placeholder="Where? e.g Adresse">
                                         <i class="fas fa-search"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-sm-12">
                                     <div class="form-group form-action">
                                         <button type="submit" class="btn btn-primary mt-0"><i
-                                                class="fas fa-search-location"></i> Find Job</button>
+                                                class="fas fa-search-location"></i> Trouver un emploi</button>
                                     </div>
                                 </div>
                             </form>
@@ -50,7 +50,7 @@
                     <div class="sidebar">
                         <div class="widget">
                             <div class="widget-title widget-collapse">
-                                <h6>Date Posted</h6>
+                                <h6>Date postée</h6>
                                 <a class="ms-auto" data-bs-toggle="collapse" href="#dateposted" role="button"
                                     aria-expanded="false" aria-controls="dateposted"> <i class="fas fa-chevron-down"></i>
                                 </a>
@@ -280,11 +280,11 @@
                         <div class="job-shortby ms-sm-auto d-flex align-items-center">
                             <form class="form-inline">
                                 <div class="d-sm-flex align-items-center mb-0">
-                                    <label class="justify-content-start me-2 mb-2 mb-sm-0">sort by :</label>
+                                    <label class="justify-content-start me-2 mb-2 mb-sm-0">Trier par :</label>
                                     <div class="short-by">
                                         <select class="form-control basic-select">
-                                            <option>Newest</option>
-                                            <option>Oldest</option>
+                                            <option>Le plus récent</option>
+                                            <option>Le plus ancien</option>
                                         </select>
                                     </div>
                                 </div>
