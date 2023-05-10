@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2 class="text-primary">Post a New Job</h2>
+                        <h2 class="text-primary">Publier une nouvelle offre d'emploi</h2>
                     </div>
                 </div>
             </div>
@@ -24,18 +24,18 @@
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col-md-6 mb-3">
-                                        <label class="mb-2">Job Title *</label>
+                                        <label class="mb-2">Titre de l'offre d'emploi *</label>
                                         <input type="text" name="titre" class="form-control" value=""
                                             placeholder="Enter a Title" required>
                                     </div>
                                     <div class="form-group col-md-6 mb-3">
-                                        <label class="mb-2">Email Address de contact *</label>
+                                        <label class="mb-2">Adresse e-mail de contact *</label>
                                         <input type="email" name="email" class="form-control" value=""
                                             placeholder="Enter Email Address of Contact Person" required>
                                     </div>
                                     <div class="form-group col-md-12 mb-3">
                                         <label class="mb-2">Description *</label>
-                                        <textarea class="form-control" name="description" rows="4" required></textarea>
+                                        <textarea class="form-control" name="description" rows="6" required></textarea>
                                     </div>
 
                                     {{-- <div class="form-group col-md-6 mb-3">
@@ -43,7 +43,7 @@
                                         <input type="text" class="form-control" value="" placeholder="Username">
                                     </div> --}}
                                     <div class="form-group col-md-6 mb-3 datetimepickers">
-                                        <label class="mb-2">Application Deadline</label>
+                                        <label class="mb-2">Date limite d'inscription</label>
                                         <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
                                                 value="08/11/1999" name="dateline" data-target="#datetimepicker-01">
@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 select-border mb-3">
-                                        <label class="mb-2">Job Sector *</label>
+                                        <label class="mb-2">Secteur d'activité *</label>
                                         <select class="form-control basic-select" name="secteur">
                                             @foreach ($secteurs as $item)
                                                 <option value="{{ $item->id }}">{{ $item->intitule }}</option>
@@ -62,7 +62,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6 select-border mb-3">
-                                        <label class="mb-2">Job Sous secteur *</label>
+                                        <label class="mb-2">Sous-secteur d'activité *</label>
                                         <select class="form-control basic-select" name="sous_secteur">
                                             @foreach ($sous_secteurs as $item)
                                                 <option value="{{ $item->id }}">{{ $item->intitule }}</option>
@@ -70,7 +70,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6 select-border mb-3">
-                                        <label class="mb-2">Type de Job</label>
+                                        <label class="mb-2">Type d'emploi</label>
                                         <select class="form-control basic-select" name="type_job">
                                             @foreach ($type_job as $item)
                                                 <option value="{{ $item->id }}">{{ $item->titre }}</option>
@@ -78,7 +78,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-1é">
-                                        <label class="mb-2">Salary *</label>
+                                        <label class="mb-2">Salaire *</label>
                                     </div>
                                     {{-- <div class="form-group col-md-6 select-border mb-3">
                                         <select class="form-control basic-select">
@@ -138,7 +138,7 @@
                     </div>
                     <div class="row mt-4 mt-lg-5">
                         <div class="col-12">
-                            <h5 class="mb-4">Other Information</h5>
+                            <h5 class="mb-4">Autres Informations</h5>
                         </div>
                     </div>
                     <div class="row">
@@ -171,7 +171,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6 select-border mb-3">
-                                    <label class="mb-2">Gender *</label>
+                                    <label class="mb-2">Genre *</label>
                                     <select class="form-control basic-select" name="genre">
                                         <option value="Homme / Femme">Homme / Femme</option>
                                         <option value="Homme">Homme</option>
@@ -187,7 +187,7 @@
                                     </select>
                                 </div> --}}
                                 <div class="form-group col-md-6 select-border mb-md-0 mb-3">
-                                    <label class="mb-2">Qualifications *</label>
+                                    <label class="mb-2">Qualification *</label>
                                     <select class="form-control basic-select" name="qualification">
                                         <option value="Bac +2">Bac +2</option>
                                         <option value="Bac +3 - Licence">Bac +3 - Licence</option>
@@ -195,7 +195,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6 select-border mb-3">
-                                    <label class="mb-2">Telephone *</label>
+                                    <label class="mb-2">Téléphone *</label>
                                     <input type="text" name="tel" class="form-control" placeholder="Tel">
                                 </div>
                                 <div class="form-group col-md-6 select-border mb-3">
@@ -218,7 +218,7 @@
 
                     <div class="row mt-5">
                         <div class="col-12">
-                            <h5 class="mb-4">Address / Location</h5>
+                            <h5 class="mb-4">Adresse</h5>
                         </div>
                     </div>
                     <div class="row align-items-end">
@@ -240,8 +240,8 @@
                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                             </select>
                         </div> --}}
-                        <div class="form-group col-xl-10 col-md-9 col-sm-8 mb-3">
-                            <label class="mb-2">Full Address *</label>
+                        <div class="form-group col-xl-12 col-md-9 col-sm-8 mb-3">
+                            <label class="mb-2">Adresse complète *</label>
                             <input type="text" class="form-control" name="adresse" value="" required>
                         </div>
                         {{-- <div class="col-xl-2 col-md-3 col-sm-4 mb-3">
@@ -274,7 +274,7 @@
                             </div>
                         </div> --}}
                         <div class="col-md-12">
-                            <button class="btn btn-primary" type="submit">Post Job</button>
+                            <button class="btn btn-primary" type="submit">Publier</button>
                         </div>
                     </div>
                     </form>

@@ -38,7 +38,7 @@
                         <div class="row mb-4">
                             <div class="col-md-7 col-sm-5 d-flex align-items-center">
                                 <div class="section-title-02 mb-0 ">
-                                    <h4 class="mb-0">Manage Candidature</h4>
+                                    <h4 class="mb-0">Gestions des Candidatures</h4>
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7 mt-3 mt-sm-0">
@@ -52,10 +52,10 @@
                             <table class="table table-bordered">
                                 <thead class="bg-light">
                                     <tr>
-                                        <th scope="col">Job Title</th>
-                                        <th scope="col">Nom du candidat</th>
-                                        <th scope="col">Prénom du candidat</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col">Titre de l'emploi</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Prénom</th>
+                                        <th scope="col">E-mail</th>
                                         <th scope="col">Téléphone</th>
                                         <th scope="col">Date de candidature</th>
                                         <th scope="col">Action</th>

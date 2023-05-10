@@ -76,11 +76,11 @@
                     <div class="sticky-top secondary-menu-sticky-top">
                         <div class="secondary-menu">
                             <ul>
-                                <li><a href="#about"> About </a></li>
+                                <li><a href="#about"> A propos </a></li>
                                 <li><a href="#informations"> Informations personnelles </a></li>
-                                <li><a href="#education"> Education </a></li>
-                                <li><a href="#experience"> Work Experience </a></li>
-                                <li><a href="#skill"> professional Skill </a></li>
+                                <li><a href="#education"> Formation </a></li>
+                                <li><a href="#experience"> Expériences professionnelles </a></li>
+                                <li><a href="#skill"> Competences </a></li>
                                 <li><a href="#langues"> Langues </a></li>
                             </ul>
                         </div>
@@ -171,14 +171,14 @@
                         </div> --}}
                         <hr class="my-4 my-md-5">
                         <div id="about">
-                            <h5 class="mb-3">About Me</h5>
+                            <h5 class="mb-3">A propos de moi</h5>
                             <div class="border p-3">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6 mb-4">
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-account"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Name:</label>
+                                                <label class="mb-0">Nom:</label>
                                                 <span class="d-block fw-bold text-dark">{{ $profil_detail->name }}</span>
                                             </div>
                                         </div>
@@ -196,7 +196,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-account"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Email:</label>
+                                                <label class="mb-0">E-mail:</label>
                                                 <span class="d-block fw-bold text-dark">{{ $profil_detail->email }}</span>
                                             </div>
                                         </div>
@@ -205,7 +205,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-curriculum"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Secteur:</label>
+                                                <label class="mb-0">Secteur d'activité:</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ $profil_detail->secteurs->intitule }}</span>
                                             </div>
@@ -215,7 +215,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-contact"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Phone :</label>
+                                                <label class="mb-0">Téléphone :</label>
                                                 <span class="d-block fw-bold text-dark">{{ $profil_detail->tel }}</span>
                                             </div>
                                         </div>
@@ -224,7 +224,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-appointment"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Date Of Birth :</label>
+                                                <label class="mb-0">Date de naissance :</label>
                                                 <span class="d-block fw-bold text-dark">
                                                     @if ($profil_detail->date_naiss == null)
                                                         Aucune date
@@ -239,7 +239,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-map"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Address :</label>
+                                                <label class="mb-0">Adresse :</label>
                                                 <span class="d-block fw-bold text-dark">
                                                     @if ($profil_detail->adresse == null)
                                                         Aucune adresse
@@ -254,7 +254,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-man"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Sex :</label>
+                                                <label class="mb-0">Genre :</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ $profil_detail->genres->titre }}</span>
                                             </div>
@@ -283,7 +283,7 @@
                                         <i class="far fa-circle"></i>
                                     </div>
                                     <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">High level education :
+                                        <span class="jobber-timeline-time">Plus haut niveau d'étude :
                                             @foreach ($informations as $item)
                                                 {{ $item->high_level_education }}
                                             @endforeach
@@ -306,7 +306,7 @@
                         </div>
                         <hr class="my-4 my-md-5">
                         <div id="experience">
-                            <h5 class="mb-3">Work & Experience</h5>
+                            <h5 class="mb-3">Expériences professionnelles</h5>
                             @foreach ($experiences as $item)
                                 <div class="jobber-candidate-timeline">
                                     <div class="jobber-timeline-icon">
@@ -317,7 +317,7 @@
                                             <i class="far fa-circle"></i>
                                         </div>
                                         <div class="jobber-timeline-info">
-                                            <span class="jobber-timeline-time">{{ $item->date_debut }} <b>to</b>
+                                            <span class="jobber-timeline-time">{{ $item->date_debut }} <b>à</b>
                                                 {{ $item->date_fin }}</span>
                                             <h6 class="mb-2">{{ $item->poste }}</h6>
                                             <span>- {{ $item->nom_entreprise }}</span>
@@ -329,7 +329,7 @@
                         </div>
                         <hr class="my-4 my-md-5">
                         <div id="education">
-                            <h5 class="mb-3">Education</h5>
+                            <h5 class="mb-3">Formation</h5>
                             @foreach ($educations as $item)
                                 <div class="jobber-candidate-timeline">
                                     <div class="jobber-timeline-icon">

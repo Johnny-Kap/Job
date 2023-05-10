@@ -18,7 +18,7 @@
                                 {{-- <i class="fas fa-pencil-alt"></i> --}}
                             </div>
                             <div class="profile-avatar-info ms-4">
-                                <h3>{{Auth::user()->prenom}} {{Auth::user()->name}}</h3>
+                                <h3>{{Auth::user()->name}}</h3>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <div class="row mb-4">
                             <div class="col-md-7 col-sm-5 d-flex align-items-center">
                                 <div class="section-title-02 mb-0 ">
-                                    <h4 class="mb-0">Manage Jobs</h4>
+                                    <h4 class="mb-0">Gestion des emplois</h4>
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7 mt-3 mt-sm-0">
@@ -52,10 +52,10 @@
                             <table class="table table-bordered">
                                 <thead class="bg-light">
                                     <tr>
-                                        <th scope="col">Job Title</th>
+                                        <th scope="col">Titre</th>
                                         <th scope="col">Expiration</th>
                                         <th scope="col">Adresse</th>
-                                        <th scope="col">Secteur</th>
+                                        <th scope="col">Secteur d'activité</th>
                                         <th scope="col">Etat</th>
                                         <th scope="col">Action</th>
                                     </tr>

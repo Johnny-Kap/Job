@@ -8,8 +8,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center position-relative">
-                    <h1 class="text-white mb-3">Drop <span class="text-primary"> Resume & Get </span> Your Desired Job</h1>
-                    <p class="lead mb-4 mb-lg-5 fw-normal">Find Jobs, Employment & Career Opportunities</p>
+                    <h1 class="text-white mb-3">Déposez votre <span class="text-primary"> CV et obtenez </span> l'emploi souhaité</h1>
+                    <p class="lead mb-4 mb-lg-5 fw-normal">Trouver des emplois, des opportunités d'emploi et de carrière</p>
                     <div class="job-search-field">
                         <div class="job-search-item">
                             <form class="form row" method="get" action="{{ route('entreprise.profil.search') }}">
@@ -17,11 +17,11 @@
                                     <div class="form-group mb-3">
                                         <div class="d-flex">
                                             <label class="form-label">Qui ?</label>
-                                            <span class="ms-auto">e.g. job, company, title</span>
+                                            <span class="ms-auto">e.g. Noms ou prénoms</span>
                                         </div>
                                         <div class="position-relative left-icon">
                                             <input type="text" class="form-control" name="name"
-                                                placeholder="Nom ou prenom du profil recherché">
+                                                placeholder="Nom ou prenom">
                                             <i class="fas fa-search"></i>
                                         </div>
                                     </div>
@@ -30,38 +30,37 @@
                                     <div class="form-group mb-3">
                                         <div class="d-flex">
                                             <label class="form-label">Où ?</label>
-                                            <span class="ms-auto">e.g. city, county or postcode</span>
+                                            <span class="ms-auto">e.g. Adresse</span>
                                         </div>
                                         <div class="position-relative left-icon">
                                             <input type="text" class="form-control location-input" name="adresse"
-                                                placeholder="Ville du profil recherché">
+                                                placeholder="Adresse">
                                             <i class="far fa-compass"></i>
-                                            <a href="#">
+                                            {{-- <a href="#">
                                                 <div class="detect">
                                                     <span class="d-none d-sm-block">Detect</span>
                                                     <i class="fas fa-crosshairs"></i>
                                                 </div>
-                                            </a>
+                                            </a> --}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-2 col-sm-12">
                                     <div class="form-group mb-3 form-action">
-                                        <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-search"></i>
-                                            Find profil</button>
+                                        <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-search"></i>Rechercher</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="job-tag mt-4">
+                    {{-- <div class="job-tag mt-4">
                         <ul class="justify-content-center">
                             <li class="text-primary">Trending Keywords :</li>
                             <li><a href="#">Automotive,</a></li>
                             <li><a href="#">Education,</a></li>
                             <li><a href="#">Health and Care Engineering</a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -76,9 +75,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 mb-4 mb-lg-0">
                     <div class="section-title">
-                        <h2 class="title">Choose your sector</h2>
-                        <p class="mb-0">I truly believe Augustine’s words are true and if you look at history you know it
-                            is true.</p>
+                        <h2 class="title">Choisissez votre secteur</h2>
+                        <p class="mb-0">Je crois vraiment que les paroles d'Augustin sont vraies et si vous regardez l'histoire, vous le savez
+                            est vrai.</p>
                     </div>
                     {{-- <a class="btn btn-outline btn-lg" href="#">View More Jobs</a> --}}
                 </div>
@@ -88,19 +87,19 @@
                             <div class="category-icon mb-4">
                                 <i class="flaticon-account"></i>
                             </div>
-                            <h6>Accountancy</h6>
+                            <h6>Comptabilité</h6>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-conversation"></i>
                             </div>
-                            <h6>Apprenticeships</h6>
+                            <h6>Apprentissages</h6>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-money"></i>
                             </div>
-                            <h6>Banking</h6>
+                            <h6>Bancaire</h6>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
@@ -112,13 +111,13 @@
                             <div class="category-icon mb-4">
                                 <i class="flaticon-worker"></i>
                             </div>
-                            <h6>Engineering</h6>
+                            <h6>Ingénieurie</h6>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
                                 <i class="flaticon-businessman"></i>
                             </div>
-                            <h6>Estate Agency</h6>
+                            <h6>Agence immobilière</h6>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">
@@ -130,7 +129,7 @@
                             <div class="category-icon mb-4">
                                 <i class="flaticon-balance"></i>
                             </div>
-                            <h6>Legal</h6>
+                            <h6>Juridique</h6>
                         </a>
                     </div>
                 </div>
@@ -159,7 +158,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2 class="title">Profils You May be Interested in</h2>
+                        <h2 class="title">Profils susceptibles de vous intéresser</h2>
                     </div>
                 </div>
                 <div class="col-12">
@@ -178,7 +177,7 @@
                         </div> --}}
                         <div class="job-found ms-auto mb-0">
                             <span class="badge badge-lg bg-primary">{{ $profil_count }}</span>
-                            <h6 class="ms-3 mb-0">Profil Found</h6>
+                            <h6 class="ms-3 mb-0">Profils trouvés</h6>
                         </div>
                     </div>
                     <div class="tab-content" id="myTabContent">
@@ -247,7 +246,7 @@
                     </div>
                 </div>
                 <div class="col-12 justify-content-center d-flex mt-md-5 mt-4">
-                    <a class="btn btn-outline btn-lg" href="{{ route('entreprise.consulte.profil') }}">View More
+                    <a class="btn btn-outline btn-lg" href="{{ route('entreprise.consulte.profil') }}">Voir plus
                         Profil</a>
                 </div>
             </div>
@@ -360,9 +359,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10">
                     <div class="section-title center">
-                        <h2 class="title">Easiest Way to Use</h2>
-                        <p>Give yourself the power of responsibility. Remind yourself the only thing stopping you is
-                            yourself.</p>
+                        <h2 class="title">Utilisation la plus simple</h2>
+                        <p>Donnez-vous le pouvoir de la responsabilité. Rappelez-vous que la seule chose qui vous arrête est
+                            toi-même.</p>
                     </div>
                 </div>
             </div>
@@ -374,8 +373,8 @@
                             <i class="flaticon-resume"></i>
                         </div>
                         <div class="feature-info-content pb-2 pb-md-0">
-                            <h5>Create Account</h5>
-                            <p class="mb-0">Create an account and access your saved settings on any device.</p>
+                            <h5>Créer un compte</h5>
+                            <p class="mb-0">Créez un compte et accédez à vos paramètres enregistrés sur n'importe quel appareil.</p>
                         </div>
                     </div>
                 </div>
@@ -385,8 +384,8 @@
                             <i class="flaticon-recruitment"></i>
                         </div>
                         <div class="feature-info-content pb-2 pb-md-0">
-                            <h5>Find Your Vacancy</h5>
-                            <p class="mb-0">Don't just find. Be found. Put your CV in front of great employers.</p>
+                            <h5>Trouvez votre poste</h5>
+                            <p class="mb-0">Ne vous contentez pas de trouver. Être trouvé. Mettez votre CV devant de grands employeurs.</p>
                         </div>
                     </div>
                 </div>
@@ -396,8 +395,8 @@
                             <i class="flaticon-position"></i>
                         </div>
                         <div class="feature-info-content pb-2 pb-md-0">
-                            <h5>Get A Job</h5>
-                            <p class="mb-0">Your next career move starts here. Choose Job from thousands of companies</p>
+                            <h5>Obtenir un emploi</h5>
+                            <p class="mb-0">Votre prochain changement de carrière commence ici. Choisissez Job parmi des milliers d'entreprises</p>
                         </div>
                     </div>
                 </div>
@@ -416,8 +415,8 @@
                     <div class="d-sm-flex">
                         <div class="align-self-center footer-top-logo"><img class="img-fluid" src="images/logo-dark.svg"
                                 alt=""></div>
-                        <div class="ps-sm-3 ms-sm-3 mt-3 mt-sm-0 border-sm-start">Create a free account to find thousands
-                            of Jobs, Employment & Career Opportunities around you!</div>
+                        <div class="ps-sm-3 ms-sm-3 mt-3 mt-sm-0 border-sm-start">Créez un compte gratuit pour trouver des milliers
+                            d'emplois, d'opportunités d'emploi et de carrière autour de vous!</div>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -430,7 +429,7 @@
                                 <div class="counter-content">
                                     <span class="timer mb-1 text-dark" data-to="{{ $profil_count }}"
                                         data-speed="5">{{ $profil_count }}</span>
-                                    <label class="mb-0">Profils exists</label>
+                                    <label class="mb-0">Des profils existent</label>
                                 </div>
                             </div>
                         </div>
@@ -442,7 +441,7 @@
                                 <div class="counter-content">
                                     <span class="timer mb-1 text-dark" data-to="{{ $enterprise_count }}"
                                         data-speed="5">{{ $enterprise_count }}</span>
-                                    <label class="mb-0">Companies</label>
+                                    <label class="mb-0">Entreprises</label>
                                 </div>
                             </div>
                         </div>

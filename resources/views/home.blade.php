@@ -48,7 +48,7 @@
                                 <div class="col-lg-2 col-sm-12">
                                     <div class="form-group mb-3 form-action">
                                         <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-search"></i>
-                                            Trouver des emplois</button>
+                                            Rechercher</button>
                                     </div>
                                 </div>
                             </form>

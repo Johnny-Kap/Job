@@ -281,11 +281,11 @@
                         <div class="job-shortby ms-sm-auto d-flex align-items-center">
                             <form class="form-inline">
                                 <div class="d-sm-flex align-items-center mb-0">
-                                    <label class="justify-content-start me-2 mb-2 mb-sm-0">sort by :</label>
+                                    <label class="justify-content-start me-2 mb-2 mb-sm-0">Trier par :</label>
                                     <div class="short-by">
                                         <select class="form-control basic-select">
-                                            <option>Newest</option>
-                                            <option>Oldest</option>
+                                            <option>Le plus recents</option>
+                                            <option>Le plus anciens</option>
                                         </select>
                                     </div>
                                 </div>

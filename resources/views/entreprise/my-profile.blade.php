@@ -139,7 +139,7 @@
                         </div> --}}
                         <div class="user-dashboard-info-box mb-0 pb-4">
                             <div class="section-title">
-                                <h4>Recent Jobs</h4>
+                                <h4>Emplois récents</h4>
                             </div>
                             <div class="row">
                                 <div class="col-12">
@@ -182,14 +182,14 @@
                         </div>
                         <hr class="my-4 my-md-5">
                         <div id="about">
-                            <h5 class="mb-3">About Me</h5>
+                            <h5 class="mb-3">A propos de moi</h5>
                             <div class="border p-3">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6 mb-4">
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-account"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Name:</label>
+                                                <label class="mb-0">Nom:</label>
                                                 <span class="d-block fw-bold text-dark">{{ Auth::user()->name }}</span>
                                             </div>
                                         </div>
@@ -198,7 +198,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-curriculum"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Secteur:</label>
+                                                <label class="mb-0">Secteur d'activité:</label>
                                                 <span
                                                     class="d-block fw-bold text-dark">{{ Auth::user()->secteurs->intitule }}</span>
                                             </div>
@@ -208,7 +208,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-contact"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Phone :</label>
+                                                <label class="mb-0">Téléphone :</label>
                                                 <span class="d-block fw-bold text-dark">{{ Auth::user()->tel }}</span>
                                             </div>
                                         </div>
@@ -217,7 +217,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-appointment"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Date Of Birth :</label>
+                                                <label class="mb-0">Date de création :</label>
                                                 <span class="d-block fw-bold text-dark">
                                                     @if (Auth::user()->date_naiss == null)
                                                         Aucune date
@@ -232,7 +232,7 @@
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-map"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Address :</label>
+                                                <label class="mb-0">Adresse :</label>
                                                 <span class="d-block fw-bold text-dark">
                                                     @if (Auth::user()->Adresse == null)
                                                         Aucune adresse
@@ -253,11 +253,11 @@
                                             </div>
                                         </div>
                                     </div> --}}
-                                    <div class="col-md-12">
+                                    <div class="col-md-4 col-sm-6 mb-4">
                                         <div class="d-flex">
                                             <i class="font-xll text-primary align-self-center flaticon-approval"></i>
                                             <div class="feature-info-content ps-3">
-                                                <label class="mb-0">Email:</label>
+                                                <label class="mb-0">E-mail:</label>
                                                 <span class="d-block fw-bold text-dark">{{ Auth::user()->email }}</span>
                                             </div>
                                         </div>
@@ -273,121 +273,6 @@
                                 @endif
                             </div>
                         </div>
-                        {{-- <hr class="my-4 my-md-5">
-                        <div id="informations">
-                            <h5 class="mb-3">Informations personnelles</h5>
-                            <div class="jobber-candidate-timeline">
-                                <div class="jobber-timeline-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="jobber-timeline-item mb-0">
-                                    <div class="jobber-timeline-cricle">
-                                        <i class="far fa-circle"></i>
-                                    </div>
-                                    <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">High level education :
-                                            @foreach ($informations as $item)
-                                            {{$item->high_level_education}}
-                                            @endforeach
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="jobber-timeline-item mb-0">
-                                    <div class="jobber-timeline-cricle">
-                                        <i class="far fa-circle"></i>
-                                    </div>
-                                    <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">Nombre total d'experience :
-                                            @foreach ($informations as $item)
-                                            {{$item->total_year_experience}}
-                                            @endforeach
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="my-4 my-md-5">
-                        <div id="experience">
-                            <h5 class="mb-3">Work & Experience</h5>
-                            @foreach ($experiences as $item)
-                            <div class="jobber-candidate-timeline">
-                                <div class="jobber-timeline-icon">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <div class="jobber-timeline-item">
-                                    <div class="jobber-timeline-cricle">
-                                        <i class="far fa-circle"></i>
-                                    </div>
-                                    <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">{{$item->date_debut}} <b>to</b> {{$item->date_fin}}</span>
-                                        <h6 class="mb-2">{{$item->poste}}</h6>
-                                        <span>- {{$item->nom_entreprise}}</span>
-                                        <p class="mt-2">{{$item->description}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                        <hr class="my-4 my-md-5">
-                        <div id="education">
-                            <h5 class="mb-3">Education</h5>
-                            @foreach ($educations as $item)
-                            <div class="jobber-candidate-timeline">
-                                <div class="jobber-timeline-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <div class="jobber-timeline-item">
-                                    <div class="jobber-timeline-cricle">
-                                        <i class="far fa-circle"></i>
-                                    </div>
-                                    <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">{{$item->date_debut}} - {{$item->date_fin}}</span>
-                                        <h6 class="mb-2">{{$item->nom_diplome}}</h6>
-                                        <span>- {{$item->ecole}}</span>
-                                        <p class="mt-2">{{$item->description}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                        <hr class="my-4 my-md-5">
-                        <div id="skill">
-                            <h5 class="mb-3">Compétences</h5>
-                            @foreach ($competences as $item)
-                            <div class="jobber-candidate-timeline">
-                                <div class="jobber-timeline-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="jobber-timeline-item mb-0">
-                                    <div class="jobber-timeline-cricle">
-                                        <i class="far fa-circle"></i>
-                                    </div>
-                                    <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">{{$item->intitule}} -- {{$item->niveau}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                        <hr class="my-4 my-md-5">
-                        <div id="langues">
-                            <h5 class="mb-3">Langues</h5>
-                            @foreach ($langues as $item)
-                            <div class="jobber-candidate-timeline">
-                                <div class="jobber-timeline-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="jobber-timeline-item mb-0">
-                                    <div class="jobber-timeline-cricle">
-                                        <i class="far fa-circle"></i>
-                                    </div>
-                                    <div class="jobber-timeline-info">
-                                        <span class="jobber-timeline-time">{{$item->intitule}} -- {{$item->niveau}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div> --}}
                     </div>
                 </div>
             </div>
