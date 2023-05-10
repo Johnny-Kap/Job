@@ -31,7 +31,7 @@
                                                 {{ $entreprise_detail->Adresse }}
                                             @endif
                                         </li>
-                                        @if ($entreprise_detail->email_verified_at == null)
+                                        {{-- @if ($entreprise_detail->email_verified_at == null)
                                             <li class="candidates-feature-info bg-danger"
                                                 style="border-radius: 5px; padding:2px;">
                                                 <span class="candidates-info-title text-white">Email non vérifié</span>
@@ -41,7 +41,7 @@
                                                 style="border-radius: 5px; padding:2px;">
                                                 <span class="candidates-info-title text-white">Email vérifié</span>
                                             </li>
-                                        @endif
+                                        @endif --}}
                                     </ul>
                                 </div>
                             </div>
