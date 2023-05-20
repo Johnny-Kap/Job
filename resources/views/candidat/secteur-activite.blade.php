@@ -1,6 +1,11 @@
 @extends('layouts.admins')
 
 @section('content')
+@php
+    use Carbon\Carbon;
+    Carbon::setLocale('fr');
+    Carbon::yesterday()-> diffForHumans();
+@endphp
     <!--=================================
             inner banner -->
     <div class="header-inner bg-light text-center">

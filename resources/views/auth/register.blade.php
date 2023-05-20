@@ -98,7 +98,7 @@ inner banner -->
                                         <label class="form-label" for="Username">Prénom</label>
                                         <input type="text" id="name"
                                             class="form-control @error('prenom') is-invalid @enderror" name="prenom"
-                                            value="{{ old('prenom') }}" required>
+                                            value="{{ old('prenom') }}">
 
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -169,7 +169,7 @@ inner banner -->
                                     <div class="mb-3 col-12">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="Remember-02">
+                                                id="Remember-02" required>
                                             <label class="form-check-label" for="Remember-02">
                                                 vous acceptez nos conditions générales et notre politique de confidentialité
                                             </label>
@@ -253,7 +253,7 @@ inner banner -->
                                     <div class="mb-3 col-12 mt-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="accepts-02">
+                                                id="accepts-02" required>
                                             <label class="form-check-label" for="accepts-02">
                                                 vous acceptez nos conditions générales et notre politique de confidentialité
                                             </label>

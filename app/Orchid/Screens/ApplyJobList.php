@@ -3,6 +3,7 @@
 namespace App\Orchid\Screens;
 
 use App\Models\ApplyJob;
+use App\Models\User;
 use App\Orchid\Layouts\ApplyJobListLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
@@ -10,6 +11,7 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Screen;
+use Orchid\Screen\Sight;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
@@ -27,7 +29,7 @@ class ApplyJobList extends Screen
         $apply_job = ApplyJob::paginate();
 
         return [
-            'apply_job' => $apply_job
+            'apply_job' => $apply_job,
         ];
     }
 
@@ -38,7 +40,7 @@ class ApplyJobList extends Screen
      */
     public function name(): ?string
     {
-        return 'Liste des Apply job';
+        return 'Liste des candidatures';
     }
 
     /**
@@ -76,7 +78,18 @@ class ApplyJobList extends Screen
                 ]),
             ])
                 ->title('Valider la demande')
-                ->applyButton('Save')
+                ->applyButton('Save'),
+
+            Layout::modal('showUser', [
+                Layout::legend('apply_job', [
+                    Sight::make('id')->render(function($apply_job){
+                        return '';
+                    })
+
+                ]),
+            ])
+                ->title('CV'),
+
         ];
     }
 
@@ -88,4 +101,10 @@ class ApplyJobList extends Screen
         $applyjob->save();
     }
 
+    public function show(Request $request, ApplyJob $apply_job)
+    {
+        $applyjobUser = User::find($apply_job->users->id);
+        // $applyjob->validated = $request->get('validated');
+        // $applyjob->save();
+    }
 }

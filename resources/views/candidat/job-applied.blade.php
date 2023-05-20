@@ -39,7 +39,7 @@
                         <h1 class="mb-4">Merci d'avoir soumis</h1>
                         <h6 class="mb-2 text-light">Merci pour votre envoi, votre travail a été publié. si vous avez besoin
                             d'aide, veuillez nous contacter via </h6>
-                        <h6 class="mb-0 text-light">E-mail contact@portneufms.com</h6>
+                        <h6 class="mb-0 text-light">E-mail: contact@portneufms.com</h6>
                     </div>
                     {{-- <div class="col-12 text-center mt-4 mt-sm-5">
             <a class="btn btn-outline-primary mb-3 mb-sm-0" href="#">Manage Jobs</a>

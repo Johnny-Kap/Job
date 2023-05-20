@@ -46,7 +46,7 @@
                                         <label class="mb-2">Date limite d'inscription</label>
                                         <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
-                                                value="08/11/1999" name="dateline" data-target="#datetimepicker-01">
+                                                value="08/11/1999" lang="fr" name="dateline" data-target="#datetimepicker-01">
                                             <div class="input-group-append d-flex" data-target="#datetimepicker-01"
                                                 data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
@@ -77,8 +77,8 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-1é">
-                                        <label class="mb-2">Salaire *</label>
+                                    <div class="form-group col-md-12">
+                                        <label class="mb-2">Salaire</label>
                                     </div>
                                     {{-- <div class="form-group col-md-6 select-border mb-3">
                                         <select class="form-control basic-select">
@@ -93,7 +93,7 @@
                                                 <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
                                             </div>
                                             <input type="text" name="salaire_min" class="form-control" placeholder="Min"
-                                                required>
+                                                >
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
@@ -102,8 +102,16 @@
                                                 <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
                                             </div>
                                             <input type="text" name="salaire_max" class="form-control" placeholder="Max"
-                                                required>
+                                                >
                                         </div>
+                                    </div>
+                                    <div class="form-group col-md-6 select-border mb-3">
+                                        <label class="mb-2">Catégorie d'emploi</label>
+                                        <select class="form-control basic-select" name="contrat">
+                                                <option value="CDI">CDI</option>
+                                                <option value="CDD">CDD</option>
+                                                <option value="Stage">Stage</option>
+                                        </select>
                                     </div>
                                     {{-- <div class="form-group col-md-3 mb-md-0 mb-3 select-border">
                                         <label class="mb-2">State</label>
@@ -285,3 +293,11 @@
     <!--=================================
                       feature-info-->
 @endsection
+
+<script>
+    $(function () {
+        $('.datetimepicker-input').datetimepicker({
+            format: 'dd/mm/yy'
+        });
+    });
+</script>

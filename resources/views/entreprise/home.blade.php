@@ -1,6 +1,11 @@
 @extends('layouts.admins-employer')
 
 @section('content')
+@php
+    use Carbon\Carbon;
+    Carbon::setLocale('fr');
+    Carbon::yesterday()-> diffForHumans();
+@endphp
     <!--=================================
                                         Banner -->
     <section class="banner bg-holder bg-overlay-black-30 text-white"

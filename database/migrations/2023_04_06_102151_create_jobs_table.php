@@ -19,10 +19,11 @@ return new class extends Migration
             $table->text('description');
             $table->string('email_contact')->nullable();
             $table->string('dateline');
-            $table->string('salaire_min');
-            $table->string('salaire_max');
+            $table->string('salaire_min')->nullable();
+            $table->string('salaire_max')->nullable();
             $table->string('experience');
             $table->string('qualification');
+            $table->string('contrat')->nullable();
             $table->string('genre_id')->nullable();
             $table->string('image')->nullable();
             $table->string('pays')->nullable();

@@ -34,7 +34,7 @@ class ApplyJobListLayout extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('id', 'ID du postulat'),
+            TD::make('id', 'ID de candidature'),
             TD::make('job_id', 'Titre du Job')->render(function ($apply_job) {
                 return $apply_job->jobs->titre;
             }),
@@ -51,13 +51,13 @@ class ApplyJobListLayout extends Table
                     return 'Non validé';
                 }
             }),
-            TD::make('created_at', 'Date de création'),
+            TD::make('created_at', 'Date de candidature'),
             // TD::make('Select')
             //     ->render(function (ApplyJob $jobapply) {
             //         return Link::make('Show')->route('platform.applyjob', $jobapply);
             //     }),
-            TD::make('Actions')
-                ->alignRight()
+            TD::make('Valider')
+                ->alignCenter()
                 ->render(function (ApplyJob $applyjob) {
                     return ModalToggle::make('')
                         ->icon('pencil')
@@ -67,7 +67,26 @@ class ApplyJobListLayout extends Table
                         ->method('edit', [
                             'applyjob' => $applyjob->id
                         ]);
-                })
+                }),
+
+            // TD::make('Voir le CV')
+            // ->alignCenter()
+            // ->render(
+            //     function (ApplyJob $apply_job) {
+            //         return ModalToggle::make('')
+            //             ->icon('user')
+            //             ->modal('showUser')->render(function ($apply_job) {
+            //                 return $apply_job->users->prenom;
+            //             });
+            //     }
+            // ),
+
+            TD::make('Voir CV')
+                ->render(function ($apply_job) {
+                    return Link::make('Consulter')
+               ->route('platform.applyjob', $apply_job);
+            }),
+
         ];
     }
 

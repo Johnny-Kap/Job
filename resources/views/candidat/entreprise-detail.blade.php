@@ -94,7 +94,7 @@
                                             <div class="job-list-details">
                                                 <div class="job-list-info">
                                                     <div class="job-list-title">
-                                                        <h5 class="mb-0"><a href="job-detail.html">{{ $item->titre }}</a>
+                                                        <h5 class="mb-0"><a href="{{ route('candidat.job.detail', ['id' => $item->id]) }}">{{ $item->titre }}</a>
                                                         </h5>
                                                     </div>
                                                     <div class="job-list-option">

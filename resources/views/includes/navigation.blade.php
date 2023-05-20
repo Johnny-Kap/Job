@@ -1,5 +1,49 @@
 <!--=================================
 Header -->
+<style>
+
+    /* .custom-a:hover {
+    background-color: white;
+    } */
+
+    @media screen and (max-width: 1024px) {
+        .custom{
+            position: relative;
+            bottom: 10px;
+            left: 15px;
+        }
+
+        .custom-2{
+            position: relative;
+            left: 10px;
+        }
+
+        .custom-a{
+            color: #ff8a00;
+        }
+
+        .custom-pc-2{
+            position: relative;
+            left: 14px;
+        }
+
+    }
+
+    @media screen and (min-width: 1224px) {
+        .custom-pc{
+            position: relative;
+            left: 200px;
+        }
+
+        .custom-pc-2{
+            position: relative;
+            left: 140px;
+            top: 29px;
+        }
+
+    }
+</style>
+
 <header class="header bg-dark">
     <nav class="navbar navbar-static-top navbar-expand-lg header-sticky">
         <div class="container-fluid">
@@ -28,8 +72,7 @@ Header -->
                                     emplois</a></li>
                         </ul>
                     </li>
-                    <li
-                        class="nav-item dropdown {{ Request::route()->named('candidat.job.secteur') ? 'active' : '' }}">
+                    <li class="nav-item dropdown {{ Request::route()->named('candidat.job.secteur') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Secteur activité <i class="fas fa-chevron-down fa-xs"></i>
@@ -59,63 +102,74 @@ Header -->
                             Nous contacter</a>
                     </li>
                 </ul>
-            </div>
-            @guest
-                <div class="add-listing">
-                    <div class="login d-inline-block me-4">
-                        @if (Route::has('login'))
-                            <a href="{{ route('login') }}"><i class="far fa-user pe-2"></i>Se connecter</a>
-                        @endif
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"><i class="far fa-user pe-2"></i>S'enregistrer</a>
-                        @endif
-                    </div>
-                </div>
-            @else
-                <div class="border-left border-left-gray pl-4 justify-content-end">
-                    <div class="login d-inline-block pl-4">
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item dropdown">
-                                @if (Auth::user()->image == null)
-                                    <img src="\libraries\images\no-profile-pic-icon-0.jpg" alt=""
-                                        class="rounded-full"
-                                        style="width: 30px; height: 30px; position: relative; top:23px; border-radius:15px;">
-                                @else
-                                    <img src="{{ Storage::url(Auth::user()->image) }}" alt="" class="rounded-full"
-                                        style="width: 30px; height: 30px; position: relative; top:23px; border-radius:15px;">
+                @guest
+                    {{-- <div class="navbar-collapse collapse justify-content-start" id="custom"> --}}
+                    <ul class="nav navbar-nav custom-pc-2">
+                        <li class="nav-item dropdown">
+                            {{-- <div class="add-listing"> --}}
+                            <div class="login d-inline-block me-6">
+                                @if (Route::has('login'))
+                                    <a href="{{ route('login') }}"  class="custom-a"><i class="far fa-user pe-2"></i>Se connecter</a>
                                 @endif
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->prenom }} {{ Auth::user()->name }} <i
-                                        class="fas fa-chevron-down fa-xs"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ route('candidat.my-profil') }}">Voir profil</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('candidat.gestion-candidatures') }}">Mes
-                                            candidatures</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('candidat.gestion-favoris') }}">Mes favoris</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('candidat.my-setting') }}">Paramètres</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="custom-a"><i class="far fa-user pe-2"></i>S'enregistrer</a>
+                                @endif
+                            </div>
+                            {{-- </div> --}}
+                        </li>
+                    </ul>
+                    {{-- </div> --}}
+                @else
+                    <div class="border-left border-left-gray pl-6 justify-content-start custom-pc">
+                        <div class="login d-inline-block pl-6 custom-2">
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item dropdown">
+                                    @if (Auth::user()->image == null)
+                                        <img src="\libraries\images\no-profile-pic-icon-0.jpg" alt=""
+                                            class="rounded-full"
+                                            style="width: 30px; height: 30px; position: relative; top:23px; border-radius:15px;">
+                                    @else
+                                        <img src="{{ Storage::url(Auth::user()->image) }}" alt=""
+                                            class="rounded-full"
+                                            style="width: 30px; height: 30px; position: relative; top:23px; border-radius:15px;">
+                                    @endif
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle custom" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ Auth::user()->prenom }} {{ Auth::user()->name }} <i
+                                            class="fas fa-chevron-down fa-xs"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ route('candidat.my-profil') }}">Voir
+                                                profil</a>
+                                        </li>
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('candidat.gestion-candidatures') }}">Mes
+                                                candidatures</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('candidat.gestion-favoris') }}">Mes
+                                                favoris</a>
+                                        </li>
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('candidat.my-setting') }}">Paramètres</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">Déconnexion</a>
-                                    </li>
+                                        </li>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </ul>
-                            </li>
-                        </ul>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            @endguest
-
+                @endguest
+            </div>
     </nav>
 </header>
 <!--=================================

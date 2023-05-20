@@ -22,7 +22,7 @@ inner banner -->
 
   <!--=================================
   Millions of jobs -->
-  <section class="space-ptb" style="background-image: url(libraries/images/google-map.png); background-position: center center; background-repeat: no-repeat;">
+  <section class="space-ptb" style="background-image: url(/../libraries/images/google-map.png); background-position: center center; background-repeat: no-repeat;">
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-md-6">
@@ -31,7 +31,7 @@ inner banner -->
         <div class="col-lg-10">
           <div class="text-center">
             <p class="mb-lg-5 mb-4 lead">Nous connaissons également ces histoires épiques, ces légendes des temps modernes entourant les premiers échecs de personnes aussi prospères que Michael Jordan et Bill Gates. Nous pouvons remonter un peu plus loin dans le temps jusqu'à Albert Einstein ou encore plus loin jusqu'à Abraham Lincoln.</p>
-            <img class="img-fluid mt-lg-4 mt-3" src="libraries/images/about/about-img1.png" alt="">
+            <img class="img-fluid mt-lg-4 mt-3" src="/../libraries/images/about/about-img1.png" alt="">
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 @extends('layouts.admins')
 
 @section('content')
+
     <!--=================================
         banner -->
     <section class="header-inner header-inner-big bg-holder text-white"
@@ -284,7 +285,11 @@
                                 <div class="employers-list-option">
                                     <ul class="list-unstyled">
                                         <li><i class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}</li>
+                                        @if ($item->Adresse == null)
+                                        <li><i class="fas fa-map-marker-alt pe-1"></i>Aucune adresse</li>
+                                        @else
                                         <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->Adresse }}</li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>

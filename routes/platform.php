@@ -120,6 +120,6 @@ Route::screen('/typejob/add', TypeJobScreen::class)->name('platform.typejob');
 
 //Apply Job
 Route::screen('/applyjob', ApplyJobList::class)->name('platform.applyjob.list');
-Route::screen('/applyjob/view/{jobapply?}', ApplyJobScreen::class)->name('platform.applyjob');
+Route::screen('/applyjob/view/{apply_job}', ApplyJobScreen::class)->name('platform.applyjob');
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

@@ -1,6 +1,11 @@
 @extends('layouts.admins')
 
 @section('content')
+@php
+use Carbon\Carbon;
+Carbon::setLocale('fr');
+Carbon::yesterday()-> diffForHumans();
+@endphp
     <!--=================================
                                     Banner -->
     <section class="banner bg-holder bg-overlay-black-30 text-white"
@@ -87,7 +92,7 @@
                             <div class="category-icon mb-4">
                                 <i class="flaticon-account"></i>
                             </div>
-                            <h6>Accountancy</h6>
+                            <h6>Comptabilité</h6>
                         </a>
                         <a href="#" class="category-item">
                             <div class="category-icon mb-4">

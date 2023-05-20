@@ -51,8 +51,11 @@ Route::get('/entreprise/about', [App\Http\Controllers\EntrepriseController::clas
 
 //Poster un job par une entreprise
 Route::get('entreprise/post-job', [App\Http\Controllers\JobController::class, 'showPostJob'])->name('entreprise.post.job')->middleware('is_enterprise');
+Route::get('entreprise/modify-job/{id}', [App\Http\Controllers\JobController::class, 'modifyJob'])->name('entreprise.post.job.modify')->middleware('is_enterprise');
+Route::post('entreprise/modified-job/{id}', [App\Http\Controllers\JobController::class, 'JobModified'])->name('entreprise.post.job.modified.ok')->middleware('is_enterprise');
 Route::post('entreprise/post-job/added', [App\Http\Controllers\JobController::class, 'create'])->name('entreprise.postjob.add');
 Route::get('entreprise/post-job/submited', [App\Http\Controllers\JobController::class, 'showSubmit'])->name('entreprise.post.job.submit')->middleware('is_enterprise');
+Route::get('entreprise/job-modified/submited', [App\Http\Controllers\JobController::class, 'showSubmitModified'])->name('entreprise.modify.job.submit')->middleware('is_enterprise');
 
 //All route for profil enterprise
 Route::get('entreprise/my-profil', [App\Http\Controllers\EntrepriseController::class, 'showMyProfil'])->name('entreprise.profil')->middleware('is_enterprise');

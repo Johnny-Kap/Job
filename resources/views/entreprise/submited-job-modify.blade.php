@@ -37,15 +37,15 @@
                     </svg>
                 </div>
                 <div class="col-sm-12">
-                    <h1 class="mb-4">Merci d'avoir soumis</h1>
-                    <h6 class="mb-2 text-light">Merci pour votre envoi, votre travail a été publié. si vous avez besoin
+                    <h1 class="mb-4">Offre d'emloi modifié</h1>
+                    <h6 class="mb-2 text-light">Merci pour votre envoi, votre travail a été modifié avec succès. si vous avez besoin
                         d'aide, veuillez nous contacter via </h6>
                     <h6 class="mb-0 text-light">E-mail: contact@portneufms.com</h6>
                 </div>
-                {{-- <div class="col-12 text-center mt-4 mt-sm-5">
-        <a class="btn btn-outline-primary mb-3 mb-sm-0" href="#">Manage Jobs</a>
-        <a class="btn btn-outline-primary mb-3 mb-sm-0" href="#">View Job</a>
-      </div> --}}
+                <div class="col-12 text-center mt-4 mt-sm-5">
+                    <a class="btn btn-outline-primary mb-3 mb-sm-0" href="{{route('entreprise.jobs.manage')}}">Retourner à la gestion des emplois</a>
+                    {{-- <a class="btn btn-outline-primary mb-3 mb-sm-0" href="#">View Job</a> --}}
+                </div>
             </div>
         </div>
     </section>
