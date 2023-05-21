@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="job-list-option">
                                             <ul class="list-unstyled">
-                                                <li>via: {{ $show_detail->users->name }}
+                                                <li>via: <a href="{{ route('candidat.entreprise.detail', ['id' => $show_detail->users->id]) }}">{{ $show_detail->users->name }}</a>
                                                 </li>
                                                 <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $show_detail->adresse }}
                                                 </li>
@@ -83,7 +83,7 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-6 mb-4">
                                 <div class="d-flex">
-                                    <i class="font-xll text-primary align-self-center flaticon-house"></i>
+                                    <i class="font-xll text-primary align-self-center flaticon-personal-profile"></i>
                                     <div class="feature-info-content ps-3">
                                         <label class="mb-1">Catégorie</label>
                                         <span class="mb-0 fw-bold d-block text-dark">{{ $show_detail->contrat }}</span>
