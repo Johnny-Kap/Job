@@ -12,8 +12,12 @@
                             @if (Auth::user()->image == null)
                                 <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
                             @else
+<<<<<<< HEAD
                                 <img class="img-fluid" style="width: 110px; height:90px;"
                                     src="{{ Storage::url(Auth::user()->image) }}" alt="">
+=======
+                                <img class="img-fluid" style="width: 110px; height:90px;" src="{{ Storage::url(Auth::user()->image) }}" alt="">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                             @endif
                         </div>
                         <div class="candidate-list-details">
@@ -32,6 +36,7 @@
                                             @endif
                                         </li>
                                         @if (Auth::user()->email_verified_at == null)
+<<<<<<< HEAD
                                             <li class="candidates-feature-info bg-danger"
                                                 style="border-radius: 5px; padding:2px;">
                                                 <span class="candidates-info-title text-white">Email non vérifié</span>
@@ -41,6 +46,15 @@
                                                 style="border-radius: 5px; padding:2px;">
                                                 <span class="candidates-info-title text-white">Email vérifié</span>
                                             </li>
+=======
+                                        <li class="candidates-feature-info bg-danger" style="border-radius: 5px; padding:2px;">
+                                            <span class="candidates-info-title text-white">Email non vérifié</span>
+                                        </li>
+                                        @else
+                                        <li class="candidates-feature-info bg-success" style="border-radius: 5px; padding:2px;">
+                                            <span class="candidates-info-title text-white">Email vérifié</span>
+                                        </li>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                         @endif
                                     </ul>
                                 </div>
@@ -144,6 +158,7 @@
                         </div> --}}
                         <div class="user-dashboard-info-box mb-0 pb-4">
                             <div class="section-title">
+<<<<<<< HEAD
                                 <h4>Mes emplois récents</h4>
                             </div>
                             <div class="row">
@@ -151,6 +166,23 @@
                                     <div class="row-fluid">
                                         <div class="span12 text-center">
                                             <b>Aucune offre d'emploi</b>
+=======
+                                <h4>Emplois récents</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    @if ($my_job_count == 0)
+                                    <div class="row-fluid">
+                                        <div class="span12 text-center">
+                                        <b>Aucune offre d'emploi</b>
+                                        </div>
+                                    </div>
+                                    @else
+                                    @foreach ($my_job as $item)
+                                    <div class="job-list">
+                                        <div class="job-list-logo">
+                                            <img class="img-fluid" src="/../libraries/images/svg/05.svg" alt="">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                         </div>
                                     </div>
                                 @else
@@ -191,7 +223,12 @@
                                             </div>
                                         </div>
                                     @endforeach
+<<<<<<< HEAD
                                 @endif
+=======
+                                    @endif
+                                </div>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                             </div>
                         </div>
                         <hr class="my-4 my-md-5">

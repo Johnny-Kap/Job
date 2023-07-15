@@ -216,7 +216,11 @@
                                                 <div class="job-list-info">
                                                     <div class="job-list-title">
                                                         <h5 class="mb-0"><a
+<<<<<<< HEAD
                                                                 href="{{ route('entreprise.profil.detail', ['id' => $item->id, 'name' => str_slug($item->name)]) }}">{{ $item->prenom }}
+=======
+                                                                href="{{ route('entreprise.profil.detail', ['id' => $item->id]) }}">{{ $item->prenom }}
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                                 {{ $item->name }}</a>
                                                         </h5>
                                                     </div>

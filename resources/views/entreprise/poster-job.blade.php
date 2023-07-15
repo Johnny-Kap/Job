@@ -2,7 +2,11 @@
 
 @section('content')
     <!--=================================
+<<<<<<< HEAD
                                                     tab -->
+=======
+                    tab -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     <section class="space-ptb bg-light">
         <div class="container">
             <div class="row justify-content-center">
@@ -33,6 +37,7 @@
                                         <input type="email" name="email" class="form-control" value=""
                                             placeholder="Enter Email Address of Contact Person" required>
                                     </div>
+<<<<<<< HEAD
                                     {{-- <div class="form-group col-md-12 mb-3">
                                         <label class="mb-2">Description *</label>
                                         <textarea class="form-control" name="description" rows="6" required></textarea>
@@ -48,17 +53,31 @@
                                             <div class="mr-3 font-italic">*italique*</div>
                                             <div>&gt;quote</div>
                                         </div>
+=======
+                                    <div class="form-group col-md-12 mb-3">
+                                        <label class="mb-2">Description *</label>
+                                        <textarea class="form-control" name="description" rows="6" required></textarea>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     </div>
+
                                     {{-- <div class="form-group col-md-6 mb-3">
                                         <label class="mb-2">Username *</label>
                                         <input type="text" class="form-control" value="" placeholder="Username">
                                     </div> --}}
+<<<<<<< HEAD
                                     {{-- <div class="form-group col-md-6 mb-3 datetimepickers">
                                         <label class="mb-2">Date limite d'inscription *</label>
                                         <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
                                                 value="08/11/1999" lang="fr" required name="dateline"
                                                 data-target="#datetimepicker-01">
+=======
+                                    <div class="form-group col-md-6 mb-3 datetimepickers">
+                                        <label class="mb-2">Date limite d'inscription *</label>
+                                        <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input"
+                                                value="08/11/1999" lang="fr" required name="dateline" data-target="#datetimepicker-01">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                             <div class="input-group-append d-flex" data-target="#datetimepicker-01"
                                                 data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
@@ -108,7 +127,8 @@
                                             <div class="input-group-prepend d-flex">
                                                 <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
                                             </div>
-                                            <input type="text" name="salaire_min" class="form-control" placeholder="Min">
+                                            <input type="text" name="salaire_min" class="form-control" placeholder="Min"
+                                                >
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
@@ -116,14 +136,21 @@
                                             <div class="input-group-prepend d-flex">
                                                 <div class="input-group-text"><i class="fas fa-dollar-sign"></i></div>
                                             </div>
-                                            <input type="text" name="salaire_max" class="form-control" placeholder="Max">
+                                            <input type="text" name="salaire_max" class="form-control" placeholder="Max"
+                                                >
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 select-border mb-3">
                                         <label class="mb-2">Catégorie d'emploi *</label>
                                         <select class="form-control basic-select" name="contrat">
+<<<<<<< HEAD
                                             <option value="CDI">CDI</option>
                                             <option value="CDD">CDD</option>
+=======
+                                                <option value="CDI">CDI</option>
+                                                <option value="CDD">CDD</option>
+                                                <option value="Temporaire">Temporaire</option>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                         </select>
                                     </div>
                                     {{-- <div class="form-group col-md-3 mb-md-0 mb-3 select-border">
@@ -304,11 +331,19 @@
         </div>
     </div>
     <!--=================================
+<<<<<<< HEAD
                                                       feature-info-->
 @endsection
 
 <script>
     $(function() {
+=======
+                      feature-info-->
+@endsection
+
+<script>
+    $(function () {
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
         $('.datetimepicker-input').datetimepicker({
             format: 'dd/mm/yy'
         });

@@ -62,11 +62,19 @@
                                     <div class="job-list-details">
                                         <div class="job-list-info">
                                             <div class="job-list-title">
+<<<<<<< HEAD
                                                 <h5 class="mb-0"><a href="{{ route('candidat.job.detail', ['id' => $item->jobs->id, 'name' => str_slug($item->jobs->titre)]) }}">{{$item->jobs->titre}}</a></h5>
                                             </div>
                                             <div class="job-list-option">
                                                 <ul class="list-unstyled">
                                                     <li> <span>via</span> <a href="{{ route('candidat.entreprise.detail', ['id' => $item->jobs->users->id, 'name' => str_slug($item->jobs->users->name)]) }}">{{$item->jobs->users->name}}</a> </li>
+=======
+                                                <h5 class="mb-0"><a href="{{ route('candidat.job.detail', ['id' => $item->jobs->id]) }}">{{$item->jobs->titre}}</a></h5>
+                                            </div>
+                                            <div class="job-list-option">
+                                                <ul class="list-unstyled">
+                                                    <li> <span>via</span> <a href="{{ route('candidat.entreprise.detail', ['id' => $item->jobs->users->id]) }}">{{$item->jobs->users->name}}</a> </li>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     <li><i class="fas fa-map-marker-alt pe-1"></i>{{$item->jobs->users->Adresse}}</li>
                                                     <li><i class="fas fa-filter pe-1"></i>{{$item->jobs->secteurs->intitule}}</li>
                                                     <li><a class="freelance" href="#"><i

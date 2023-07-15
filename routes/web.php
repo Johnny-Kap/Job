@@ -31,6 +31,7 @@ Route::get('/', function () {
 
     $companies_count = User::where('is_enterprise', 1)->count();
 
+<<<<<<< HEAD
     $jobs = Job::where('etat', 1)->withCount(['job_favoris' => function (Builder $query) {
         if (Auth::user() == null) {
             $my_id = '';
@@ -40,6 +41,9 @@ Route::get('/', function () {
 
         $query->where('user_id', $my_id);
     }])->take(2)->get();
+=======
+    $jobs = Job::where('etat', 1)->take(2)->get();
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
     $jobs_other = Job::where('etat', 1)->take(2)->pluck('id');
 
@@ -60,12 +64,19 @@ Route::get('/entreprise/about', [App\Http\Controllers\EntrepriseController::clas
 
 //All routes of job by entreprise
 Route::get('entreprise/post-job', [App\Http\Controllers\JobController::class, 'showPostJob'])->name('entreprise.post.job')->middleware('is_enterprise');
+<<<<<<< HEAD
 Route::get('entreprise/modify-job/{id}/{name}', [App\Http\Controllers\JobController::class, 'modifyJob'])->name('entreprise.post.job.modify')->middleware('is_enterprise');
+=======
+Route::get('entreprise/modify-job/{id}', [App\Http\Controllers\JobController::class, 'modifyJob'])->name('entreprise.post.job.modify')->middleware('is_enterprise');
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 Route::post('entreprise/modified-job/{id}', [App\Http\Controllers\JobController::class, 'JobModified'])->name('entreprise.post.job.modified.ok')->middleware('is_enterprise');
 Route::post('entreprise/post-job/added', [App\Http\Controllers\JobController::class, 'create'])->name('entreprise.postjob.add');
 Route::get('entreprise/post-job/submited', [App\Http\Controllers\JobController::class, 'showSubmit'])->name('entreprise.post.job.submit')->middleware('is_enterprise');
 Route::get('entreprise/job-modified/submited', [App\Http\Controllers\JobController::class, 'showSubmitModified'])->name('entreprise.modify.job.submit')->middleware('is_enterprise');
+<<<<<<< HEAD
 Route::get('entreprise/job/detail/{id}/{name}', [App\Http\Controllers\JobController::class, 'showJobForEnterprise'])->name('entreprise.job.detail')->middleware('is_enterprise');
+=======
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
 //All route for profil enterprise
 Route::get('entreprise/my-profil', [App\Http\Controllers\EntrepriseController::class, 'showMyProfil'])->name('entreprise.profil')->middleware('is_enterprise');
@@ -80,7 +91,11 @@ Route::post('entreprise/photo-changed', [App\Http\Controllers\EntrepriseControll
 
 //Consulte profil by enterprise
 Route::get('entreprise/consulter-profil', [App\Http\Controllers\EntrepriseController::class, 'showProfil'])->name('entreprise.consulte.profil')->middleware('is_enterprise');
+<<<<<<< HEAD
 Route::get('/entreprise/profil-detail/{id}/{name}', [App\Http\Controllers\EntrepriseController::class, 'showProfilDetail'])->name('entreprise.profil.detail')->middleware('is_enterprise');
+=======
+Route::get('/entreprise/profil-detail/{id}', [App\Http\Controllers\EntrepriseController::class, 'showProfilDetail'])->name('entreprise.profil.detail')->middleware('is_enterprise');
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 Route::get('entreprise/resultat-recherche', [App\Http\Controllers\EntrepriseController::class, 'searchProfil'])->name('entreprise.profil.search')->middleware('is_enterprise');
 
 //Candidat
@@ -103,7 +118,10 @@ Route::post('my-setting/change-photo', [App\Http\Controllers\CandidatController:
 Route::get('job', [App\Http\Controllers\JobController::class, 'index'])->name('candidat.job.consulter');
 Route::get('job/detail/{id}/{name}', [App\Http\Controllers\JobController::class, 'show'])->name('candidat.job.detail');
 Route::get('search/resultat', [App\Http\Controllers\JobController::class, 'search'])->name('candidat.search.job');
+<<<<<<< HEAD
 Route::get('job/filtre', [App\Http\Controllers\JobController::class, 'filtreJob'])->name('candidat.job.filtre');
+=======
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 Route::get('secteur-activite', [App\Http\Controllers\JobController::class, 'secteurActivite'])->name('candidat.job.secteur');
 Route::get('secteur-activite/{id}', [App\Http\Controllers\JobController::class, 'secteurActiviteShow'])->name('candidat.job.list.secteur');
 
@@ -113,7 +131,11 @@ Route::post('job-favori/profil/create/{id}', [App\Http\Controllers\JobFavoriCont
 
 //All routes of enterprises consultation
 Route::get('entreprises-consulter', [App\Http\Controllers\CandidatController::class, 'showEnterprises'])->name('candidat.entreprise.consulter');
+<<<<<<< HEAD
 Route::get('entreprises/detail/{id}/{name}', [App\Http\Controllers\CandidatController::class, 'showEnterprisesDetail'])->name('candidat.entreprise.detail');
+=======
+Route::get('entreprises/detail/{id}', [App\Http\Controllers\CandidatController::class, 'showEnterprisesDetail'])->name('candidat.entreprise.detail');
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
 //Route of  apply job
 Route::post('job/detail/apply/{id}', [App\Http\Controllers\ApplyJobController::class, 'create'])->name('candidat.job.apply')->middleware('auth');

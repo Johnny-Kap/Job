@@ -2,7 +2,11 @@
 
 @section('content')
     <!--=================================
+<<<<<<< HEAD
                                                                                                             inner banner -->
+=======
+                                                                                        inner banner -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     <div class="header-inner bg-light">
         <div class="container">
             <div class="row">
@@ -28,10 +32,17 @@
         </div>
     </div>
     <!--=================================
+<<<<<<< HEAD
                                                                                                               inner banner -->
 
     <!--=================================
                                                                                                               Dashboard Nav -->
+=======
+                                                                                          inner banner -->
+
+    <!--=================================
+                                                                                          Dashboard Nav -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     <section class="space-ptb">
         <div class="container">
             <div class="row">
@@ -77,8 +88,12 @@
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="row">
+<<<<<<< HEAD
                                                         <label for="formFile" class="form-label">Modifier la photo de
                                                             profil</label>
+=======
+                                                        <label for="formFile" class="form-label">Modifier la photo de profil</label>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                         <div class="form-group mb-3 col-md-4">
                                                             <input class="form-control" name="file" type="file"
                                                                 id="formFile">
@@ -118,7 +133,11 @@
                                                 </div>
                                                 <div class="form-group mb-3 col-md-6 datetimepickers">
                                                     <label class="form-label">Date de naissance</label>
+<<<<<<< HEAD
                                                     {{-- <div class="input-group date" id="datetimepicker-01"
+=======
+                                                    <div class="input-group date" id="datetimepicker-01"
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                         data-target-input="nearest">
                                                         <input type="text" name="date_naiss"
                                                             class="form-control datetimepicker-input"
@@ -284,8 +303,14 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
+<<<<<<< HEAD
                                                 <form action="{{ route('candidat.edited.email') }}" method="post"
                                                     class="row">
+=======
+                                                <form
+                                                    action="{{ route('candidat.edited.email') }}"
+                                                    method="post" class="row">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     @csrf
                                                     <div class="form-group col-md-12 mb-3">
                                                         <label class="form-label">Mon Email</label>
@@ -338,8 +363,12 @@
                                                             value="">
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
+<<<<<<< HEAD
                                                         <button type="submit"
                                                             class="btn btn-md btn-primary">Ajouter</button>
+=======
+                                                        <button type="submit" class="btn btn-md btn-primary">Ajouter</button>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     </div>
                                                 </form>
                                             </div>
@@ -473,6 +502,7 @@
                                                             value="">
                                                     </div>
                                                     <div class="form-group mb-3 col-md-6 select-border">
+<<<<<<< HEAD
                                                         <label class="form-label">Date début</label>
                                                         <div class="input-group">
                                                             <input type="datetime-local" class="form-control" required
@@ -485,6 +515,33 @@
                                                             <input type="datetime-local" class="form-control" required
                                                                 name="date_fin">
                                                         </div>
+=======
+                                                        <label class="form-label">Année debut</label>
+                                                        <select name="date_debut" class="form-control basic-select">
+                                                            <option value="2020" selected="selected">2020</option>
+                                                            <option value="2008">2008</option>
+                                                            <option value="2009">2009</option>
+                                                            <option value="2010">2010</option>
+                                                            <option value="2011">2011</option>
+                                                            <option value="2012">2012</option>
+                                                            <option value="2013">2013</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group mb-3 col-md-6 select-border">
+                                                        <label class="form-label">Année fin</label>
+                                                        <select name="date_fin" class="form-control basic-select">
+                                                            <option value="Aujourd'hui" selected="selected">Aujourd'hui
+                                                            </option>
+                                                            <option value="2008">2008</option>
+                                                            <option value="2008">2009</option>
+                                                            <option value="2010">2010</option>
+                                                            <option value="2011">2011</option>
+                                                            <option value="2012">2012</option>
+                                                            <option value="2013">2013</option>
+                                                            <option value="2014">2014</option>
+                                                            <option value="2015">2015</option>
+                                                        </select>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     </div>
                                                     <div class="form-group mb-3 col-md-12">
                                                         <label class="form-label">Institut</label>
@@ -607,6 +664,7 @@
                                                                             value="{{ $item->nom_diplome }}">
                                                                     </div>
                                                                     <div class="form-group mb-3 col-md-6 select-border">
+<<<<<<< HEAD
                                                                         <label class="form-label">Date début</label>
                                                                         <div class="input-group">
                                                                             <input type="datetime-local"
@@ -623,6 +681,39 @@
                                                                                 value="{{ $item->date_fin }}" required
                                                                                 name="date_fin">
                                                                         </div>
+=======
+                                                                        <label class="form-label">Année debut</label>
+                                                                        <select class="form-control basic-select"
+                                                                            name="date_debut">
+                                                                            <option value="value 01" selected="selected">
+                                                                                2020
+                                                                            </option>
+                                                                            <option value="value 02">2008</option>
+                                                                            <option value="value 03">2009</option>
+                                                                            <option value="value 04">2010</option>
+                                                                            <option value="value 05">2011</option>
+                                                                            <option value="value 06">2012</option>
+                                                                            <option value="value 07">2013</option>
+                                                                            <option value="value 08">2014</option>
+                                                                            <option value="value 09">2015</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group mb-3 col-md-6 select-border">
+                                                                        <label class="form-label">Année fin</label>
+                                                                        <select class="form-control basic-select"
+                                                                            name="date_fin">
+                                                                            <option value="value 01" selected="selected">
+                                                                                Aujourd'hui
+                                                                            </option>
+                                                                            <option value="value 02">2008</option>
+                                                                            <option value="value 03">2009</option>
+                                                                            <option value="value 04">2010</option>
+                                                                            <option value="value 05">2011</option>
+                                                                            <option value="value 06">2012</option>
+                                                                            <option value="value 07">2013</option>
+                                                                            <option value="value 08">2014</option>
+                                                                        </select>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                                     </div>
                                                                     <div class="form-group mb-3 col-md-12">
                                                                         <label class="form-label">Institut</label>
@@ -646,7 +737,11 @@
                                         </div>
                                     </div>
                                     <!--=================================
+<<<<<<< HEAD
                                                                                                                   Work & Experience -->
+=======
+                                                                                              Work & Experience -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     <div class="user-dashboard-info-box">
                                         <div class="dashboard-resume-title d-flex align-items-center">
                                             <div class="section-title-02 mb-sm-0">
@@ -676,7 +771,11 @@
                                                     </div>
                                                     <div class="mb-3 col-md-6 datetimepickers">
                                                         <label class="form-label">De</label>
+<<<<<<< HEAD
                                                         {{-- <div class="input-group date" id="datetimepicker-01"
+=======
+                                                        <div class="input-group date" id="datetimepicker-01"
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                             data-target-input="nearest">
                                                             <input type="text"
                                                                 class="form-control datetimepicker-input"
@@ -696,7 +795,11 @@
                                                     </div>
                                                     <div class="form-group mb-3 col-md-6 select-border datetimepickers">
                                                         <label class="form-label">à</label>
+<<<<<<< HEAD
                                                         {{-- <div class="input-group date" id="datetimepicker-02"
+=======
+                                                        <div class="input-group date" id="datetimepicker-02"
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                             data-target-input="nearest">
                                                             <input type="text"
                                                                 class="form-control datetimepicker-input"
@@ -719,8 +822,12 @@
                                                         <textarea class="form-control" name="description" rows="4"></textarea>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
+<<<<<<< HEAD
                                                         <button type="submit"
                                                             class="btn btn-md btn-primary">Ajouter</button>
+=======
+                                                        <button type="submit" class="btn btn-md btn-primary">Ajouter</button>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     </div>
                                                 </form>
                                             </div>
@@ -818,8 +925,12 @@
                                                                             value="{{ $item->poste }}">
                                                                     </div>
                                                                     <div class="form-group mb-3 col-md-12">
+<<<<<<< HEAD
                                                                         <label class="form-label">Nom de
                                                                             l'entreprise</label>
+=======
+                                                                        <label class="form-label">Nom del'entreprise</label>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                                         <input type="text" name="nom_entreprise"
                                                                             class="form-control"
                                                                             value="{{ $item->nom_entreprise }}">
@@ -831,7 +942,11 @@
                                                                     <div
                                                                         class="form-group mb-3 col-md-6 select-border datetimepickers">
                                                                         <label class="form-label">De</label>
+<<<<<<< HEAD
                                                                         {{-- <div class="input-group date"
+=======
+                                                                        <div class="input-group date"
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                                             id="datetimepicker-05"
                                                                             data-target-input="nearest">
                                                                             <input type="text"
@@ -857,7 +972,11 @@
                                                                     <div
                                                                         class="form-group mb-3 col-md-6 select-border datetimepickers">
                                                                         <label class="form-label">à</label>
+<<<<<<< HEAD
                                                                         {{-- <div class="input-group date"
+=======
+                                                                        <div class="input-group date"
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                                             id="datetimepicker-06"
                                                                             data-target-input="nearest">
                                                                             <input type="text"
@@ -897,9 +1016,15 @@
                                         @endforeach
                                     </div>
                                     <!--=================================
+<<<<<<< HEAD
                                                                                                                   Work & Experience -->
                                     <!--=================================
                                                                                                                   Professional Skill -->
+=======
+                                                                                              Work & Experience -->
+                                    <!--=================================
+                                                                                              Professional Skill -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     <div class="user-dashboard-info-box">
                                         <div class="dashboard-resume-title d-flex align-items-center">
                                             <div class="section-title-02 mb-sm-0">
@@ -929,8 +1054,12 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
+<<<<<<< HEAD
                                                         <button type="submit"
                                                             class="btn btn-md btn-primary">Ajouter</button>
+=======
+                                                        <button type="submit" class="btn btn-md btn-primary">Ajouter</button>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     </div>
                                                 </form>
                                             </div>
@@ -1049,9 +1178,15 @@
                                         </div>
                                     </div>
                                     <!--=================================
+<<<<<<< HEAD
                                                                                                                   Professional Skill -->
                                     <!--=================================
                                                                                                                   Langue -->
+=======
+                                                                                              Professional Skill -->
+                                    <!--=================================
+                                                                                              Langue -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     <div class="user-dashboard-info-box">
                                         <div class="dashboard-resume-title d-flex align-items-center">
                                             <div class="section-title-02 mb-sm-0">
@@ -1081,8 +1216,12 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-0">
+<<<<<<< HEAD
                                                         <button type="submit"
                                                             class="btn btn-md btn-primary">Ajouter</button>
+=======
+                                                        <button type="submit" class="btn btn-md btn-primary">Ajouter</button>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     </div>
                                                 </form>
                                             </div>
@@ -1201,7 +1340,11 @@
                                         </div>
                                     </div>
                                     <!--=================================
+<<<<<<< HEAD
                                                                                                                   Langue -->
+=======
+                                                                                              Langue -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     {{-- <a class="btn btn-md btn-primary" href="#">Save Settings</a> --}}
                                 </div>
                             </div>
@@ -1352,5 +1495,9 @@
         </div>
     </section>
     <!--=================================
+<<<<<<< HEAD
                                                                                                                           Jobs-listing -->
+=======
+                                                                                                      Jobs-listing -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 @endsection

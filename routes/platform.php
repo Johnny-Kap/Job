@@ -126,11 +126,14 @@ Route::screen('/typejob/add', TypeJobScreen::class)->name('platform.typejob');
 //Apply Job
 Route::screen('/applyjob', ApplyJobList::class)->name('platform.applyjob.list');
 Route::screen('/applyjob/view/{apply_job}', ApplyJobScreen::class)->name('platform.applyjob');
+<<<<<<< HEAD
 
 //Job
 Route::screen('/job', JobList::class)->name('platform.job.list');
 Route::screen('/job/add', JobScreen::class)->name('platform.job');
 Route::screen('/job/view/{job}', JobDetailScreen::class)->name('platform.job.detail');
 Route::screen('/job/edit/{job}', JobEditScreen::class)->name('platform.job.edit');
+=======
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

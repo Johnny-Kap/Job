@@ -51,7 +51,11 @@ inner banner -->
               <i class="flaticon-contract"></i>
             </div>
             <div class="feature-info-content">
+<<<<<<< HEAD
               <h5 class="text-black">Annoncer un emploi</h5>
+=======
+              <h5 class="text-black">Advertise A Job</h5>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
               <p class="mb-0">Utilisez une défaite passée comme motivation. Rappelez-vous que vous n'avez nulle part où aller sauf.</p>
             </div>
           </div>
@@ -98,7 +102,11 @@ counter -->
                     <i class="flaticon-curriculum"></i>
                   </div>
                   <div class="counter-content">
+<<<<<<< HEAD
                     <span class="timer mb-1 text-white" data-to="{{$jobs_count}}" data-speed="1000">{{$jobs_count}}</span>
+=======
+                    <span class="timer mb-1 text-white" data-to="1227" data-speed="10000">1227</span>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     <label class="mb-0 text-white">Offres d'emploi affichées</label>
                   </div>
                 </div>
@@ -109,7 +117,11 @@ counter -->
                     <i class="flaticon-resume"></i>
                   </div>
                   <div class="counter-content">
+<<<<<<< HEAD
                     <span class="timer mb-1 text-white" data-to="{{$apply_job_count}}" data-speed="1000">{{$apply_job_count}}</span>
+=======
+                    <span class="timer mb-1 text-white" data-to="123" data-speed="10000">123</span>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     <label class="mb-0 text-white">Emplois pourvus</label>
                   </div>
                 </div>
@@ -120,7 +132,11 @@ counter -->
                     <i class="flaticon-suitcase"></i>
                   </div>
                   <div class="counter-content">
+<<<<<<< HEAD
                     <span class="timer mb-1 text-white" data-to="{{$companies_count}}" data-speed="1000">{{$companies_count}}</span>
+=======
+                    <span class="timer mb-1 text-white" data-to="170" data-speed="10000">170</span>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     <label class="mb-0 text-white">Entreprises</label>
                   </div>
                 </div>
@@ -131,7 +147,11 @@ counter -->
                     <i class="flaticon-users"></i>
                   </div>
                   <div class="counter-content">
+<<<<<<< HEAD
                     <span class="timer mb-1 text-white" data-to="{{$members_count}}" data-speed="1000">{{$members_count}}</span>
+=======
+                    <span class="timer mb-1 text-white" data-to="127" data-speed="10000">127</span>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     <label class="mb-0 text-white">Membres</label>
                   </div>
                 </div>

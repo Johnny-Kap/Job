@@ -279,7 +279,11 @@
                             <div class="employers-list-info">
                                 <div class="employers-list-title">
                                     <h5 class="mb-0"><a
+<<<<<<< HEAD
                                             href="{{ route('candidat.entreprise.detail', ['id' => $item->id, 'name' => str_slug($item->name)]) }}">{{ $item->name }}</a>
+=======
+                                            href="{{ route('candidat.entreprise.detail', ['id' => $item->id]) }}">{{ $item->name }}</a>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     </h5>
                                 </div>
                                 <div class="employers-list-option">

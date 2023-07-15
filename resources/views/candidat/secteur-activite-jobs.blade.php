@@ -21,14 +21,22 @@
         </div>
     </section>
     <!--=================================
+<<<<<<< HEAD
                           banner -->
+=======
+                  banner -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
     <section class="space-ptb">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <!--=================================
+<<<<<<< HEAD
                                     left-sidebar -->
+=======
+                            left-sidebar -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     <div class="sidebar">
                         <form method="GET" action="" class="form-inline">
                             <div class="widget">
@@ -57,7 +65,11 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             {{-- <hr>
+=======
+                            <hr>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                             <div class="widget">
                                 <div class="widget-title widget-collapse">
                                     <h6>Qualification</h6>
@@ -87,12 +99,20 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                             </div> --}}
+=======
+                            </div>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <!--=================================
+<<<<<<< HEAD
                                                                   right-sidebar -->
+=======
+                                                          right-sidebar -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     <div class="job-filter mb-4 d-sm-flex align-items-center">
                         {{-- <div class="job-alert-bt"> <a class="btn btn-md btn-dark" href="#"><i
                                         class="fa fa-envelope"></i>Get job alert </a> </div> --}}
@@ -132,6 +152,7 @@
                         </div>
                     </div>
                     <div class="row">
+<<<<<<< HEAD
                         @if ($show_jobs_count == 0)
                             <div class="row-fluid">
                                 <div class="span12 text-center">
@@ -146,6 +167,22 @@
                                             @if ($item->users->image == null)
                                                 <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
                                                     alt="">
+=======
+                        <div class="col-12">
+                            @if ($show_jobs_count == 0)
+                                <div class="row-fluid">
+                                    <div class="span12 text-center">
+                                        <b>Aucune offre d'emploi</b>
+                                    </div>
+                                </div>
+                            @else
+                                @foreach ($show_jobs as $item)
+                                    <div class="job-list ">
+                                        <div class="job-list-logo">
+                                            @if ($item->users->image == null)
+                                                <img class="img-fluid"
+                                                    src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                             @else
                                                 <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
                                                     alt="">
@@ -155,13 +192,21 @@
                                             <div class="job-list-info">
                                                 <div class="job-list-title">
                                                     <h5 class="mb-0"><a
+<<<<<<< HEAD
                                                             href="{{ route('candidat.job.detail', ['id' => $item->id, 'name' => str_slug($item->titre)]) }}">{{ $item->titre }}</a>
+=======
+                                                            href="{{ route('candidat.job.detail', ['id' => $item->id]) }}">{{ $item->titre }}</a>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     </h5>
                                                 </div>
                                                 <div class="job-list-option">
                                                     <ul class="list-unstyled">
                                                         <li> <span>via</span> <a
+<<<<<<< HEAD
                                                                 href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id, 'name' => str_slug($item->users->name)]) }}">{{ $item->users->name }}</a>
+=======
+                                                                href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                         </li>
                                                         <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}
                                                         </li>
@@ -179,7 +224,11 @@
                                             <form action="{{ route('candidat.job.favori.create', ['id' => $item->id]) }}"
                                                 method="post"> @csrf
                                                 <button type="submit" class="job-list-favourite order-2">
+<<<<<<< HEAD
                                                     @if ($item->job_favoris_count == 0)
+=======
+                                                    @if ($fav_count == 0)
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                         <i class="far fa-heart"></i>
                                                     @else
                                                         <i class="fas fa-heart text-danger"></i>
@@ -192,9 +241,15 @@
                                                     class="far fa-clock pe-1"></i>{{ $item->created_at->diffForHumans() }}</span>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                 </div>
                             @endforeach
                         @endif
+=======
+                                @endforeach
+                            @endif
+                        </div>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     </div>
                     <div class="row">
                         <div class="col-12 text-center mt-4 mt-md-5">

@@ -13,8 +13,12 @@
                                 @if (Auth::user()->image == null)
                                     <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
                                 @else
+<<<<<<< HEAD
                                     <img class="img-fluid" style="width: 110px; height:120px;"
                                         src="{{ Storage::url(Auth::user()->image) }}" alt="">
+=======
+                                    <img class="img-fluid" style="width: 110px; height:120px;" src="{{ Storage::url(Auth::user()->image) }}" alt="">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                 @endif
                                 {{-- <i class="fas fa-pencil-alt"></i> --}}
                             </div>
@@ -77,12 +81,19 @@
                                         </div>
                                         <div class="">
                                             <div class="">
+<<<<<<< HEAD
                                                 <form action="{{ route('entreprise.photo.change') }}" method="post"
                                                     enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="row">
                                                         <label for="formFile" class="form-label">Modifier la photo de
                                                             profil</label>
+=======
+                                                <form action="{{route('entreprise.photo.change')}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="row">
+                                                        <label for="formFile" class="form-label">Modifier la photo de profil</label>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                         <div class="form-group mb-3 col-md-4">
                                                             <input class="form-control" name="file" type="file"
                                                                 id="formFile">
@@ -110,7 +121,11 @@
                                                     <input type="text" class="form-control" name="name"
                                                         value="{{ Auth::user()->name }}">
                                                 </div>
+<<<<<<< HEAD
                                                 {{-- <div class="form-group mb-3 col-md-6 datetimepickers">
+=======
+                                                <div class="form-group mb-3 col-md-6 datetimepickers">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     <label class="form-label">Date de création</label>
                                                     <div class="input-group date" id="datetimepicker-01"
                                                         data-target-input="nearest">
@@ -248,6 +263,7 @@
                                                     @csrf
                                                     <div class="form-group col-md-12 mb-3">
                                                         <label class="form-label">Mot de passe actuel</label>
+<<<<<<< HEAD
                                                         <input type="password" name="old_password" class="form-control"
                                                             value="">
                                                     </div>
@@ -260,6 +276,17 @@
                                                         <label class="form-label">Confirmer mot de passe</label>
                                                         <input type="password" name="confirm_password"
                                                             class="form-control" value="">
+=======
+                                                        <input type="password" name="old_password" class="form-control" value="">
+                                                    </div>
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label class="form-label">Nouveau mot de passe</label>
+                                                        <input type="password" name="new_password" class="form-control" value="">
+                                                    </div>
+                                                    <div class="form-group col-md-12 mb-0">
+                                                        <label class="form-label">Confirmer mot de passe</label>
+                                                        <input type="password" name="confirm_password" class="form-control" value="">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     </div>
                                             </div>
                                         </div>

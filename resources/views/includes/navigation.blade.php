@@ -1,27 +1,47 @@
 <!--=================================
 Header -->
 <style>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     /* .custom-a:hover {
     background-color: white;
     } */
 
     @media screen and (max-width: 1024px) {
+<<<<<<< HEAD
         .custom {
+=======
+        .custom{
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
             position: relative;
             bottom: 10px;
             left: 15px;
         }
 
+<<<<<<< HEAD
         .custom-2 {
+=======
+        .custom-2{
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
             position: relative;
             left: 10px;
         }
 
+<<<<<<< HEAD
         .custom-a {
             color: #ff8a00;
         }
 
         .custom-pc-2 {
+=======
+        .custom-a{
+            color: #ff8a00;
+        }
+
+        .custom-pc-2{
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
             position: relative;
             left: 14px;
         }
@@ -29,12 +49,20 @@ Header -->
     }
 
     @media screen and (min-width: 1224px) {
+<<<<<<< HEAD
         .custom-pc {
+=======
+        .custom-pc{
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
             position: relative;
             left: 200px;
         }
 
+<<<<<<< HEAD
         .custom-pc-2 {
+=======
+        .custom-pc-2{
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
             position: relative;
             left: 140px;
             top: 29px;
@@ -93,7 +121,11 @@ Header -->
                         </ul>
                     </li>
                     <li class="dropdown nav-item mega-menu {{ Request::route()->named('about') ? 'active' : '' }}">
+<<<<<<< HEAD
                         <a href="{{ route('about') }}" class="nav-link">À propos</a>
+=======
+                        <a href="{{ route('about') }}" class="nav-link">A propos</a>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     </li>
                     <li class="nav-item dropdown {{ Request::route()->named('contact') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="{{ route('contact') }}" aria-haspopup="true"
@@ -108,6 +140,7 @@ Header -->
                             {{-- <div class="add-listing"> --}}
                             <div class="login d-inline-block me-6">
                                 @if (Route::has('login'))
+<<<<<<< HEAD
                                     <a href="{{ route('login') }}" class="custom-a"><i class="fas fa-user-friends pe-2"></i>Se
                                         connecter</a>
                                 @endif
@@ -115,6 +148,13 @@ Header -->
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}" class="custom-a"><i
                                             class="fas fa-user-plus pe-2"></i>S'enregistrer</a>
+=======
+                                    <a href="{{ route('login') }}"  class="custom-a"><i class="far fa-user pe-2"></i>Se connecter</a>
+                                @endif
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="custom-a"><i class="far fa-user pe-2"></i>S'enregistrer</a>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                 @endif
                             </div>
                             {{-- </div> --}}
@@ -139,7 +179,12 @@ Header -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle custom" href="javascript:void(0)"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<<<<<<< HEAD
                                         {{ str_limit(Auth::user()->prenom, 9) }} <i class="fas fa-chevron-down fa-xs"></i>
+=======
+                                        {{ Auth::user()->prenom }} {{ Auth::user()->name }} <i
+                                            class="fas fa-chevron-down fa-xs"></i>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{{ route('candidat.my-profil') }}">Voir

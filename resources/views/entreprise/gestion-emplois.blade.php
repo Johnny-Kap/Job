@@ -75,8 +75,13 @@
                                     @else
                                         @foreach ($job as $item)
                                             <tr>
+<<<<<<< HEAD
                                                 <th scope="row"><a href="{{route('entreprise.job.detail',['id' => $item->id, 'name' => str_slug($item->titre)])}}">{{ $item->titre }}</a></th>
                                                 <td>{{ $item->dateline->format('d/m/Y') }}</td>
+=======
+                                                <th scope="row">{{ $item->titre }}</th>
+                                                <td>{{ $item->dateline }}</td>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                 <td>{{ $item->adresse }}</td>
                                                 <td>{{ $item->secteurs->intitule }}</td>
                                                 <td>
@@ -110,7 +115,11 @@
                                                         </div>
                                                     @endif
                                                     <div class="d-inline-block p-2">
+<<<<<<< HEAD
                                                         <a href="{{ route('entreprise.post.job.modify', ['id' => $item->id, 'name' => str_slug($item->titre)]) }}" class="btn btn-primary btn-sm">
+=======
+                                                        <a href="{{ route('entreprise.post.job.modify', ['id' => $item->id]) }}" class="btn btn-primary btn-sm">
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                             Modifier
                                                         </a>
                                                     </div>

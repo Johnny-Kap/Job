@@ -2,7 +2,11 @@
 
 @section('content')
     <!--=================================
+<<<<<<< HEAD
                         banner -->
+=======
+                    banner -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     <div class="candidate-banner bg-light">
         <div class="container">
             <div class="row">
@@ -60,7 +64,11 @@
         </div>
     </div>
     <!--=================================
+<<<<<<< HEAD
                               banner -->
+=======
+                          banner -->
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
     <section class="space-pb">
         <div class="container"><br><br>
@@ -72,6 +80,7 @@
                                 <h4>Mes offres d'emploi recentes</h4>
                             </div>
                             <div class="row">
+<<<<<<< HEAD
 
                                 @if ($my_job_count == 0)
                                     <div class="row-fluid">
@@ -125,6 +134,58 @@
                                         </div>
                                     @endforeach
                                 @endif
+=======
+                                <div class="col-12">
+                                    @if ($my_job_count == 0)
+                                    <div class="row-fluid">
+                                        <div class="span12 text-center">
+                                        <b>Aucune offre d'emploi</b>
+                                        </div>
+                                    </div>
+                                    @else
+                                    @foreach ($my_job as $item)
+                                        <div class="job-list">
+                                            <div class="job-list-logo">
+                                                @if ($item->users->image == null)
+                                                    <img class="img-fluid"
+                                                        src="\..\libraries\images\no-profile-pic-icon-0.jpg" alt="">
+                                                @else
+                                                    <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
+                                                        alt="">
+                                                @endif
+                                            </div>
+                                            <div class="job-list-details">
+                                                <div class="job-list-info">
+                                                    <div class="job-list-title">
+                                                        <h5 class="mb-0"><a href="{{ route('candidat.job.detail', ['id' => $item->id]) }}">{{ $item->titre }}</a>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="job-list-option">
+                                                        <ul class="list-unstyled">
+                                                            <li> <span>via</span> <a
+                                                                    href="#">{{ $item->users->name }}</a>
+                                                            </li>
+                                                            <li><i
+                                                                    class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}
+                                                            </li>
+                                                            <li><i
+                                                                    class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
+                                                            </li>
+                                                            <li><a class="part-time" href="#"><i
+                                                                        class="fas fa-suitcase pe-1"></i>{{ $item->type_jobs->titre }}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="job-list-favourite-time"> <span class="job-list-time order-1"><i
+                                                        class="far fa-clock pe-1"></i>{{ $item->dateline }}</span>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                    @endif
+                                </div>
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                             </div>
                         </div>
                         <hr class="my-4 my-md-5">
@@ -181,7 +242,11 @@
                                                     @if ($entreprise_detail->date_naiss == null)
                                                         Aucune date
                                                     @else
+<<<<<<< HEAD
                                                         {{ $entreprise_detail->date_naiss->format('d/m/Y') }}
+=======
+                                                        {{ $entreprise_detail->date_naiss }}
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     @endif
                                                 </span>
                                             </div>
@@ -209,7 +274,11 @@
                                 @if ($entreprise_detail->description == null)
                                     Aucune description
                                 @else
+<<<<<<< HEAD
                                     {!!html_entity_decode($entreprise_detail->description)!!}
+=======
+                                    {{ $entreprise_detail->description }}
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                 @endif
                             </div>
                         </div>

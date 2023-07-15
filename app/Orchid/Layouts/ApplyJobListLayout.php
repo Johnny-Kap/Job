@@ -80,6 +80,18 @@ class ApplyJobListLayout extends Table
             //             });
             //     }
             // ),
+<<<<<<< HEAD
+=======
+
+            TD::make('Voir CV')
+                ->render(function ($apply_job) {
+                    return Link::make('Consulter')
+               ->route('platform.applyjob', $apply_job);
+            }),
+
+        ];
+    }
+>>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
             TD::make('Voir CV')
                 ->render(function ($apply_job) {
