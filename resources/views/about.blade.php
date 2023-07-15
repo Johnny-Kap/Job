@@ -8,10 +8,10 @@ inner banner -->
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2 class="text-primary">About Us</h2>
+          <h2 class="text-primary">À propos de nous</h2>
           <ol class="breadcrumb mb-0 p-0">
-            <li class="breadcrumb-item"><a href="{{route('home')}}"> Home </a></li>
-            <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> About us </span></li>
+            <li class="breadcrumb-item"><a href="{{route('home')}}"> Accueil </a></li>
+            <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> À propos de nous </span></li>
           </ol>
         </div>
       </div>
@@ -26,11 +26,11 @@ inner banner -->
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-md-6">
-          <h2 class="mb-4">Millions of jobs, finds the one that's right for you</h2>
+          <h2 class="mb-4">Des millions d'emplois, trouve celui qui vous convient</h2>
         </div>
         <div class="col-lg-10">
           <div class="text-center">
-            <p class="mb-lg-5 mb-4 lead">We also know those epic stories, those modern-day legends surrounding the early failures of such supremely successful folks as Michael Jordan and Bill Gates. We can look a bit further back in time to Albert Einstein or even further back to Abraham Lincoln.</p>
+            <p class="mb-lg-5 mb-4 lead">Nous connaissons également ces histoires épiques, ces légendes des temps modernes entourant les premiers échecs de personnes aussi prospères que Michael Jordan et Bill Gates. Nous pouvons remonter un peu plus loin dans le temps jusqu'à Albert Einstein ou encore plus loin jusqu'à Abraham Lincoln.</p>
             <img class="img-fluid mt-lg-4 mt-3" src="libraries/images/about/about-img1.png" alt="">
           </div>
         </div>
@@ -51,8 +51,8 @@ inner banner -->
               <i class="flaticon-contract"></i>
             </div>
             <div class="feature-info-content">
-              <h5 class="text-black">Advertise A Job</h5>
-              <p class="mb-0">Use a past defeat as a motivator. Remind yourself you have nowhere to go except.</p>
+              <h5 class="text-black">Annoncer un emploi</h5>
+              <p class="mb-0">Utilisez une défaite passée comme motivation. Rappelez-vous que vous n'avez nulle part où aller sauf.</p>
             </div>
           </div>
         </div>
@@ -62,8 +62,8 @@ inner banner -->
               <i class="flaticon-profiles"></i>
             </div>
             <div class="feature-info-content">
-              <h5 class="text-black">Recruiter Profiles</h5>
-              <p class="mb-0">Let success motivate you. Find a picture of what epitomizes success to you have already.</p>
+              <h5 class="text-black">Profils des recruteurs</h5>
+              <p class="mb-0">Laissez le succès vous motiver. Trouvez une image de ce qui incarne le succès pour vous.</p>
             </div>
           </div>
         </div>
@@ -73,8 +73,8 @@ inner banner -->
               <i class="flaticon-job-3"></i>
             </div>
             <div class="feature-info-content">
-              <h5 class="text-black">Find Your Dream Job</h5>
-              <p class="mb-0">Make a list of your achievements toward your long-term goal and remind your.</p>
+              <h5 class="text-black">Trouvez l'emploi de vos rêves</h5>
+              <p class="mb-0">Faites une liste de vos réalisations vers votre objectif à long terme et rappelez à vos.</p>
             </div>
           </div>
         </div>
@@ -98,8 +98,8 @@ counter -->
                     <i class="flaticon-curriculum"></i>
                   </div>
                   <div class="counter-content">
-                    <span class="timer mb-1 text-white" data-to="1227" data-speed="10000">1227</span>
-                    <label class="mb-0 text-white">Jobs Posted</label>
+                    <span class="timer mb-1 text-white" data-to="{{$jobs_count}}" data-speed="1000">{{$jobs_count}}</span>
+                    <label class="mb-0 text-white">Offres d'emploi affichées</label>
                   </div>
                 </div>
               </div>
@@ -109,8 +109,8 @@ counter -->
                     <i class="flaticon-resume"></i>
                   </div>
                   <div class="counter-content">
-                    <span class="timer mb-1 text-white" data-to="123" data-speed="10000">123</span>
-                    <label class="mb-0 text-white">Jobs Filled</label>
+                    <span class="timer mb-1 text-white" data-to="{{$apply_job_count}}" data-speed="1000">{{$apply_job_count}}</span>
+                    <label class="mb-0 text-white">Emplois pourvus</label>
                   </div>
                 </div>
               </div>
@@ -120,8 +120,8 @@ counter -->
                     <i class="flaticon-suitcase"></i>
                   </div>
                   <div class="counter-content">
-                    <span class="timer mb-1 text-white" data-to="170" data-speed="10000">170</span>
-                    <label class="mb-0 text-white">Companies</label>
+                    <span class="timer mb-1 text-white" data-to="{{$companies_count}}" data-speed="1000">{{$companies_count}}</span>
+                    <label class="mb-0 text-white">Entreprises</label>
                   </div>
                 </div>
               </div>
@@ -131,8 +131,8 @@ counter -->
                     <i class="flaticon-users"></i>
                   </div>
                   <div class="counter-content">
-                    <span class="timer mb-1 text-white" data-to="127" data-speed="10000">127</span>
-                    <label class="mb-0 text-white">Members</label>
+                    <span class="timer mb-1 text-white" data-to="{{$members_count}}" data-speed="1000">{{$members_count}}</span>
+                    <label class="mb-0 text-white">Membres</label>
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@ counter -->
 
   <!--=================================
   Testimonial -->
-  <section class="space-pb">
+  {{-- <section class="space-pb">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-10 col-12 text-center">
@@ -158,7 +158,7 @@ counter -->
                   <img class="img-fluid rounded-circle" src="libraries/images/avatar/04.jpg" alt="">
                 </div>
                 <div class="testimonial-content">
-                  <p>The Jobber database has been one of our current sources for recruitment, backed by a very experienced team who would go out of their way to make sure that requests are taken ahead.</p>
+                  <p>La base de données PMS a été l'une de nos sources actuelles de recrutement, soutenue par une équipe très expérimentée qui ferait tout son possible pour s'assurer que les demandes sont traitées à l'avance..</p>
                 </div>
                 <div class="testimonial-name">
                   <i class="fas fa-quote-left quotes"></i>
@@ -186,7 +186,7 @@ counter -->
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!--=================================
   Testimonial -->
 

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Models\Job;
 use App\Orchid\Screens\ApplyJobList;
 use App\Orchid\Screens\ApplyJobScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
@@ -13,6 +14,10 @@ use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\GenreScreen;
 use App\Orchid\Screens\GenreList;
+use App\Orchid\Screens\JobDetailScreen;
+use App\Orchid\Screens\JobEditScreen;
+use App\Orchid\Screens\JobList;
+use App\Orchid\Screens\JobScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -120,6 +125,12 @@ Route::screen('/typejob/add', TypeJobScreen::class)->name('platform.typejob');
 
 //Apply Job
 Route::screen('/applyjob', ApplyJobList::class)->name('platform.applyjob.list');
-Route::screen('/applyjob/view/{jobapply?}', ApplyJobScreen::class)->name('platform.applyjob');
+Route::screen('/applyjob/view/{apply_job}', ApplyJobScreen::class)->name('platform.applyjob');
+
+//Job
+Route::screen('/job', JobList::class)->name('platform.job.list');
+Route::screen('/job/add', JobScreen::class)->name('platform.job');
+Route::screen('/job/view/{job}', JobDetailScreen::class)->name('platform.job.detail');
+Route::screen('/job/edit/{job}', JobEditScreen::class)->name('platform.job.edit');
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

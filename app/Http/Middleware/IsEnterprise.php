@@ -17,12 +17,11 @@ class IsEnterprise
      */
     public function handle(Request $request, Closure $next)
     {
-       if(Auth::user()->is_enterprise == 1){
+        if (Auth::check() && Auth::user()->is_enterprise == 1) {
 
-        return $next($request);
+            return $next($request);
+        }
 
-       }
-
-       return redirect()->route('home')->with('error', 'Pas accès à cette page');
+        return redirect()->route('home')->with('error', 'Pas accès à cette page');
     }
 }

@@ -14,6 +14,10 @@ class TypeJob extends Model
         'titre',
     ];
 
+    public function getFullAttribute(): string
+    {
+        return  $this->attributes['titre'];
+    }
 
     public function jobs(){
         return $this->hasMany(Job::class);

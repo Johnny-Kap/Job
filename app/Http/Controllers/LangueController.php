@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Langue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
 
 class LangueController extends Controller
 {
@@ -97,8 +98,10 @@ class LangueController extends Controller
      * @param  \App\Models\Langue  $langue
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Langue $langue)
+    public function destroy($id)
     {
-        //
+        $delete = Langue::where('id', $id)->delete();
+
+        return back()->with('success', 'Langue supprimée avec succès!');
     }
 }

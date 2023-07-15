@@ -97,8 +97,10 @@ class CompetenceController extends Controller
      * @param  \App\Models\Competence  $competence
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Competence $competence)
+    public function destroy($id)
     {
-        //
+        $delete = Competence::where('id', $id)->delete();
+
+        return back()->with('success', 'Compétence supprimée avec succès!');
     }
 }

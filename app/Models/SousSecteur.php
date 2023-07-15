@@ -15,6 +15,11 @@ class SousSecteur extends Model
         'secteur_id',
     ];
 
+    public function getFullAttribute(): string
+    {
+        return  $this->attributes['intitule'];
+    }
+    
     public function secteurs(){
         return $this->belongsTo(Secteur::class, 'secteur_id', 'id');
     }

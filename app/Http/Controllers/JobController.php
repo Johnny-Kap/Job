@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use App\Models\Job;
+use App\Models\JobFavori;
 use App\Models\Secteur;
 use App\Models\SousSecteur;
 use App\Models\TypeJob;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,22 +22,58 @@ class JobController extends Controller
     public function index()
     {
 
-        $showJob = Job::paginate(10);
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
 
-        return view('candidat.job-consulter', compact('showJob'));
+        $showJob = Job::where('etat', 1)->withCount(['job_favoris' => function (Builder $query) {
+            if (Auth::user() == null) {
+                $my_id = '';
+            } else {
+                $my_id = Auth::user()->id;
+            }
+
+            $query->where('user_id', $my_id);
+        }])->orderBy('created_at', 'desc')->paginate(10);
+
+
+        $showJob_count = Job::where('etat', 1)->count();
+
+        $showJobOther = Job::where('etat', 1)->pluck('id');
+
+        $fav_count = JobFavori::whereIn('job_id', $showJobOther)->where('user_id', $my_id)->count();
+
+        $secteurs = Secteur::all();
+
+        $type_job = TypeJob::all();
+
+        return view('candidat.job-consulter', compact('showJob', 'fav_count', 'showJob_count', 'secteurs', 'type_job'));
     }
 
     public function show($id)
     {
 
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
+
         $show_detail = Job::find($id);
 
-        $job_similar = Job::take(4)->get();
+        $show_detail_other = Job::where('id', $id)->pluck('id');
 
-        return view('candidat.job-detail', compact('show_detail','job_similar'));
+        $fav_count = JobFavori::where('job_id', $show_detail_other)->where('user_id', $my_id)->count();
+
+        $job_similar = Job::take(3)->get();
+
+        return view('candidat.job-detail', compact('show_detail', 'job_similar', 'fav_count'));
     }
 
-    public function showPostJob(){
+    public function showPostJob()
+    {
 
         $secteurs = Secteur::all();
 
@@ -43,12 +81,19 @@ class JobController extends Controller
 
         $type_job = TypeJob::all();
 
-        return view('entreprise.poster-job', compact('secteurs','sous_secteurs','type_job'));
+        return view('entreprise.poster-job', compact('secteurs', 'sous_secteurs', 'type_job'));
     }
 
-    public function showSubmit(){
+    public function showSubmit()
+    {
 
         return view('entreprise.submited-job');
+    }
+
+    public function showSubmitModified()
+    {
+
+        return view('entreprise.submited-job-modify');
     }
 
     /**
@@ -69,8 +114,6 @@ class JobController extends Controller
 
         $post_job->email_contact = $request->email;
 
-        $post_job->titre = $request->titre;
-
         $post_job->dateline = $request->dateline;
 
         $post_job->secteur_id = $request->secteur;
@@ -78,6 +121,8 @@ class JobController extends Controller
         $post_job->sous_secteur_id = $request->sous_secteur;
 
         $post_job->type_job_id = $request->type_job;
+
+        $post_job->contrat = $request->contrat;
 
         $post_job->user_id = $my_id;
 
@@ -95,32 +140,284 @@ class JobController extends Controller
 
         $post_job->site_internet = $request->site_internet;
 
-        $post_job->image = $request->image;
-
         $post_job->adresse = $request->adresse;
+
+        $post_job->etat = 1;
 
         $post_job->save();
 
         return redirect()->route('entreprise.post.job.submit');
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
 
-        if($request->job_title !== null && $request->job_adresse !== null){
-
-            $resultat = Job::where('titre', 'like', '%'. $request->job_title .'%')->where('adresse', 'like', '%'.$request->adresse.'%')->simplePaginate(15);
-
-        }elseif($request->job_title !== null && $request->job_adresse == null){
-
-            $resultat = Job::where('titre', 'like', '%'. $request->job_title .'%')->simplePaginate(15);
-
-        }elseif($request->job_title == null && $request->job_adresse !== null){
-
-            $resultat = Job::where('adresse', 'like', '%'. $request->job_title .'%')->simplePaginate(15);
-
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
         }
 
-        return view('candidat.resultat-search', compact('resultat'));
+        if ($request->job_title !== null && $request->job_adresse !== null) {
+
+            $resultat = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->withCount(['job_favoris' => function (Builder $query) {
+                if (Auth::user() == null) {
+                    $my_id = '';
+                } else {
+                    $my_id = Auth::user()->id;
+                }
+
+                $query->where('user_id', $my_id);
+            }])->simplePaginate(15);
+
+            $resultat_count = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->count();
+
+            $secteurs = Secteur::all();
+
+            $type_job = TypeJob::all();
+
+            return view('candidat.resultat-search-job', compact('resultat','resultat_count', 'secteurs', 'type_job'));
+        } elseif ($request->job_title !== null && $request->job_adresse == null) {
+
+            $resultat = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->withCount(['job_favoris' => function (Builder $query) {
+                if (Auth::user() == null) {
+                    $my_id = '';
+                } else {
+                    $my_id = Auth::user()->id;
+                }
+
+                $query->where('user_id', $my_id);
+            }])->simplePaginate(15);
+
+            $resultat_count = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->count();
+
+            $secteurs = Secteur::all();
+
+            $type_job = TypeJob::all();
+
+            return view('candidat.resultat-search-job', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
+        } elseif ($request->job_title == null && $request->job_adresse !== null) {
+
+            $resultat = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->withCount(['job_favoris' => function (Builder $query) {
+                if (Auth::user() == null) {
+                    $my_id = '';
+                } else {
+                    $my_id = Auth::user()->id;
+                }
+
+                $query->where('user_id', $my_id);
+            }])->simplePaginate(15);
+
+            $resultat_count = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->count();
+
+            $secteurs = Secteur::all();
+
+            $type_job = TypeJob::all();
+
+            return view('candidat.resultat-search-job', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
+        } elseif ($request->job_title == null && $request->job_adresse == null) {
+
+            return back()->with('warning', 'Veuillez renseigner un des champs');
+        }
+    }
+
+    public function filtreJob(Request $request)
+    {
+
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
+
+        if ($request->has('genre') && $request->tri == 'recent') {
+
+            $resultat = Job::where('genre_id', $request->genre)
+                ->where('secteur_id', $request->secteur)
+                ->where('type_job_id', $request->type)
+                ->orderBy('created_at', 'asc')->withCount(['job_favoris' => function (Builder $query) {
+                    if (Auth::user() == null) {
+                        $my_id = '';
+                    } else {
+                        $my_id = Auth::user()->id;
+                    }
+
+                    $query->where('user_id', $my_id);
+                }])
+                ->paginate(10);
+
+            $resultat_count = Job::where('genre_id', $request->genre)
+                ->where('secteur_id', $request->secteur)
+                ->where('type_job_id', $request->type)
+                ->count();
+
+            $secteurs = Secteur::all();
+
+            $type_job = TypeJob::all();
+
+            return view('candidat.resultat-filter', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
+        }elseif ($request->has('genre') && $request->tri == 'ancien') {
+
+            $resultat = Job::where('genre_id', $request->genre)
+                ->where('secteur_id', $request->secteur)
+                ->where('type_job_id', $request->type)
+                ->orderBy('created_at', 'desc')->withCount(['job_favoris' => function (Builder $query) {
+                    if (Auth::user() == null) {
+                        $my_id = '';
+                    } else {
+                        $my_id = Auth::user()->id;
+                    }
+
+                    $query->where('user_id', $my_id);
+                }])
+                ->paginate(10);
+
+            $resultat_count = Job::where('genre_id', $request->genre)
+                ->where('secteur_id', $request->secteur)
+                ->where('type_job_id', $request->type)
+                ->count();
+
+            $secteurs = Secteur::all();
+
+            $type_job = TypeJob::all();
+
+            return view('candidat.resultat-filter', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
+        } elseif ($request->tri == 'recent') {
+
+            $resultat = Job::where('secteur_id', $request->secteur)
+                ->where('type_job_id', $request->type)
+                ->orderBy('created_at', 'asc')->withCount(['job_favoris' => function (Builder $query) {
+                    if (Auth::user() == null) {
+                        $my_id = '';
+                    } else {
+                        $my_id = Auth::user()->id;
+                    }
+
+                    $query->where('user_id', $my_id);
+                }])
+                ->paginate(10);
+
+            $resultat_count = Job::where('secteur_id', $request->secteur)
+                ->where('type_job_id', $request->type)
+                ->count();
+
+            $secteurs = Secteur::all();
+
+            $type_job = TypeJob::all();
+
+            return view('candidat.resultat-filter', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
+        }elseif ($request->tri == 'ancien') {
+
+            $resultat = Job::where('secteur_id', $request->secteur)
+                ->where('type_job_id', $request->type)
+                ->orderBy('created_at', 'desc')->withCount(['job_favoris' => function (Builder $query) {
+                    if (Auth::user() == null) {
+                        $my_id = '';
+                    } else {
+                        $my_id = Auth::user()->id;
+                    }
+
+                    $query->where('user_id', $my_id);
+                }])
+                ->paginate(10);
+
+            $resultat_count = Job::where('secteur_id', $request->secteur)
+                ->where('type_job_id', $request->type)
+                ->count();
+
+            $secteurs = Secteur::all();
+
+            $type_job = TypeJob::all();
+
+            return view('candidat.resultat-filter', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
+        }
+
+    }
+
+    public function secteurActivite()
+    {
+
+        $secteurs = Secteur::withCount('jobs')->get();
+
+        return view('candidat.secteur-activite', compact('secteurs'));
+    }
+
+    public function secteurActiviteShow($id)
+    {
+
+        if (Auth::user() == null) {
+            $my_id = '';
+        } else {
+            $my_id = Auth::user()->id;
+        }
+
+        $show_jobs = Job::where('etat', 1)->where('secteur_id', $id)->withCount(['job_favoris' => function (Builder $query) {
+            if (Auth::user() == null) {
+                $my_id = '';
+            } else {
+                $my_id = Auth::user()->id;
+            }
+
+            $query->where('user_id', $my_id);
+        }])->orderBy('created_at', 'desc')->simplePaginate(10);
+
+        $show_jobs_count = Job::where('etat', 1)->where('secteur_id', $id)->count();
+
+        $secteurs = Secteur::all();
+
+        $type_job = TypeJob::all();
+
+        return view('candidat.secteur-activite-jobs', compact('show_jobs', 'show_jobs_count', 'secteurs', 'type_job'));
+    }
+
+    public function modifyJob($id)
+    {
+
+        $jobs = Job::find($id);
+
+        $secteurs = Secteur::all();
+
+        $sous_secteurs = SousSecteur::all();
+
+        $type_job = TypeJob::all();
+
+        return view('entreprise.modify-job', compact('jobs', 'secteurs', 'sous_secteurs', 'type_job'));
+    }
+
+    public function JobModified($id, Request $request)
+    {
+
+        $affected = Job::where('id', $id)
+            ->update([
+                'titre' => $request->titre,
+                'description' => $request->description,
+                'email_contact' => $request->email,
+                'dateline' => $request->dateline,
+                'secteur_id' => $request->secteur,
+                'sous_secteur_id' => $request->sous_secteur,
+                'secteur_id' => $request->secteur,
+                'sous_secteur_id' => $request->sous_secteur,
+                'type_job_id' => $request->type_job,
+                'contrat' => $request->contrat,
+                'salaire_min' => $request->salaire_min,
+                'salaire_max' => $request->salaire_max,
+                'experience' => $request->experience,
+                'genre_id' => $request->genre,
+                'qualification' => $request->qualification,
+                'tel' => $request->tel,
+                'site_internet' => $request->site_internet,
+                'adresse' => $request->adresse,
+            ]);
+
+        return redirect()->route('entreprise.modify.job.submit');
+    }
+
+    public function showJobForEnterprise($id)
+    {
+
+        $show_detail = Job::find($id);
+
+        return view('entreprise.job-detail-simple', compact('show_detail'));
     }
 
     /**

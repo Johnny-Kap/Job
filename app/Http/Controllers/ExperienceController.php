@@ -111,8 +111,10 @@ class ExperienceController extends Controller
      * @param  \App\Models\Experience  $experience
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Experience $experience)
+    public function destroy($id)
     {
-        //
+        $delete = Experience::where('id', $id)->delete();
+
+        return back()->with('success', 'Expérience supprimée avec succès!');
     }
 }

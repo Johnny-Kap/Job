@@ -99,8 +99,11 @@ class ApplyJobController extends Controller
      * @param  \App\Models\ApplyJob  $applyJob
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ApplyJob $applyJob)
+    public function destroy($id)
     {
-        //
+
+        $delete = ApplyJob::where('id', $id)->delete();
+
+        return back()->with('success', 'Candidature supprimée avec succès!');
     }
 }

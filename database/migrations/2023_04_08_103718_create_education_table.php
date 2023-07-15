@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nom_diplome');
             $table->string('ecole');
+            $table->string('adresse')->nullable();
             $table->string('date_debut');
             $table->string('date_fin')->nullable();
+            $table->string('niveau')->nullable();
             $table->text('description')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

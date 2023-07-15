@@ -10,23 +10,23 @@
                 <div class="col-12">
                     <div class="job-search-field">
                         <div class="job-search-item">
-                            <form class="form row">
+                            <form class="form row" method="GET" action="{{ route('entreprise.profil.search') }}">
                                 <div class="col-lg-5 col-md-4">
                                     <div class="form-group left-icon mb-md-0">
-                                        <input type="text" class="form-control" name="job_title" placeholder="What?">
+                                        <input type="text" class="form-control" name="name" placeholder="Qui ? e.g Noms ou prénoms">
                                         <i class="fas fa-search"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4">
                                     <div class="form-group left-icon mb-md-0">
-                                        <input type="text" class="form-control" name="job_title" placeholder="Where?">
+                                        <input type="text" class="form-control" name="adresse" placeholder="Où ? e.g Adresse">
                                         <i class="fas fa-search"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-4 col-sm-12">
                                     <div class="form-group form-action mb-0">
                                         <button type="submit" class="btn btn-primary mt-0"><i
-                                                class="fas fa-search-location"></i> Find Candidate</button>
+                                                class="fas fa-search-location"></i> Trouver un profil</button>
                                     </div>
                                 </div>
                             </form>
@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-lg-3 mb-0">
                     <div class="sidebar">
-                        <div class="widget">
+                        {{-- <div class="widget">
                             <div class="search">
                                 <i class="fas fa-search"></i>
                                 <input class="form-control" type="text" placeholder="Search Keywords">
@@ -57,10 +57,10 @@
                                 <i class="far fa-compass"></i>
                                 <input class="form-control" type="text" placeholder="All Locations">
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="widget">
                             <div class="widget-title widget-collapse">
-                                <h6>Date Posted</h6>
+                                <h6>Date postée</h6>
                                 <a class="ms-auto" data-bs-toggle="collapse" href="#dateposted" role="button"
                                     aria-expanded="false" aria-controls="dateposted"> <i class="fas fa-chevron-down"></i>
                                 </a>
@@ -282,11 +282,11 @@
                         <div class="job-shortby ms-sm-auto d-flex align-items-center">
                             <form class="form-inline">
                                 <div class="form-group d-flex align-items-center mb-0">
-                                    <label class="justify-content-start me-2">Sort by :</label>
+                                    <label class="justify-content-start me-2">Trier par :</label>
                                     <div class="short-by">
                                         <select class="form-control basic-select">
-                                            <option>Newest</option>
-                                            <option>Oldest</option>
+                                            <option>Les plus recents</option>
+                                            <option>Les plus anciens</option>
                                         </select>
                                     </div>
                                 </div>
@@ -295,6 +295,13 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
+                            @if ($profil_count == 0)
+                            <div class="row-fluid">
+                                <div class="span12 text-center">
+                                <b>Aucun profil </b>
+                                </div>
+                            </div>
+                            @else
                             @foreach ($profil as $item)
                                 <div class="candidate-list">
                                     <div class="candidate-list-image">
@@ -302,13 +309,13 @@
                                             <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
                                                 alt="">
                                         @else
-                                            <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
+                                            <img class="img-fluid" style="width: 110px; height:90px;" src="{{ Storage::url($item->image) }}" alt="">
                                         @endif
                                     </div>
                                     <div class="candidate-list-details">
                                         <div class="candidate-list-info">
                                             <div class="candidate-list-title">
-                                                <h5 class="mb-0"><a href="{{route('entreprise.profil.detail', ['id' => $item->id])}}">{{ $item->prenom }}
+                                                <h5 class="mb-0"><a href="{{route('entreprise.profil.detail', ['id' => $item->id, 'name' => str_slug($item->name)])}}">{{ $item->prenom }}
                                                         {{ $item->name }}</a></h5>
                                             </div>
                                             <div class="candidate-list-option">
@@ -334,6 +341,7 @@
                                     </div>
                                 </div>
                             @endforeach
+                            @endif
                         </div>
                         <div class="row">
                             <div class="col-12 text-center mt-4 mt-sm-5">

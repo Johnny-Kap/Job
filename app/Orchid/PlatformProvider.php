@@ -37,73 +37,82 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('list')
                 ->route('platform.sous-secteur.list'),
 
-            Menu::make('Genre')
+            Menu::make('Liste de Genre')
                 ->icon('list')
                 ->route('platform.genre.list')
                 ->title('Genre'),
 
-            Menu::make('Type Job')
+            Menu::make('Liste de Type Job')
                 ->icon('list')
                 ->route('platform.typejob.list')
-                ->title('TypeJob'),
+                ->title('Type de Job'),
 
-            Menu::make('Apply Job')
+            Menu::make('Liste de Candidature')
                 ->icon('list')
                 ->route('platform.applyjob.list')
-                ->title('Apply Job'),
+                ->title('Candidature aux Job'),
 
-            Menu::make('Example screen')
-                ->icon('monitor')
-                ->route('platform.example')
-                ->title('Navigation')
-                ->badge(fn () => 6),
-
-            Menu::make('Dropdown menu')
-                ->icon('code')
-                ->list([
-                    Menu::make('Sub element item 1')->icon('bag'),
-                    Menu::make('Sub element item 2')->icon('heart'),
-                ]),
-
-            Menu::make('Basic Elements')
-                ->title('Form controls')
-                ->icon('note')
-                ->route('platform.example.fields'),
-
-            Menu::make('Advanced Elements')
-                ->icon('briefcase')
-                ->route('platform.example.advanced'),
-
-            Menu::make('Text Editors')
+            Menu::make('Créer une offre')
                 ->icon('list')
-                ->route('platform.example.editors'),
+                ->route('platform.job')
+                ->title('Offres emploi'),
 
-            Menu::make('Overview layouts')
-                ->title('Layouts')
-                ->icon('layers')
-                ->route('platform.example.layouts'),
+            Menu::make('Liste des offres')
+                ->icon('list')
+                ->route('platform.job.list'),
 
-            Menu::make('Chart tools')
-                ->icon('bar-chart')
-                ->route('platform.example.charts'),
+            // Menu::make('Example screen')
+            //     ->icon('monitor')
+            //     ->route('platform.example')
+            //     ->title('Navigation')
+            //     ->badge(fn () => 6),
 
-            Menu::make('Cards')
-                ->icon('grid')
-                ->route('platform.example.cards')
-                ->divider(),
+            // Menu::make('Dropdown menu')
+            //     ->icon('code')
+            //     ->list([
+            //         Menu::make('Sub element item 1')->icon('bag'),
+            //         Menu::make('Sub element item 2')->icon('heart'),
+            //     ]),
 
-            Menu::make('Documentation')
-                ->title('Docs')
-                ->icon('docs')
-                ->url('https://orchid.software/en/docs'),
+            // Menu::make('Basic Elements')
+            //     ->title('Form controls')
+            //     ->icon('note')
+            //     ->route('platform.example.fields'),
 
-            Menu::make('Changelog')
-                ->icon('shuffle')
-                ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
-                ->target('_blank')
-                ->badge(fn () => Dashboard::version(), Color::DARK()),
+            // Menu::make('Advanced Elements')
+            //     ->icon('briefcase')
+            //     ->route('platform.example.advanced'),
 
-            Menu::make(__('Users'))
+            // Menu::make('Text Editors')
+            //     ->icon('list')
+            //     ->route('platform.example.editors'),
+
+            // Menu::make('Overview layouts')
+            //     ->title('Layouts')
+            //     ->icon('layers')
+            //     ->route('platform.example.layouts'),
+
+            // Menu::make('Chart tools')
+            //     ->icon('bar-chart')
+            //     ->route('platform.example.charts'),
+
+            // Menu::make('Cards')
+            //     ->icon('grid')
+            //     ->route('platform.example.cards')
+            //     ->divider(),
+
+            // Menu::make('Documentation')
+            //     ->title('Docs')
+            //     ->icon('docs')
+            //     ->url('https://orchid.software/en/docs'),
+
+            // Menu::make('Changelog')
+            //     ->icon('shuffle')
+            //     ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
+            //     ->target('_blank')
+            //     ->badge(fn () => Dashboard::version(), Color::DARK()),
+
+            Menu::make(__('Utilisateurs'))
                 ->icon('user')
                 ->route('platform.systems.users')
                 ->permission('platform.systems.users')

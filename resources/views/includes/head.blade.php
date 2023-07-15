@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="keywords" content="HTML5 Template" />
@@ -9,7 +9,9 @@
     <title>PMS</title>
 
     <!-- Favicon -->
-    <link href="../libraries/images/favicon.ico" rel="shortcut icon" />
+    <link href="/../libraries/images/favicon-pms.png" rel="shortcut icon" />
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+
+

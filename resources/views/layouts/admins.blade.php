@@ -2,6 +2,8 @@
 
 @include('includes.styles')
 
+@stack('style')
+
 @yield('styles')
 
 </head>
@@ -16,6 +18,8 @@
 @include('includes.footer')
 
 @include('includes.scripts')
+
+@stack('scripts')
 
 </body>
 </html>

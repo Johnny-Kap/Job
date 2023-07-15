@@ -69,6 +69,7 @@ class SousSecteurScreen extends Screen
                     ->title('Secteur activité')
                     ->horizontal()
                     ->fromModel(Secteur::class, 'id')
+                    ->displayAppend('full')
                     ->required(),
 
                 Button::make('Enregistrer')

@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Orchid\Platform\Models\User as Authenticatable;
+use ProtoneMedia\LaravelVerifyNewEmail\MustVerifyNewEmail;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
+
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,6 +29,8 @@ class User extends Authenticatable
         'genre_id',
         'secteur_id',
     ];
+
+    protected $dates = ['date_naiss'];
 
     // protected $guarded = [];
 

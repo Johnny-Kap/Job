@@ -97,8 +97,10 @@ class InformationController extends Controller
      * @param  \App\Models\Information  $information
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Information $information)
+    public function destroy($id)
     {
-        //
+        $delete = Information::where('id', $id)->delete();
+
+        return back()->with('success', 'Information supprimée avec succès!');
     }
 }

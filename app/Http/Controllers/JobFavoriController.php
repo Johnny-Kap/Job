@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobFavori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobFavoriController extends Controller
 {
@@ -22,9 +23,42 @@ class JobFavoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+
+        $my_id = Auth::user()->id;
+
+        $search_job_fav = JobFavori::where('job_id', $id)->where('user_id', $my_id)->get();
+
+        if($search_job_fav->isEmpty()){
+
+            $add = new JobFavori();
+
+            $add->job_id = $id;
+
+            $add->user_id = $my_id;
+
+            $add->status = 1;
+
+            $add->save();
+
+            return back()->with('success', 'Job ajouté aux favoris avec succès!');
+        }else{
+
+            $delete = JobFavori::where('job_id', $id)->where('user_id', $my_id)->delete();
+
+            return back()->with('success', 'Job supprimé aux favoris avec succès!');
+        }
+
+    }
+
+    public function createInProfil($id)
+    {
+
+        $delete = JobFavori::where('id', $id)->delete();
+
+        return back()->with('success', 'Job supprimé aux favoris avec succès!');
+
     }
 
     /**

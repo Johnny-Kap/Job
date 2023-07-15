@@ -14,6 +14,11 @@ class Secteur extends Model
         'intitule',
     ];
 
+    public function getFullAttribute(): string
+    {
+        return  $this->attributes['intitule'];
+    }
+
     public function entreprises(){
         return $this->hasMany(Entreprise::class);
     }

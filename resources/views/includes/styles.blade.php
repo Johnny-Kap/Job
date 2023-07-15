@@ -9,3 +9,17 @@
 
     <!-- Template Style -->
     <link rel="stylesheet" href="/../libraries/css/style.css" />
+    <link rel="stylesheet" href="/../libraries/css/selectize.css">
+
+    {{-- <link rel="stylesheet" href="/../libraries/css/other/bootstrap.min.css">
+    <link rel="stylesheet" href="/../libraries/css/other/font-awesome.min.css">
+    <link rel="stylesheet" href="/../libraries/css/other/line-awesome.css">
+    <link rel="stylesheet" href="/../libraries/css/other/owl.carousel.min.css">
+    <link rel="stylesheet" href="/../libraries/css/other/owl.theme.default.min.css"> --}}
+    <link rel="stylesheet" href="/../libraries/css/other/jquery-te-1.4.0.css">
+    {{-- <link rel="stylesheet" href="/../libraries/css/other/upvotejs.min.css"> --}}
+    {{-- <link rel="stylesheet" href="/../libraries/css/other/selectize.css"> --}}
+    {{-- <link rel="stylesheet" href="/../libraries/css/other/style.css"> --}}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+

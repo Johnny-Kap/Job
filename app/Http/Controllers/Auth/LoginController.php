@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -59,8 +60,13 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
         }else{
-
-                return redirect()->route('login')->with('error','le mail et le mot de passe ne sont pas correcte.');
+                // return back()->with('error','le mail et le mot de passe ne sont pas correcte.');
+                return back()->withErrors(
+                    [
+                        'email' => 'E-mail incorrecte !',
+                        'password' => 'Mot de passe incorrect !',
+                    ]
+                );
         }
     }
 }

@@ -106,8 +106,10 @@ class EducationController extends Controller
      * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Education $education)
+    public function destroy($id)
     {
-        //
+        $delete = Education::where('id', $id)->delete();
+
+        return back()->with('success', 'Formation supprimée avec succès!');
     }
 }
