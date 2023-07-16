@@ -52,7 +52,6 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.applyjob.list')
                 ->title('Candidature aux Job'),
 
-<<<<<<< HEAD
             Menu::make('Créer une offre')
                 ->icon('list')
                 ->route('platform.job')
@@ -62,8 +61,6 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('list')
                 ->route('platform.job.list'),
 
-=======
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
             // Menu::make('Example screen')
             //     ->icon('monitor')
             //     ->route('platform.example')
@@ -104,17 +101,14 @@ class PlatformProvider extends OrchidServiceProvider
             //     ->route('platform.example.cards')
             //     ->divider(),
 
-<<<<<<< HEAD
             // Menu::make('Documentation')
             //     ->title('Docs')
             //     ->icon('docs')
             //     ->url('https://orchid.software/en/docs'),
-=======
             Menu::make('Documentation')
                 ->title('Docs')
                 ->icon('docs')
                 ->url('https://orchid.software/en/docs'),
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
             // Menu::make('Changelog')
             //     ->icon('shuffle')

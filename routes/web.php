@@ -118,10 +118,7 @@ Route::post('my-setting/change-photo', [App\Http\Controllers\CandidatController:
 Route::get('job', [App\Http\Controllers\JobController::class, 'index'])->name('candidat.job.consulter');
 Route::get('job/detail/{id}/{name}', [App\Http\Controllers\JobController::class, 'show'])->name('candidat.job.detail');
 Route::get('search/resultat', [App\Http\Controllers\JobController::class, 'search'])->name('candidat.search.job');
-<<<<<<< HEAD
 Route::get('job/filtre', [App\Http\Controllers\JobController::class, 'filtreJob'])->name('candidat.job.filtre');
-=======
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 Route::get('secteur-activite', [App\Http\Controllers\JobController::class, 'secteurActivite'])->name('candidat.job.secteur');
 Route::get('secteur-activite/{id}', [App\Http\Controllers\JobController::class, 'secteurActiviteShow'])->name('candidat.job.list.secteur');
 
@@ -131,11 +128,8 @@ Route::post('job-favori/profil/create/{id}', [App\Http\Controllers\JobFavoriCont
 
 //All routes of enterprises consultation
 Route::get('entreprises-consulter', [App\Http\Controllers\CandidatController::class, 'showEnterprises'])->name('candidat.entreprise.consulter');
-<<<<<<< HEAD
 Route::get('entreprises/detail/{id}/{name}', [App\Http\Controllers\CandidatController::class, 'showEnterprisesDetail'])->name('candidat.entreprise.detail');
-=======
 Route::get('entreprises/detail/{id}', [App\Http\Controllers\CandidatController::class, 'showEnterprisesDetail'])->name('candidat.entreprise.detail');
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
 //Route of  apply job
 Route::post('job/detail/apply/{id}', [App\Http\Controllers\ApplyJobController::class, 'create'])->name('candidat.job.apply')->middleware('auth');
