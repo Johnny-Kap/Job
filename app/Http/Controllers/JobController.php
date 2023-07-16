@@ -28,7 +28,6 @@ class JobController extends Controller
             $my_id = Auth::user()->id;
         }
 
-<<<<<<< HEAD
         $showJob = Job::where('etat', 1)->withCount(['job_favoris' => function (Builder $query) {
             if (Auth::user() == null) {
                 $my_id = '';
@@ -39,30 +38,18 @@ class JobController extends Controller
             $query->where('user_id', $my_id);
         }])->orderBy('created_at', 'desc')->paginate(10);
 
-=======
-        $showJob = Job::where('etat', 1)->paginate(10);
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
         $showJob_count = Job::where('etat', 1)->count();
 
         $showJobOther = Job::where('etat', 1)->pluck('id');
 
         $fav_count = JobFavori::whereIn('job_id', $showJobOther)->where('user_id', $my_id)->count();
-<<<<<<< HEAD
 
         $secteurs = Secteur::all();
 
         $type_job = TypeJob::all();
 
         return view('candidat.job-consulter', compact('showJob', 'fav_count', 'showJob_count', 'secteurs', 'type_job'));
-=======
-
-        $secteurs = Secteur::all();
-
-        $type_job = TypeJob::all();
-
-        return view('candidat.job-consulter', compact('showJob', 'fav_count', 'showJob_count','secteurs','type_job'));
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     }
 
     public function show($id)
@@ -79,15 +66,9 @@ class JobController extends Controller
         $show_detail_other = Job::where('id', $id)->pluck('id');
 
         $fav_count = JobFavori::where('job_id', $show_detail_other)->where('user_id', $my_id)->count();
-<<<<<<< HEAD
 
         $job_similar = Job::take(3)->get();
 
-=======
-
-        $job_similar = Job::take(4)->get();
-
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
         return view('candidat.job-detail', compact('show_detail', 'job_similar', 'fav_count'));
     }
 
@@ -109,12 +90,8 @@ class JobController extends Controller
         return view('entreprise.submited-job');
     }
 
-<<<<<<< HEAD
     public function showSubmitModified()
     {
-=======
-    public function showSubmitModified(){
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
         return view('entreprise.submited-job-modify');
     }
@@ -183,7 +160,6 @@ class JobController extends Controller
 
         if ($request->job_title !== null && $request->job_adresse !== null) {
 
-<<<<<<< HEAD
             $resultat = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->withCount(['job_favoris' => function (Builder $query) {
                 if (Auth::user() == null) {
                     $my_id = '';
@@ -233,21 +209,11 @@ class JobController extends Controller
             }])->simplePaginate(15);
 
             $resultat_count = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->count();
-=======
-            $resultat = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
-
-            $resultat_count = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->count();
-
-            $resultatOther = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->where('adresse', 'like', '%' . $request->job_adresse . '%')->pluck('id');
-
-            $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
             $secteurs = Secteur::all();
 
             $type_job = TypeJob::all();
 
-<<<<<<< HEAD
             return view('candidat.resultat-search-job', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
         } elseif ($request->job_title == null && $request->job_adresse == null) {
 
@@ -310,39 +276,11 @@ class JobController extends Controller
                 ->where('secteur_id', $request->secteur)
                 ->where('type_job_id', $request->type)
                 ->count();
-=======
-            return view('candidat.resultat-search-job', compact('resultat', 'fav_count', 'resultat_count','secteurs','type_job'));
-        } elseif ($request->job_title !== null && $request->job_adresse == null) {
-
-            $resultat = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->simplePaginate(15);
-
-            $resultat_count = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->count();
-
-            $resultatOther = Job::where('etat', 1)->where('titre', 'like', '%' . $request->job_title . '%')->pluck('id');
-
-            $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
 
             $secteurs = Secteur::all();
 
             $type_job = TypeJob::all();
 
-            return view('candidat.resultat-search-job', compact('resultat', 'fav_count', 'resultat_count','secteurs','type_job'));
-        } elseif ($request->job_title == null && $request->job_adresse !== null) {
-
-            $resultat = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->simplePaginate(15);
-
-            $resultat_count = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->count();
-
-            $resultatOther = Job::where('etat', 1)->where('adresse', 'like', '%' . $request->job_adresse . '%')->pluck('id');
-
-            $fav_count = JobFavori::whereIn('job_id', $resultatOther)->where('user_id', $my_id)->count();
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
-
-            $secteurs = Secteur::all();
-
-            $type_job = TypeJob::all();
-
-<<<<<<< HEAD
             return view('candidat.resultat-filter', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
         } elseif ($request->tri == 'recent') {
 
@@ -394,13 +332,6 @@ class JobController extends Controller
             return view('candidat.resultat-filter', compact('resultat', 'resultat_count', 'secteurs', 'type_job'));
         }
 
-=======
-            return view('candidat.resultat-search-job', compact('resultat', 'fav_count', 'resultat_count','secteurs','type_job'));
-        } elseif ($request->job_title == null && $request->job_adresse == null) {
-
-            return back()->with('warning', 'Veuillez renseigner un des champs');
-        }
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     }
 
     public function secteurActivite()
@@ -420,7 +351,6 @@ class JobController extends Controller
             $my_id = Auth::user()->id;
         }
 
-<<<<<<< HEAD
         $show_jobs = Job::where('etat', 1)->where('secteur_id', $id)->withCount(['job_favoris' => function (Builder $query) {
             if (Auth::user() == null) {
                 $my_id = '';
@@ -433,32 +363,15 @@ class JobController extends Controller
 
         $show_jobs_count = Job::where('etat', 1)->where('secteur_id', $id)->count();
 
-=======
-        $show_jobs = Job::where('etat', 1)->where('secteur_id', $id)->simplePaginate(10);
-
-        $show_jobs_count = Job::where('etat', 1)->where('secteur_id', $id)->count();
-
-        $show_jobs_other = Job::where('etat', 1)->where('secteur_id', $id)->pluck('id');
-
-        $fav_count = JobFavori::whereIn('job_id', $show_jobs_other)->where('user_id', $my_id)->count();
-
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
         $secteurs = Secteur::all();
 
         $type_job = TypeJob::all();
 
-<<<<<<< HEAD
         return view('candidat.secteur-activite-jobs', compact('show_jobs', 'show_jobs_count', 'secteurs', 'type_job'));
     }
 
     public function modifyJob($id)
     {
-=======
-        return view('candidat.secteur-activite-jobs', compact('show_jobs', 'fav_count', 'show_jobs_count','secteurs','type_job'));
-    }
-
-    public function modifyJob($id){
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
         $jobs = Job::find($id);
 
@@ -468,18 +381,11 @@ class JobController extends Controller
 
         $type_job = TypeJob::all();
 
-<<<<<<< HEAD
         return view('entreprise.modify-job', compact('jobs', 'secteurs', 'sous_secteurs', 'type_job'));
     }
 
     public function JobModified($id, Request $request)
     {
-=======
-        return view('entreprise.modify-job', compact('jobs','secteurs','sous_secteurs','type_job'));
-    }
-
-    public function JobModified($id, Request $request){
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 
         $affected = Job::where('id', $id)
             ->update([
@@ -503,7 +409,6 @@ class JobController extends Controller
                 'adresse' => $request->adresse,
             ]);
 
-<<<<<<< HEAD
         return redirect()->route('entreprise.modify.job.submit');
     }
 
@@ -513,9 +418,6 @@ class JobController extends Controller
         $show_detail = Job::find($id);
 
         return view('entreprise.job-detail-simple', compact('show_detail'));
-=======
-            return redirect()->route('entreprise.modify.job.submit');
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     }
 
     /**

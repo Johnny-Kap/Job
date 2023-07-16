@@ -33,7 +33,6 @@
                                         <input type="email" name="email" class="form-control" value="{{$jobs->email_contact}}"
                                             placeholder="Enter Email Address of Contact Person" required>
                                     </div>
-<<<<<<< HEAD
                                     {{-- <div class="form-group col-md-12 mb-3">
                                         <label class="mb-2">Description *</label>
                                         <textarea class="form-control" name="description" rows="6" required>{{$jobs->description}}</textarea>
@@ -51,13 +50,6 @@
                                         </div>
                                     </div>
                                     {{-- <div class="form-group col-md-6 mb-3 datetimepickers">
-=======
-                                    <div class="form-group col-md-12 mb-3">
-                                        <label class="mb-2">Description *</label>
-                                        <textarea class="form-control" name="description" rows="6" required>{{$jobs->description}}</textarea>
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3 datetimepickers">
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                         <label class="mb-2">Date limite d'inscription *</label>
                                         <div class="input-group date" id="datetimepicker-01" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
@@ -67,13 +59,10 @@
                                                 <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                             </div>
                                         </div>
-<<<<<<< HEAD
                                     </div> --}}
                                     <div class="form-group col-md-6 mb-3">
                                         <label class="mb-2">Date limite d'inscription *</label>
                                         <input type="datetime-local" class="form-control" value="{{$jobs->dateline}}" required name="dateline">
-=======
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     </div>
                                     <div class="form-group col-md-6 select-border mb-3">
                                         <label class="mb-2">Secteur d'activité *</label>
@@ -125,10 +114,6 @@
                                         <select class="form-control basic-select" name="contrat">
                                                 <option value="CDI">CDI</option>
                                                 <option value="CDD">CDD</option>
-<<<<<<< HEAD
-=======
-                                                <option value="Temporaire">Temporaire</option>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                         </select>
                                     </div>
                                 </div>

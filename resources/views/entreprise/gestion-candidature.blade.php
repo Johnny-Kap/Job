@@ -83,11 +83,7 @@
                                         <td>{{$item->created_at->format('d-m-y')}}</td>
                                         <td>
                                             <ul class="list-unstyled mb-0 d-flex">
-<<<<<<< HEAD
                                                 <li><a href="{{route('entreprise.profil.detail', ['id' => $item->user_id, 'name' => str_slug($item->users->name)])}}" class="text-primary" data-bs-toggle="tooltip" title="Voir le profil"><i class="far fa-eye"></i></a></li>
-=======
-                                                <li><a href="{{route('entreprise.profil.detail', ['id' => $item->user_id])}}" class="text-primary" data-bs-toggle="tooltip" title="Voir le profil"><i class="far fa-eye"></i></a></li>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                 {{-- <li><a href="#" class="tPext-info" data-bs-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
                                                 <li><a href="#" class="text-danger" data-bs-toggle="tooltip" title="Delete"><i class="far fa-trash-alt"></i></a></li> --}}
                                             </ul>

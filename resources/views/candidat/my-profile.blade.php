@@ -321,11 +321,7 @@
                                         <i class="far fa-circle"></i>
                                     </div>
                                     <div class="jobber-timeline-info">
-<<<<<<< HEAD
                                         <span class="jobber-timeline-time">{{$item->date_debut->format('d/m/Y')}} <b> au </b> {{$item->date_fin->format('d/m/Y')}}</span>
-=======
-                                        <span class="jobber-timeline-time">{{$item->date_debut}} <b>à</b> {{$item->date_fin}}</span>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                         <h6 class="mb-2">{{$item->poste}}</h6>
                                         <span>- {{$item->nom_entreprise}}</span>
                                         <p class="mt-2">{{$item->description}}</p>

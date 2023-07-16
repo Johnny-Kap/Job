@@ -84,11 +84,7 @@ Header -->
                     </li>
                     <li
                         class="dropdown nav-item mega-menu {{ Request::route()->named('entreprise.about') ? 'active' : '' }}">
-<<<<<<< HEAD
                         <a href="{{ route('entreprise.about') }}" class="nav-link">À propos</a>
-=======
-                        <a href="{{ route('entreprise.about') }}" class="nav-link">A propos</a>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     </li>
                     <li class="nav-item dropdown {{ Request::route()->named('entreprise.contact') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="{{ route('entreprise.contact') }}"
@@ -133,11 +129,7 @@ Header -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle custom" href="javascript:void(0)"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<<<<<<< HEAD
                                         {{ str_limit(Auth::user()->name, 9) }} <i
-=======
-                                        {{ Auth::user()->prenom }} {{ Auth::user()->name }} <i
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                             class="fas fa-chevron-down fa-xs"></i>
                                     </a>
                                     <ul class="dropdown-menu">

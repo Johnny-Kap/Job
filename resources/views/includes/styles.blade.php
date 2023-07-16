@@ -9,7 +9,6 @@
 
     <!-- Template Style -->
     <link rel="stylesheet" href="/../libraries/css/style.css" />
-<<<<<<< HEAD
     <link rel="stylesheet" href="/../libraries/css/selectize.css">
 
     {{-- <link rel="stylesheet" href="/../libraries/css/other/bootstrap.min.css">
@@ -24,6 +23,3 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-=======
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad

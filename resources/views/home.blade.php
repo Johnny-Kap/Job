@@ -1,19 +1,11 @@
 @extends('layouts.admins')
 
 @section('content')
-<<<<<<< HEAD
     @php
         use Carbon\Carbon;
         Carbon::setLocale('fr');
         Carbon::yesterday()->diffForHumans();
     @endphp
-=======
-@php
-    use Carbon\Carbon;
-    Carbon::setLocale('fr');
-    Carbon::yesterday()-> diffForHumans();
-@endphp
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     <!--=================================
                                 Banner -->
     <section class="banner bg-holder bg-overlay-black-30 text-white"
@@ -21,12 +13,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center position-relative">
-<<<<<<< HEAD
                     <h1 class="text-white mb-3">Déposez votre <span class="text-primary"> CV & Obtenez </span> l'emploi
                         souhaité</h1>
-=======
-                    <h1 class="text-white mb-3">Déposez votre <span class="text-primary"> CV & Obtenez </span> l'emploi souhaité</h1>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                     <p class="lead mb-4 mb-lg-5 fw-normal">Trouver des emplois, des opportunités d'emploi et de carrière</p>
                     <div class="job-search-field">
                         <div class="job-search-item">
@@ -95,12 +83,8 @@
                 <div class="col-lg-3 mb-4 mb-lg-0">
                     <div class="section-title">
                         <h2 class="title">Choisissez votre secteur</h2>
-<<<<<<< HEAD
                         <p class="mb-0">Je crois vraiment que les paroles d'Augustin sont vraies et si vous regardez
                             l'histoire, vous le savez
-=======
-                        <p class="mb-0">Je crois vraiment que les paroles d'Augustin sont vraies et si vous regardez l'histoire, vous le savez
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                             est vrai.</p>
                     </div>
                     {{-- <a class="btn btn-outline btn-lg" href="#">Afficher plus d'emplois</a> --}}
@@ -208,11 +192,7 @@
                             </ul>
                         </div> --}}
                         <div class="job-found ms-auto mb-0">
-<<<<<<< HEAD
                             <span class="badge badge-lg bg-primary">{{ $jobs_count }}</span>
-=======
-                            <span class="badge badge-lg bg-primary">{{$jobs_count}}</span>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                             <h6 class="ms-3 mb-0">Offres d'emploi trouvés</h6>
                         </div>
                     </div>
@@ -220,7 +200,6 @@
                         <!-- Hot jobs -->
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row mt-3">
-<<<<<<< HEAD
                                 <!-- Part-Time -->
                                 @if ($jobs_count == 0)
                                     <div class="row-fluid">
@@ -285,52 +264,6 @@
                                                     </form>
                                                     <span class="job-list-time order-1"><i
                                                             class="far fa-clock pe-1"></i>{{ $item->created_at->diffForHumans() }}</span>
-=======
-                                <div class="col-lg-6">
-                                    <!-- Part-Time -->
-                                    @if ($jobs_count == 0)
-                                    <div class="row-fluid">
-                                        <div class="span12 text-center">
-                                        <b>Aucune offre d'emploi</b>
-                                        </div>
-                                    </div>
-                                    @else
-                                    @foreach ($jobs as $item)
-                                        <div class="job-list">
-                                            <div class="job-list-logo">
-                                                @if ($item->users->image == null)
-                                                    <img class="img-fluid"
-                                                        src="\..\libraries\images\no-profile-pic-icon-0.jpg"
-                                                        alt="">
-                                                @else
-                                                    <img class="img-fluid" src="{{ Storage::url($item->users->image) }}"
-                                                        alt="">
-                                                @endif
-                                            </div>
-                                            <div class="job-list-details">
-                                                <div class="job-list-info">
-                                                    <div class="job-list-title">
-                                                        <h5 class="mb-0"><a
-                                                                href="{{ route('candidat.job.detail', [ 'id' => $item->id ]) }}">{{ $item->titre }}</a></h5>
-                                                    </div>
-                                                    <div class="job-list-option">
-                                                        <ul class="list-unstyled">
-                                                            <li>
-                                                                <span>via</span>
-                                                                <a href="employer-detail.html">{{ $item->users->name }}</a>
-                                                            </li>
-                                                            <li><i
-                                                                    class="fas fa-map-marker-alt pe-1"></i>{{ $item->adresse }}
-                                                            </li>
-                                                            <li><i
-                                                                    class="fas fa-filter pe-1"></i>{{ $item->secteurs->intitule }}
-                                                            </li>
-                                                            <li><a class="part-time" href="#"><i
-                                                                        class="fas fa-suitcase pe-1"></i>{{ $item->type_jobs->titre }}</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                 </div>
                                             </div>
                                             <div class="job-list-favourite-time"> <form action="{{route('candidat.job.favori.create',['id' => $item->id])}}" method="post"> @csrf
@@ -348,24 +281,15 @@
                                             </div>
                                         </div>
                                     @endforeach
-<<<<<<< HEAD
                                 @endif
-=======
-                                    @endif
-                                </div>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                             </div>
                         </div>
                         <!-- Recent jobs -->
                     </div>
                 </div>
                 <div class="col-12 justify-content-center d-flex mt-md-5 mt-4">
-<<<<<<< HEAD
                     <a class="btn btn-outline btn-lg" href="{{ route('candidat.job.consulter') }}">Afficher plus
                         d'emplois</a>
-=======
-                    <a class="btn btn-outline btn-lg" href="{{route('candidat.job.consulter')}}">Afficher plus d'emplois</a>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                 </div>
             </div>
         </div>
@@ -418,7 +342,6 @@
                         data-items="1" data-md-items="1" data-sm-items="2" data-xs-items="1" data-xx-items="1"
                         data-space="15" data-autoheight="true">
                         @if ($companies_count == 0)
-<<<<<<< HEAD
                             <div class="row-fluid">
                                 <div class="span12 text-center">
                                     <b>Aucune entreprise</b>
@@ -460,41 +383,6 @@
                                     </div>
                                 </div>
                             @endforeach
-=======
-                        <div class="row-fluid">
-                            <div class="span12 text-center">
-                            <b>Aucune entreprise</b>
-                            </div>
-                        </div>
-                        @else
-                        @foreach ($companies as $item)
-                        <div class="item">
-                            <div class="employers-grid">
-                                <div class="employers-list-logo">
-                                    @if ($item->image == null)
-                                        <img class="img-fluid" src="\..\libraries\images\no-profile-pic-icon-0.jpg"
-                                            alt="">
-                                    @else
-                                        <img class="img-fluid" src="{{ Storage::url($item->image) }}" alt="">
-                                    @endif
-                                </div>
-                                <div class="employers-list-details">
-                                    <div class="employers-list-info">
-                                        <div class="employers-list-title">
-                                            <h5 class="mb-0"><a href="employer-detail.html">{{$item->name}}</a>
-                                            </h5>
-                                        </div>
-                                        <div class="employers-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-map-marker-alt pe-1"></i>{{$item->Adresse}}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                         @endif
                     </div>
                 </div>
@@ -526,12 +414,8 @@
                         </div>
                         <div class="feature-info-content pb-2 pb-md-0">
                             <h5>Créer un compte</h5>
-<<<<<<< HEAD
                             <p class="mb-0">Créez un compte et accédez à vos paramètres enregistrés sur n'importe quel
                                 appareil.</p>
-=======
-                            <p class="mb-0">Créez un compte et accédez à vos paramètres enregistrés sur n'importe quel appareil.</p>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                         </div>
                     </div>
                 </div>
@@ -542,12 +426,8 @@
                         </div>
                         <div class="feature-info-content pb-2 pb-md-0">
                             <h5>Trouvez votre poste</h5>
-<<<<<<< HEAD
                             <p class="mb-0">Ne vous contentez pas de trouver. Être trouvé. Mettez votre CV devant de
                                 grands employeurs.</p>
-=======
-                            <p class="mb-0">Ne vous contentez pas de trouver. Être trouvé. Mettez votre CV devant de grands employeurs.</p>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                         </div>
                     </div>
                 </div>
@@ -558,12 +438,8 @@
                         </div>
                         <div class="feature-info-content pb-2 pb-md-0">
                             <h5>Obtenir un emploi</h5>
-<<<<<<< HEAD
                             <p class="mb-0">Votre prochain changement de carrière commence ici. Choisissez Job parmi des
                                 milliers d'entreprises</p>
-=======
-                            <p class="mb-0">Votre prochain changement de carrière commence ici. Choisissez Job parmi des milliers d'entreprises</p>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                         </div>
                     </div>
                 </div>
@@ -582,12 +458,8 @@
                     <div class="d-sm-flex">
                         <div class="align-self-center footer-top-logo"><img class="img-fluid" src="images/logo-dark.svg"
                                 alt=""></div>
-<<<<<<< HEAD
                         <div class="ps-sm-3 ms-sm-3 mt-3 mt-sm-0 border-sm-start">Créez un compte gratuit pour trouver des
                             milliers
-=======
-                        <div class="ps-sm-3 ms-sm-3 mt-3 mt-sm-0 border-sm-start">Créez un compte gratuit pour trouver des milliers
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                             d'emplois, d'opportunités d'emploi et de carrière autour de vous!</div>
                     </div>
                 </div>
@@ -599,12 +471,8 @@
                                     <i class="flaticon-team"></i>
                                 </div>
                                 <div class="counter-content">
-<<<<<<< HEAD
                                     <span class="timer mb-1 text-dark" data-to="{{ $jobs_count }}"
                                         data-speed="5">{{ $jobs_count }}</span>
-=======
-                                    <span class="timer mb-1 text-dark"  data-to="{{$jobs_count}}" data-speed="5">{{$jobs_count}}</span>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     <label class="mb-0">Offres d'emploi affichées</label>
                                 </div>
                             </div>
@@ -615,12 +483,8 @@
                                     <i class="flaticon-job-3"></i>
                                 </div>
                                 <div class="counter-content">
-<<<<<<< HEAD
                                     <span class="timer mb-1 text-dark" data-to="{{ $companies_count }}"
                                         data-speed="5">{{ $companies_count }}</span>
-=======
-                                    <span class="timer mb-1 text-dark" data-to="{{$companies_count}}" data-speed="5">{{$companies_count}}</span>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     <label class="mb-0">Entreprises</label>
                                 </div>
                             </div>

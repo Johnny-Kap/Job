@@ -43,11 +43,7 @@
                                     </div>
                                     <div class="candidate-info">
                                         <h6>Date de naissance:</h6>
-<<<<<<< HEAD
                                         <p>{{Auth::user()->date_naiss->format('d/m/Y')}}</p>
-=======
-                                        <p>{{Auth::user()->date_naiss}}</p>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     </div>
                                     <div class="candidate-info">
                                         <h6>Adresse:</h6>
@@ -66,13 +62,6 @@
                                         <p>{{Auth::user()->profession}}</p>
                                     </div>
                                     <div class="candidate-info">
-<<<<<<< HEAD
-=======
-                                        <h6>Profession:</h6>
-                                        <p>{{Auth::user()->profession}}</p>
-                                    </div>
-                                    <div class="candidate-info">
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                         <h6>Secteur d'activité:</h6>
                                         <p>{{Auth::user()->secteurs->intitule}}</p>
                                     </div>
@@ -91,11 +80,7 @@
                                             </div>
                                             <div class="jobber-timeline-info">
                                                 <div class="dashboard-timeline-info">
-<<<<<<< HEAD
                                                     <span class="jobber-timeline-time">{{$item->date_debut->format('d/m/Y')}} à {{$item->date_fin->format('d/m/Y')}}</span>
-=======
-                                                    <span class="jobber-timeline-time">{{$item->date_debut}} à {{$item->date_fin}}</span>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                     <h6 class="mb-2">{{$item->poste}}</h6>
                                                     <span>- {{$item->nom_entreprise}}</span>
                                                     <p class="mt-2">{{$item->description}}</p>

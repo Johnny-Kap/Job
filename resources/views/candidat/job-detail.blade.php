@@ -1,7 +1,6 @@
 @extends('layouts.admins')
 
 @section('content')
-<<<<<<< HEAD
     @php
         use Carbon\Carbon;
         Carbon::setLocale('fr');
@@ -9,15 +8,6 @@
     @endphp
     <!--=================================
                         banner -->
-=======
-@php
-    use Carbon\Carbon;
-    Carbon::setLocale('fr');
-    Carbon::yesterday()-> diffForHumans();
-@endphp
-    <!--=================================
-                banner -->
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     <section class="header-inner header-inner-big bg-holder text-white"
         style="background-image: url(/../libraries/images/bg/banner-01.jpg);">
         <div class="container">
@@ -33,17 +23,10 @@
         </div>
     </section>
     <!--=================================
-<<<<<<< HEAD
                           banner -->
 
     <!--=================================
                           job list -->
-=======
-                  banner -->
-
-    <!--=================================
-                  job list -->
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
     <section class="space-ptb">
         <div class="container">
             <div class="row">
@@ -67,12 +50,8 @@
                                         </div>
                                         <div class="job-list-option">
                                             <ul class="list-unstyled">
-<<<<<<< HEAD
                                                 <li>via: <a
                                                         href="{{ route('candidat.entreprise.detail', ['id' => $show_detail->users->id, 'name' => str_slug($show_detail->users->name)]) }}">{{ $show_detail->users->name }}</a>
-=======
-                                                <li>via: <a href="{{ route('candidat.entreprise.detail', ['id' => $show_detail->users->id]) }}">{{ $show_detail->users->name }}</a>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                 </li>
                                                 <li><i class="fas fa-map-marker-alt pe-1"></i>{{ $show_detail->adresse }}
                                                 </li>
@@ -85,7 +64,6 @@
                                         </div>
                                     </div>
                                 </div>
-<<<<<<< HEAD
                                 <div class="job-list-favourite-time">
                                     <form action="{{ route('candidat.job.favori.create', ['id' => $show_detail->id]) }}"
                                         method="post"> @csrf
@@ -99,18 +77,6 @@
 
                                         </button>
                                     </form>
-=======
-                                <div class="job-list-favourite-time"> <form action="{{route('candidat.job.favori.create',['id' => $show_detail->id])}}" method="post"> @csrf
-                                    <button type="submit" class="job-list-favourite order-2">
-                                       @if($fav_count == 0)
-                                        <i class="far fa-heart"></i>
-                                       @else
-                                        <i class="fas fa-heart text-danger"></i>
-                                       @endif
-                                        {{-- <i class="far fa-heart"></i> --}}
-
-                                    </button></form>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                     <span class="job-list-time order-1"><i
                                             class="far fa-clock pe-1"></i>{{ $show_detail->created_at->diffForHumans() }}</span>
                                 </div>
@@ -190,7 +156,6 @@
                     </div>
                     <div class="my-4 my-lg-5">
                         <h5 class="mb-3 mb-md-4">Description de l'emploi</h5>
-<<<<<<< HEAD
                         {!! html_entity_decode($show_detail->description) !!}
                     </div>
                 </div>
@@ -238,26 +203,10 @@
                                     </form>
                                 </div>
                             </div>
-=======
-                        {{ $show_detail->description }}
-                    </div>
-                </div>
-                <!--=================================
-                        sidebar -->
-                <div class="col-lg-4">
-                    <div class="sidebar mb-0">
-                        <div class="widget d-grid">
-                            <form action="{{ route('candidat.job.apply', ['id' => $show_detail->id]) }}" method="post">
-                                @csrf
-                                <button class="btn btn-primary" type="submit" title="Veuillez mettre votre CV dans les paramètres avant de soumettre."><i class="far fa-paper-plane"></i>Postuler
-                                    pour l'emploi</button>
-                            </form>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                         </div>
                         <div class="widget">
                             <div class="company-address widget-box">
                                 <ul class="list-unstyled mt-3">
-<<<<<<< HEAD
                                     <li><a href="https://{{ $show_detail->site_internet }}"><i class="fas fa-link fa-fw"></i><span class="ps-2">
                                                 @if ($show_detail->site_internet == null)
                                                     Aucun site internet
@@ -269,20 +218,6 @@
                                                 class="fas fa-phone fa-flip-horizontal fa-fw"></i><span
                                                 class="ps-2">{{ $show_detail->tel }}</span></a></li>
                                     <li><a href="mailto:{{ $show_detail->email_contact }}"><i class="fas fa-envelope fa-fw"></i><span
-=======
-                                    <li><a href="#"><i class="fas fa-link fa-fw"></i><span
-                                                class="ps-2">
-                                            @if ($show_detail->site_internet == null)
-                                            Aucun site internet
-                                            @else
-                                            {{ $show_detail->site_internet }}
-                                            @endif
-                                            </span></a></li>
-                                    <li><a href="tel:+905389635487"><i
-                                                class="fas fa-phone fa-flip-horizontal fa-fw"></i><span
-                                                class="ps-2">{{ $show_detail->tel }}</span></a></li>
-                                    <li><a href="mailto:ali.potenza@job.com"><i class="fas fa-envelope fa-fw"></i><span
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                 class="ps-2">{{ $show_detail->email_contact }}</span></a></li>
                                 </ul>
                             </div>
@@ -294,12 +229,8 @@
                                         <div class="widget-box">
                                             <div class="d-flex">
                                                 <i class="flaticon-clock fa-2x fa-fw text-primary"></i>
-<<<<<<< HEAD
                                                 <span class="ps-3">Expire:
                                                     {{ $show_detail->dateline->format('d/m/Y') }}</span>
-=======
-                                                <span class="ps-3">Expire: {{ $show_detail->dateline }}</span>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                             </div>
                                         </div>
                                     </li>
@@ -333,24 +264,16 @@
                                         <div class="job-list-details">
                                             <div class="job-list-info">
                                                 <div class="job-list-title">
-<<<<<<< HEAD
                                                     <h6><a
                                                             href="{{ route('candidat.job.detail', ['id' => $item->id, 'name' => str_slug($item->titre)]) }}">{{ $item->titre }}</a>
                                                     </h6>
-=======
-                                                    <h6><a href="{{ route('candidat.job.detail', ['id' => $item->id]) }}">{{ $item->titre }}</a></h6>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                 </div>
                                                 <div class="job-list-option">
                                                     <ul class="list-unstyled">
                                                         <li>
                                                             <span>via</span>
-<<<<<<< HEAD
                                                             <a
                                                                 href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id, 'name' => str_slug($item->users->name)]) }}">{{ $item->users->name }}</a>
-=======
-                                                            <a href="{{ route('candidat.entreprise.detail', ['id' => $item->users->id]) }}">{{ $item->users->name }}</a>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
                                                         </li>
                                                         <li><a class="temporary" href="#"><i
                                                                     class="fas fa-suitcase pe-1"></i>{{ $item->type_jobs->titre }}</a>
@@ -366,11 +289,7 @@
                     </div>
                 </div>
                 <!--=================================
-<<<<<<< HEAD
                                 sidebar -->
-=======
-                        sidebar -->
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
             </div>
         </div>
     </section>
@@ -379,9 +298,5 @@
 
 
     <!--=================================
-<<<<<<< HEAD
                           job list -->
-=======
-                  job list -->
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad
 @endsection

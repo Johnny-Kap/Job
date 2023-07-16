@@ -314,11 +314,7 @@
                                 <div class="job-list-details">
                                     <div class="job-list-info">
                                         <div class="job-list-title">
-<<<<<<< HEAD:resources/views/entreprise/resultat-search-profil.blade.php
                                             <h5 class="mb-0"><a href="{{route('entreprise.profil.detail', ['id' => $item->id, 'name' => str_slug($item->name)])}}">{{ $item->prenom }} {{ $item->name }}</a>
-=======
-                                            <h5 class="mb-0"><a href="{{route('entreprise.profil.detail', ['id' => $item->id])}}">{{ $item->prenom }} {{ $item->name }}</a>
->>>>>>> 085ef20ea26348da3ef71453a726ef04b15b06ad:resources/views/candidat/resultat-search.blade.php
                                             </h5>
                                         </div>
                                         <div class="job-list-option">
